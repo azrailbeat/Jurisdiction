@@ -24,10 +24,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Document, VerificationIssue } from "@/types";
+import { Document, VerificationIssue } from "@shared/schema";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import VerificationModal from "@/components/modals/VerificationModal";
 import { formatDistance } from "date-fns";
+import { useAuth } from "@/hooks/useAuth";
 
 const Verification: React.FC = () => {
   const [selectedDocument, setSelectedDocument] = useState<number | null>(null);

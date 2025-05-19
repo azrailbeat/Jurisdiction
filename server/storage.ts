@@ -348,15 +348,18 @@ export class DatabaseStorage implements IStorage {
   }
 
   async upsertUser(userData: UpsertUser): Promise<User> {
+    // Create a proper update object that includes updatedAt
+    const updateData = {
+      ...userData,
+      updatedAt: new Date(),
+    };
+    
     const [user] = await db
       .insert(users)
       .values(userData)
       .onConflictDoUpdate({
         target: users.id,
-        set: {
-          ...userData,
-          updatedAt: new Date(),
-        },
+        set: updateData,
       })
       .returning();
     return user;
