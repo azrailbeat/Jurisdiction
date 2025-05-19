@@ -2,44 +2,33 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-// English translations
-import enTranslation from './locales/en';
-// Russian translations
-import ruTranslation from './locales/ru';
-// Kazakh translations
-import kkTranslation from './locales/kk';
+// Import language files
+import en from './locales/en';
+import ru from './locales/ru';
+import kk from './locales/kk';
 
-// Initialize i18next with all our options
+// Configure i18next
 i18n
-  // detect user language
+  // Detect user language
   .use(LanguageDetector)
-  // pass the i18n instance to react-i18next
+  // Pass the i18n instance to react-i18next
   .use(initReactI18next)
-  // init i18next
+  // Initialize i18next
   .init({
-    resources: {
-      en: {
-        translation: enTranslation
-      },
-      ru: {
-        translation: ruTranslation
-      },
-      kk: {
-        translation: kkTranslation
-      }
-    },
+    debug: process.env.NODE_ENV === 'development',
     fallbackLng: 'en',
-    debug: false,
-
-    // Detection options
+    interpolation: {
+      escapeValue: false, // React already safes from XSS
+    },
+    resources: {
+      en: { translation: en },
+      ru: { translation: ru },
+      kk: { translation: kk },
+    },
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
     },
-
-    interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
-    }
   });
 
 export default i18n;

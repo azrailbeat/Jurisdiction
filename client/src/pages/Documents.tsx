@@ -399,7 +399,7 @@ const DocumentsPage: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-4">
           <div className="relative flex-1">
             <Input
-              placeholder="Search documents..."
+              placeholder={t('documents.actions.searchDocuments')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-9"
@@ -411,23 +411,23 @@ const DocumentsPage: React.FC = () => {
           <div className="flex gap-2">
             <Select value={filterStatus} onValueChange={setFilterStatus}>
               <SelectTrigger className="w-[150px]">
-                <SelectValue placeholder="Status" />
+                <SelectValue placeholder={t('documents.table.status')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Statuses</SelectItem>
-                <SelectItem value="draft">Draft</SelectItem>
-                <SelectItem value="review">In Review</SelectItem>
-                <SelectItem value="active">Active</SelectItem>
+                <SelectItem value="all">{t('common.status.all')}</SelectItem>
+                <SelectItem value="draft">{t('common.status.draft')}</SelectItem>
+                <SelectItem value="review">{t('common.status.review')}</SelectItem>
+                <SelectItem value="active">{t('common.status.approved')}</SelectItem>
               </SelectContent>
             </Select>
             <Select value={sortOrder} onValueChange={(value: any) => setSortOrder(value)}>
               <SelectTrigger className="w-[150px]">
-                <SelectValue placeholder="Sort by" />
+                <SelectValue placeholder={t('common.sort')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="date">Latest Updated</SelectItem>
-                <SelectItem value="title">Title (A-Z)</SelectItem>
-                <SelectItem value="status">Status</SelectItem>
+                <SelectItem value="date">{t('documents.table.modified')}</SelectItem>
+                <SelectItem value="title">{t('documents.table.title')}</SelectItem>
+                <SelectItem value="status">{t('documents.table.status')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -438,6 +438,7 @@ const DocumentsPage: React.FC = () => {
       {isLoading ? (
         <div className="flex justify-center items-center py-12">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+          <span className="ml-3 text-neutral-500">{t('common.loading')}</span>
         </div>
       ) : sortedDocuments.length > 0 ? (
         viewMode === 'grid' ? renderDocumentGrid() : renderDocumentList()
@@ -448,14 +449,14 @@ const DocumentsPage: React.FC = () => {
               <i className="fas fa-folder-open text-3xl"></i>
             </div>
           </div>
-          <h2 className="text-xl font-semibold">No documents found</h2>
+          <h2 className="text-xl font-semibold">{t('documents.emptyState.title')}</h2>
           <p className="text-neutral-500 mt-2 mb-6">
             {searchQuery || filterStatus !== 'all' 
-              ? 'Try adjusting your search or filters' 
-              : 'Create your first document to get started'}
+              ? t('common.noResults') 
+              : t('documents.emptyState.description')}
           </p>
           <Button onClick={() => setNewDocumentOpen(true)}>
-            <i className="fas fa-plus mr-2"></i> Create New Document
+            <i className="fas fa-plus mr-2"></i> {t('documents.actions.newDocument')}
           </Button>
         </Card>
       )}
