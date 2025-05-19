@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useAuth } from "@/hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import {
@@ -57,12 +58,13 @@ const Documents: React.FC = () => {
 
   const handleCreateDocument = async () => {
     try {
-      const userId = 1; // In a real app, this would come from authentication
+      // Get the authenticated user's ID from the useAuth hook
+      const { user } = useAuth();
       
       const data = {
         ...newDocument,
-        createdBy: userId,
-        updatedBy: userId,
+        createdBy: user?.id || "anonymous",
+        updatedBy: user?.id || "anonymous",
       };
       
       await apiRequest("/api/documents", {

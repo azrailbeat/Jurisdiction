@@ -37,7 +37,7 @@ class UploadService {
    * @param file The file object from multer
    * @param userId The ID of the user who uploaded the file
    */
-  async processDocument(file: UploadedFile, userId: number): Promise<Document> {
+  async processDocument(file: UploadedFile, userId: string): Promise<Document> {
     try {
       // Extract content based on file type
       const content = await this.extractContent(file);

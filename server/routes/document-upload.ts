@@ -3,6 +3,7 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 import { uploadService } from '../services/uploadService';
+import { isAuthenticated } from '../replitAuth';
 
 // Create uploads directory if it doesn't exist
 const uploadDir = path.join(process.cwd(), 'uploads');
@@ -50,7 +51,7 @@ const upload = multer({
 });
 
 export function registerDocumentUploadRoutes(router: Router) {
-  router.post('/documents/upload', upload.single('file'), async (req, res) => {
+  router.post('/documents/upload', isAuthenticated, upload.single('file'), async (req: any, res) => {
     try {
       // Ensure a file was uploaded
       if (!req.file) {
@@ -60,8 +61,8 @@ export function registerDocumentUploadRoutes(router: Router) {
         });
       }
       
-      // For now, using a hardcoded user ID until authentication is implemented
-      const userId = 1; // In a real system, this would come from the authenticated user
+      // Get user ID from authenticated user in request
+      const userId = req.user?.claims?.sub || "anonymous";
       
       // Process the document
       const document = await uploadService.processDocument(req.file, userId);
