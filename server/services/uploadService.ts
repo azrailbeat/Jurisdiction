@@ -4,7 +4,19 @@ import { promisify } from 'util';
 import { storage } from '../storage';
 import { xmlParser } from '../utils/xmlParser';
 import { Document, InsertDocument } from '../../shared/schema';
-import multer from 'multer';
+
+// Define our own File interface since we're using multer
+interface UploadedFile {
+  fieldname: string;
+  originalname: string;
+  encoding: string;
+  mimetype: string;
+  size: number;
+  destination: string;
+  filename: string;
+  path: string;
+  buffer?: Buffer;
+}
 
 const readFileAsync = promisify(fs.readFile);
 const unlinkAsync = promisify(fs.unlink);
@@ -25,7 +37,7 @@ class UploadService {
    * @param file The file object from multer
    * @param userId The ID of the user who uploaded the file
    */
-  async processDocument(file: multer.File, userId: number): Promise<Document> {
+  async processDocument(file: UploadedFile, userId: number): Promise<Document> {
     try {
       // Extract content based on file type
       const content = await this.extractContent(file);
@@ -52,7 +64,7 @@ class UploadService {
   /**
    * Extract content from the uploaded file
    */
-  private async extractContent(file: Express.Multer.File): Promise<string> {
+  private async extractContent(file: UploadedFile): Promise<string> {
     const extension = path.extname(file.originalname).toLowerCase();
     
     // For now, we'll just use the file content as is for demonstration
@@ -72,7 +84,7 @@ class UploadService {
    * Generate XML representation of the document content
    * In a real implementation, this would convert to Akoma Ntoso or another XML standard
    */
-  private async generateXml(file: Express.Multer.File, content: string): Promise<string> {
+  private async generateXml(file: UploadedFile, content: string): Promise<string> {
     const extension = path.extname(file.originalname).toLowerCase();
     
     // For now, generate a simple XML structure

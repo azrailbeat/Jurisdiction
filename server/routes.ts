@@ -5,6 +5,7 @@ import { documentService } from "./services/documentService";
 import { versionService } from "./services/versionService";
 import { analysisService } from "./services/analysisService";
 import { graphService } from "./services/graphService";
+import { registerDocumentUploadRoutes } from "./routes/document-upload";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Users Routes
