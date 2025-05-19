@@ -1,0 +1,158 @@
+# Technical Architecture Document: Legal Document Processing with Agents, RAG, GraphRAG, and Git-based Versioning
+
+## 1. Overview
+
+This document defines the technical architecture for a system designed to process, analyze, and version legal documents (e.g., laws, regulations, amendments) using advanced NLP agents, Retrieval-Augmented Generation (RAG), GraphRAG, and Git-based version control.
+
+Target jurisdiction: Republic of Kazakhstan
+Primary language: Russian
+Deployment: Air-gapped/private environment using open-source LLMs
+
+## 2. Objectives
+
+* Ingest and structure legal documents using standardized formats
+* Enable automated semantic search and comparison across legal texts
+* Track and manage versions of legislation using Git-like workflows
+* Empower AI agents to perform specialized legal tasks reliably
+* Ensure explainability and auditability of all AI outputs
+
+---
+
+## 3. System Architecture Overview
+
+### 3.1 Core Layers
+
+* **Data Ingestion Layer**: PDF, DOCX, or HTML legal documents
+* **Transformation Layer**: Converts raw documents into XML/JSON (e.g., Akoma Ntoso format)
+* **Knowledge Representation Layer**:
+
+  * Graph-based Knowledge Base (Neo4j, RDF/OWL)
+  * Vector store for semantic chunk search (e.g., Weaviate, Milvus)
+* **Agent Orchestration Layer**: Task-specific agents managed through LangChain/AgentSmith-like framework
+* **Interface Layer**: Web dashboard and API for users (legislators, analysts, developers)
+
+---
+
+## 4. Data Pipeline
+
+### 4.1 Ingestion
+
+* Input formats: PDF, DOCX, HTML
+* OCR: For scanned documents (Tesseract + layout parsers)
+* Metadata extraction: Document title, article numbers, publication dates
+
+### 4.2 Normalization
+
+* Convert to **Akoma Ntoso** XML format
+* Normalize legal terms using a controlled vocabulary (Kazakh legal taxonomy)
+* Store original and normalized forms
+
+### 4.3 Chunking
+
+* Break documents into semantically meaningful chunks:
+
+  * Articles
+  * Paragraphs
+  * Sentences
+* Attach metadata: source, date, jurisdiction, version ID
+
+### 4.4 Indexing
+
+* **Vector embeddings** (e.g., Mistral / LLaMA + Sentence Transformers)
+* **Graph entities**: Create nodes/edges for:
+
+  * Legal entities (laws, institutions)
+  * Normative roles (obligations, permissions, prohibitions)
+  * Concepts and definitions
+
+---
+
+## 5. Agent Design (LLM-Oriented Modular Agents)
+
+| Agent Name              | Task Description                                           | Tools Used                                  |
+| ----------------------- | ---------------------------------------------------------- | ------------------------------------------- |
+| **DocParserAgent**      | Parse raw documents to structured XML                      | PDF parsers, Tika, Akoma Ntoso normalizer   |
+| **TermAlignAgent**      | Align terminology to official legal taxonomy               | SPARQL over OWL ontology + embedding lookup |
+| **VectorizerAgent**     | Embed structured chunks for semantic search                | LLM embeddings + FAISS/Milvus               |
+| **GraphBuilderAgent**   | Extract entities & relations for graph population          | Named Entity Recognition, Neo4j API         |
+| **VersionControlAgent** | Commit and diff legislative changes via Git-like system    | Git CLI/API + YAML/JSON/XML versioned files |
+| **ComplianceAgent**     | Compare new law against existing legislation for conflicts | GraphRAG + logical rule checker             |
+| **ExplainerAgent**      | Generate chain-of-thought explanation for decisions        | Chain-of-thought + RAG citation retriever   |
+| **SummarizerAgent**     | Produce summaries of legal documents                       | LLM summarization over chunked text         |
+
+---
+
+## 6. Retrieval-Augmented Generation (RAG)
+
+### 6.1 Standard RAG Flow
+
+1. User submits question or new legal draft
+2. Query is vectorized → top-k chunks retrieved from vector DB
+3. Context and query passed to LLM for generation
+4. LLM outputs answer + citation links to chunks
+
+### 6.2 GraphRAG Extension
+
+* Combine RAG with **Graph-based querying**
+* Graph path lookup → legal reasoning chain
+* Use structured data (ontology paths) to verify logic of outputs
+* Display graph-paths alongside generated answer
+
+---
+
+## 7. Git-based Legal Versioning
+
+### 7.1 Structure
+
+* Store legal texts in `Akoma Ntoso` or structured Markdown format
+* Directory structure: `/laws/<jurisdiction>/<year>/<law_name>/`
+* Use Git for commits, diffs, authorship, branches
+
+### 7.2 Semantic Diffing
+
+* Specialized diff engine to detect changes in:
+
+  * Terms and definitions
+  * Obligations and permissions
+  * Cross-references
+* Agent-assisted diff explanations (natural language summary of change impact)
+
+---
+
+## 8. Explainability and Trust
+
+* Trace all answers to **source document fragments**
+* Display inline links to paragraphs used
+* Use **Chain-of-Thought prompting** for legal reasoning
+* Enable toggling between LLM output and formal legal logic trace
+
+---
+
+## 9. Deployment Stack
+
+| Component       | Technology                                |
+| --------------- | ----------------------------------------- |
+| LLMs            | Mistral, LLaMA, Vikhr (local deployments) |
+| Vector Store    | Weaviate, Milvus, Qdrant                  |
+| Graph DB        | Neo4j, RDF4J, Stardog                     |
+| Ontology Layer  | OWL ontologies (Protégé)                  |
+| Agent Framework | LangChain / AgentSmith                    |
+| Version Control | Git (with GitHub/GitLab or local server)  |
+| Backend API     | FastAPI / Node.js                         |
+| Frontend        | React + Tailwind                          |
+
+---
+
+## 10. Future Enhancements
+
+* Fine-tune LLMs on Kazakhstan-specific legal corpora
+* Add Kazakh language support for bilingual analysis
+* Integrate real-time parliamentary activity scraping
+* Include human-in-the-loop (HITL) legal expert feedback cycles
+* Smart contracts validation for regulatory tech
+
+---
+
+**Prepared by:** AI Architect — Legal Intelligence Division
+**Version:** 1.0
+**Date:** 2025-05-19
