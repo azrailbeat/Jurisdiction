@@ -731,7 +731,7 @@ const Versions: React.FC = () => {
                               )}
                             </div>
                             <p className="text-neutral-500 mb-1">
-                              {formatDate(version.createdAt)} by {version.createdBy?.name || "Unknown"}
+                              {formatDate(version.createdAt)} by {version.createdBy?.email || "Unknown"}
                             </p>
                             <p className="mb-3">{version.description}</p>
                             <div className="flex space-x-2">

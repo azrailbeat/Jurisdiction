@@ -219,7 +219,22 @@ export default {
       appearance: "Appearance",
       security: "Security",
       language: "Language",
-      advanced: "Advanced"
+      advanced: "Advanced",
+      account: "Account",
+      system: "System",
+      aiModels: "AI Models"
+    },
+    account: {
+      title: "Account Management",
+      subtitle: "Manage your account settings",
+      username: "Username",
+      language: "Interface Language",
+      theme: "Theme",
+      themes: {
+        light: "Light",
+        dark: "Dark",
+        system: "System"
+      }
     },
     language: {
       title: "Language",

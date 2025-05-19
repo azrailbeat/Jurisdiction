@@ -219,7 +219,22 @@ export default {
       appearance: "Сыртқы көрініс",
       security: "Қауіпсіздік",
       language: "Тіл",
-      advanced: "Кеңейтілген"
+      advanced: "Кеңейтілген",
+      account: "Аккаунт",
+      system: "Жүйе",
+      aiModels: "AI модельдері"
+    },
+    account: {
+      title: "Аккаунтты басқару",
+      subtitle: "Аккаунт параметрлерін басқару",
+      username: "Пайдаланушы аты",
+      language: "Интерфейс тілі",
+      theme: "Тақырып",
+      themes: {
+        light: "Жарық",
+        dark: "Қараңғы",
+        system: "Жүйелік"
+      }
     },
     language: {
       title: "Тіл",
