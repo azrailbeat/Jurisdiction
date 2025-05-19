@@ -1,9 +1,18 @@
+// Russian translations
 export default {
-  // General
+  // App-wide shared strings
   "app": {
-    "name": "Юрисдикция",
-    "tagline": "Управление законодательными документами",
-    "language": "Язык"
+    "title": "Система управления законодательными документами",
+    "language": "Язык",
+    "search": "Поиск",
+    "loading": "Загрузка...",
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "create": "Создать",
+    "actions": "Действия",
+    "status": "Статус"
   },
   
   // Navigation
@@ -13,195 +22,218 @@ export default {
     "versions": "Версии",
     "knowledgeGraph": "Граф знаний",
     "verification": "Проверка",
-    "terminology": "Терминология",
     "agents": "Агенты",
-    "settings": "Настройки"
+    "analytics": "Аналитика",
+    "settings": "Настройки",
+    "logout": "Выйти",
+    "login": "Войти"
   },
   
-  // Home page
-  "home": {
-    "welcome": "Добро пожаловать в Юрисдикцию",
-    "subtitle": "Продвинутая платформа управления законодательными документами",
-    "recentActivity": "Недавняя активность",
-    "statistics": "Статистика",
-    "totalDocuments": "Всего документов",
-    "totalVerifications": "Проблемы проверки",
-    "knowledgeNodes": "Узлы графа знаний",
-    "legalTerms": "Юридические термины"
-  },
-  
-  // Documents page
+  // Document management
   "documents": {
-    "title": "Документы",
+    "title": "Репозиторий документов",
     "newDocument": "Новый документ",
-    "search": "Поиск документов...",
-    "filter": "Фильтр",
-    "upload": "Загрузить",
-    "noDocuments": "Документы не найдены",
-    "addYourFirst": "Добавьте свой первый документ, чтобы начать"
+    "upload": "Загрузить документ",
+    "compare": "Сравнить документы",
+    "search": "Поиск документов",
+    "filters": "Фильтры",
+    "status": {
+      "draft": "Черновик",
+      "review": "На рассмотрении",
+      "approved": "Одобрен",
+      "published": "Опубликован",
+      "archived": "В архиве"
+    },
+    "fields": {
+      "title": "Название",
+      "createdBy": "Создатель",
+      "createdAt": "Дата создания",
+      "updatedAt": "Дата обновления",
+      "status": "Статус",
+      "type": "Тип документа",
+      "category": "Категория",
+      "description": "Описание"
+    },
+    "uploadInstructions": "Перетащите документ сюда или нажмите для выбора",
+    "supportedFormats": "Поддерживаемые форматы: DOCX, PDF, TXT"
   },
   
-  // Document details
-  "document": {
-    "edit": "Редактировать",
-    "delete": "Удалить",
-    "view": "Просмотр",
-    "createdBy": "Создано",
-    "createdAt": "Создано в",
-    "updatedAt": "Обновлено в",
-    "version": "Версия",
-    "verify": "Проверить",
-    "download": "Скачать",
-    "share": "Поделиться"
-  },
-  
-  // Versions page
+  // Version control
   "versions": {
-    "title": "Версии документов",
-    "document": "Документ",
-    "version": "Версия",
-    "date": "Дата",
-    "author": "Автор",
-    "compare": "Сравнить",
-    "restore": "Восстановить",
-    "current": "Текущая"
+    "title": "История версий",
+    "current": "Текущая версия",
+    "compare": "Сравнить с текущей",
+    "revert": "Вернуться к этой версии",
+    "created": "Создано {{date}}",
+    "by": "автор {{name}}",
+    "changes": "Изменения",
+    "added": "Добавлено",
+    "removed": "Удалено",
+    "modified": "Изменено"
   },
   
-  // Knowledge Graph
+  // Knowledge graph
   "knowledgeGraph": {
     "title": "Граф знаний",
-    "search": "Поиск сущностей...",
-    "filter": "Фильтр по типу",
+    "nodes": "Узлы",
+    "edges": "Связи",
+    "entityTypes": "Типы сущностей",
+    "relationTypes": "Типы отношений",
+    "filters": "Фильтры",
+    "search": "Поиск в графе",
+    "details": "Детали сущности",
     "statistics": "Статистика графа",
-    "nodeCount": "Количество узлов",
-    "edgeCount": "Количество связей",
-    "density": "Плотность графа",
-    "centrality": "Центральность"
+    "export": "Экспорт графа",
+    "relatedDocuments": "Связанные документы",
+    "pathAnalysis": "Анализ путей"
   },
   
-  // Verification 
+  // Verification and compliance
   "verification": {
-    "title": "Проверка документов",
-    "document": "Документ",
-    "run": "Запустить проверку",
-    "issues": "Проблемы",
-    "noIssues": "Проблемы не найдены",
-    "severity": "Серьезность",
-    "status": "Статус",
-    "location": "Местоположение",
-    "description": "Описание"
-  },
-  
-  // Terminology
-  "terminology": {
-    "title": "Юридическая терминология",
-    "search": "Поиск терминов...",
-    "add": "Добавить термин",
-    "term": "Термин",
-    "definition": "Определение",
-    "category": "Категория",
-    "source": "Источник"
+    "title": "Проверка и соответствие",
+    "issues": "Обнаруженные проблемы",
+    "runVerification": "Запустить проверку",
+    "complianceReport": "Отчет о соответствии",
+    "relatedLegislation": "Связанное законодательство",
+    "severity": {
+      "critical": "Критическая",
+      "high": "Высокая",
+      "medium": "Средняя",
+      "low": "Низкая",
+      "info": "Информация"
+    },
+    "status": {
+      "open": "Открыта",
+      "inProgress": "В процессе",
+      "resolved": "Решена",
+      "closed": "Закрыта",
+      "wontFix": "Не будет исправлена"
+    }
   },
   
   // Agents
   "agents": {
-    "title": "Оркестратор агентов",
-    "subtitle": "Мониторинг, настройка и развертывание микросервисных агентов",
-    "search": "Поиск агентов...",
-    "newAgent": "Новый агент",
-    "online": "В сети",
-    "degraded": "Деградация",
-    "offline": "Не в сети",
-    "latency": "Задержка",
-    "errorRate": "Частота ошибок",
-    "actions": "Действия",
-    "noAgents": "Агенты не найдены",
-    "liveAgents": "Активные агенты",
-    "avgLatency": "Средняя задержка",
-    "ticketsInQueue": "Тикетов в очереди",
-    "view": "Просмотр",
-    "restart": "Перезапустить",
-    "configure": "Настроить",
-    "rollback": "Откатить"
+    "title": "Управление агентами",
+    "createAgent": "Создать агента",
+    "runningAgents": "Работающие агенты",
+    "allAgents": "Все агенты",
+    "status": {
+      "idle": "Ожидание",
+      "running": "Работает",
+      "paused": "Приостановлен",
+      "completed": "Завершен",
+      "failed": "Сбой"
+    },
+    "types": {
+      "parser": "Агент анализа",
+      "vectorizer": "Агент векторизации",
+      "verification": "Агент проверки",
+      "analysis": "Агент анализа",
+      "termAlignment": "Агент выравнивания терминов"
+    },
+    "actions": {
+      "start": "Запустить",
+      "pause": "Приостановить",
+      "resume": "Возобновить",
+      "stop": "Остановить",
+      "restart": "Перезапустить",
+      "configure": "Настроить"
+    }
   },
   
-  // Agent details
-  "agent": {
-    "details": "Детали агента",
-    "overview": "Обзор",
-    "config": "Конфигурация",
-    "metrics": "Метрики",
-    "logs": "Журналы",
-    "versions": "Версии",
-    "role": "Роль",
-    "trigger": "Триггер",
-    "input": "Ввод",
-    "output": "Вывод",
-    "keyLogs": "Ключевые логи",
-    "lastUpdated": "Последнее обновление",
-    "flowDiagram": "Диаграмма потока",
-    "currentEnv": "Текущая среда",
-    "performance": "Метрики производительности",
-    "save": "Сохранить конфигурацию",
-    "reset": "Сбросить",
-    "jsonPreview": "Предпросмотр JSON"
-  },
-  
-  // Wizard
-  "wizard": {
-    "createAgent": "Создать нового агента",
-    "wizard": "Определите нового микросервисного агента за три простых шага",
-    "step1": "Шаг 1: Выбор шаблона",
-    "step2": "Шаг 2: Настройка агента и секретов",
-    "step3": "Шаг 3: SLA и стратегия развертывания",
-    "selectTemplate": "Выберите начальный шаблон для вашего нового агента",
-    "previous": "Назад",
-    "next": "Далее",
-    "finish": "Завершить"
+  // Analytics
+  "analytics": {
+    "title": "Аналитическая панель",
+    "documentStatistics": "Статистика документов",
+    "userActivity": "Активность пользователей",
+    "topDocuments": "Популярные документы",
+    "complianceRate": "Уровень соответствия",
+    "issuesByCategory": "Проблемы по категориям",
+    "timeRange": "Временной диапазон",
+    "export": "Экспорт данных"
   },
   
   // Settings
   "settings": {
     "title": "Настройки",
-    "account": "Настройки аккаунта",
-    "preferences": "Предпочтения",
-    "language": "Язык",
-    "theme": "Тема",
-    "light": "Светлая",
-    "dark": "Темная",
-    "system": "Системная",
-    "notification": "Настройки уведомлений",
-    "emails": "Уведомления по электронной почте",
-    "security": "Безопасность",
-    "password": "Изменить пароль",
-    "twoFactor": "Двухфакторная аутентификация",
-    "save": "Сохранить изменения"
+    "tabs": {
+      "profile": "Профиль",
+      "account": "Аккаунт",
+      "notifications": "Уведомления",
+      "system": "Система",
+      "aiModels": "ИИ и модели"
+    },
+    "profile": {
+      "title": "Настройки профиля",
+      "subtitle": "Управление личной информацией",
+      "fullName": "Полное имя",
+      "email": "Адрес электронной почты",
+      "bio": "Биография",
+      "avatar": "Изображение профиля",
+      "change": "Изменить",
+      "saveProfile": "Сохранить профиль"
+    },
+    "account": {
+      "title": "Настройки аккаунта",
+      "subtitle": "Управление настройками аккаунта",
+      "username": "Имя пользователя",
+      "language": "Язык интерфейса",
+      "theme": "Тема интерфейса",
+      "themes": {
+        "light": "Светлая",
+        "dark": "Темная",
+        "system": "Системная"
+      },
+      "security": "Безопасность",
+      "changePassword": "Изменить пароль",
+      "enableTwoFactor": "Включить двухфакторную аутентификацию",
+      "saveAccount": "Сохранить настройки аккаунта"
+    },
+    "notifications": {
+      "title": "Настройки уведомлений",
+      "subtitle": "Управление уведомлениями",
+      "emailNotifications": "Уведомления по электронной почте",
+      "emailNotificationsDesc": "Получать уведомления по электронной почте",
+      "documentUpdates": "Обновления документов",
+      "documentUpdatesDesc": "Уведомления при обновлении отслеживаемых документов",
+      "verificationAlerts": "Оповещения о проверке",
+      "verificationAlertsDesc": "Получать уведомления о проблемах при проверке",
+      "weeklyDigest": "Еженедельная сводка",
+      "weeklyDigestDesc": "Получать еженедельную сводку активности системы",
+      "saveNotifications": "Сохранить настройки уведомлений"
+    },
+    "system": {
+      "title": "Системные настройки",
+      "subtitle": "Конфигурация системных настроек",
+      "apiEndpoint": "API endpoint",
+      "defaultXmlFormat": "Формат XML по умолчанию",
+      "maxVersions": "Макс. число хранимых версий",
+      "experimental": "Включить экспериментальные функции",
+      "maintenance": "Обслуживание системы",
+      "rebuildGraph": "Перестроить граф знаний",
+      "rescanDocuments": "Пересканировать документы",
+      "clearCache": "Очистить кеш",
+      "saveSystem": "Сохранить системные настройки"
+    },
+    "aiModels": {
+      "title": "ИИ и модели",
+      "subtitle": "Настройка моделей ИИ",
+      "apiKey": "API ключ модели ИИ",
+      "model": "Модель по умолчанию",
+      "maxTokens": "Максимум токенов",
+      "semanticAnalysis": "Включить семантический анализ",
+      "automatedVerification": "Включить автоматическую проверку",
+      "saveAI": "Сохранить настройки ИИ"
+    }
   },
   
-  // Authentication
-  "auth": {
-    "login": "Вход",
-    "logout": "Выход",
-    "profile": "Профиль",
-    "signUp": "Регистрация"
-  },
-  
-  // Misc
-  "actions": {
-    "create": "Создать",
-    "edit": "Редактировать",
-    "delete": "Удалить",
-    "cancel": "Отмена",
-    "save": "Сохранить",
-    "confirm": "Подтвердить",
-    "apply": "Применить"
-  },
-  
-  // Status and notifications
-  "status": {
-    "success": "Успех",
-    "error": "Ошибка",
-    "warning": "Предупреждение",
-    "info": "Информация"
+  // Error messages
+  "errors": {
+    "general": "Произошла ошибка. Пожалуйста, попробуйте снова.",
+    "notFound": "Запрашиваемый ресурс не найден.",
+    "unauthorized": "У вас нет прав для выполнения этого действия.",
+    "serverError": "Произошла ошибка сервера. Пожалуйста, попробуйте позже.",
+    "validation": "Пожалуйста, проверьте введенные данные и попробуйте снова.",
+    "fileUpload": "Не удалось загрузить файл. Пожалуйста, попробуйте снова."
   }
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -26,8 +26,12 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Settings: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  
   const [profileSettings, setProfileSettings] = useState({
     name: "Nikolay Ivanov",
     email: "nikolay.ivanov@example.com",
@@ -37,9 +41,16 @@ const Settings: React.FC = () => {
 
   const [accountSettings, setAccountSettings] = useState({
     username: "nivanov",
-    language: "en",
+    language: i18n.language || "en",
     theme: "light",
   });
+  
+  // Update i18n language when account settings change
+  useEffect(() => {
+    if (i18n.language !== accountSettings.language) {
+      i18n.changeLanguage(accountSettings.language);
+    }
+  }, [accountSettings.language, i18n]);
 
   const [notificationSettings, setNotificationSettings] = useState({
     emailNotifications: true,
@@ -91,16 +102,16 @@ const Settings: React.FC = () => {
   return (
     <>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Settings</h1>
+        <h1 className="text-2xl font-bold">{t('settings.title')}</h1>
       </div>
 
       <Tabs defaultValue="profile" className="w-full">
         <TabsList className="grid w-full md:w-auto grid-cols-5">
-          <TabsTrigger value="profile">Profile</TabsTrigger>
-          <TabsTrigger value="account">Account</TabsTrigger>
-          <TabsTrigger value="notifications">Notifications</TabsTrigger>
-          <TabsTrigger value="system">System</TabsTrigger>
-          <TabsTrigger value="ai">AI & Models</TabsTrigger>
+          <TabsTrigger value="profile">{t('settings.tabs.profile')}</TabsTrigger>
+          <TabsTrigger value="account">{t('settings.tabs.account')}</TabsTrigger>
+          <TabsTrigger value="notifications">{t('settings.tabs.notifications')}</TabsTrigger>
+          <TabsTrigger value="system">{t('settings.tabs.system')}</TabsTrigger>
+          <TabsTrigger value="ai">{t('settings.tabs.aiModels')}</TabsTrigger>
         </TabsList>
         
         <TabsContent value="profile">
@@ -170,14 +181,14 @@ const Settings: React.FC = () => {
         <TabsContent value="account">
           <Card>
             <CardHeader>
-              <CardTitle>Account Settings</CardTitle>
-              <CardDescription>Manage your account preferences</CardDescription>
+              <CardTitle>{t('settings.account.title')}</CardTitle>
+              <CardDescription>{t('settings.account.subtitle')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="username">Username</Label>
+                    <Label htmlFor="username">{t('settings.account.username')}</Label>
                     <Input
                       id="username"
                       value={accountSettings.username}
@@ -185,20 +196,8 @@ const Settings: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="language">Interface Language</Label>
-                    <Select
-                      value={accountSettings.language}
-                      onValueChange={(value) => setAccountSettings({ ...accountSettings, language: value })}
-                    >
-                      <SelectTrigger id="language">
-                        <SelectValue placeholder="Select language" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="en">English</SelectItem>
-                        <SelectItem value="ru">Russian</SelectItem>
-                        <SelectItem value="kk">Kazakh</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <Label htmlFor="language">{t('settings.account.language')}</Label>
+                    <LanguageSwitcher variant="full" className="w-full" />
                   </div>
                 </div>
                 

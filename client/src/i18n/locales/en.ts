@@ -1,9 +1,18 @@
+// English translations
 export default {
-  // General
+  // App-wide shared strings
   "app": {
-    "name": "Jurisdiction",
-    "tagline": "Legislative Document Management",
-    "language": "Language"
+    "title": "Legislative Document Manager",
+    "language": "Language",
+    "search": "Search",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "actions": "Actions",
+    "status": "Status"
   },
   
   // Navigation
@@ -13,195 +22,218 @@ export default {
     "versions": "Versions",
     "knowledgeGraph": "Knowledge Graph",
     "verification": "Verification",
-    "terminology": "Terminology",
     "agents": "Agents",
-    "settings": "Settings"
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "logout": "Logout",
+    "login": "Login"
   },
   
-  // Home page
-  "home": {
-    "welcome": "Welcome to Jurisdiction",
-    "subtitle": "Advanced legislative document management platform",
-    "recentActivity": "Recent Activity",
-    "statistics": "Statistics",
-    "totalDocuments": "Total Documents",
-    "totalVerifications": "Verification Issues",
-    "knowledgeNodes": "Knowledge Graph Nodes",
-    "legalTerms": "Legal Terms"
-  },
-  
-  // Documents page
+  // Document management
   "documents": {
-    "title": "Documents",
+    "title": "Document Repository",
     "newDocument": "New Document",
-    "search": "Search documents...",
-    "filter": "Filter",
-    "upload": "Upload",
-    "noDocuments": "No documents found",
-    "addYourFirst": "Add your first document to get started"
+    "upload": "Upload Document",
+    "compare": "Compare Documents",
+    "search": "Search Documents",
+    "filters": "Filters",
+    "status": {
+      "draft": "Draft",
+      "review": "Under Review",
+      "approved": "Approved",
+      "published": "Published",
+      "archived": "Archived"
+    },
+    "fields": {
+      "title": "Title",
+      "createdBy": "Created By",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "status": "Status",
+      "type": "Document Type",
+      "category": "Category",
+      "description": "Description"
+    },
+    "uploadInstructions": "Drag and drop your document here, or click to select",
+    "supportedFormats": "Supported formats: DOCX, PDF, TXT"
   },
   
-  // Document details
-  "document": {
-    "edit": "Edit",
-    "delete": "Delete",
-    "view": "View",
-    "createdBy": "Created by",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "version": "Version",
-    "verify": "Verify",
-    "download": "Download",
-    "share": "Share"
-  },
-  
-  // Versions page
+  // Version control
   "versions": {
-    "title": "Document Versions",
-    "document": "Document",
-    "version": "Version",
-    "date": "Date",
-    "author": "Author",
-    "compare": "Compare",
-    "restore": "Restore",
-    "current": "Current"
+    "title": "Version History",
+    "current": "Current Version",
+    "compare": "Compare with Current",
+    "revert": "Revert to this Version",
+    "created": "Created on {{date}}",
+    "by": "by {{name}}",
+    "changes": "Changes",
+    "added": "Added",
+    "removed": "Removed",
+    "modified": "Modified"
   },
   
-  // Knowledge Graph
+  // Knowledge graph
   "knowledgeGraph": {
     "title": "Knowledge Graph",
-    "search": "Search entities...",
-    "filter": "Filter by type",
+    "nodes": "Nodes",
+    "edges": "Edges",
+    "entityTypes": "Entity Types",
+    "relationTypes": "Relation Types",
+    "filters": "Filters",
+    "search": "Search in Graph",
+    "details": "Entity Details",
     "statistics": "Graph Statistics",
-    "nodeCount": "Node Count",
-    "edgeCount": "Edge Count",
-    "density": "Graph Density",
-    "centrality": "Centrality"
+    "export": "Export Graph",
+    "relatedDocuments": "Related Documents",
+    "pathAnalysis": "Path Analysis"
   },
   
-  // Verification 
+  // Verification and compliance
   "verification": {
-    "title": "Document Verification",
-    "document": "Document",
-    "run": "Run Verification",
-    "issues": "Issues",
-    "noIssues": "No issues found",
-    "severity": "Severity",
-    "status": "Status",
-    "location": "Location",
-    "description": "Description"
-  },
-  
-  // Terminology
-  "terminology": {
-    "title": "Legal Terminology",
-    "search": "Search terms...",
-    "add": "Add Term",
-    "term": "Term",
-    "definition": "Definition",
-    "category": "Category",
-    "source": "Source"
+    "title": "Verification & Compliance",
+    "issues": "Detected Issues",
+    "runVerification": "Run Verification",
+    "complianceReport": "Compliance Report",
+    "relatedLegislation": "Related Legislation",
+    "severity": {
+      "critical": "Critical",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low",
+      "info": "Information"
+    },
+    "status": {
+      "open": "Open",
+      "inProgress": "In Progress",
+      "resolved": "Resolved",
+      "closed": "Closed",
+      "wontFix": "Won't Fix"
+    }
   },
   
   // Agents
   "agents": {
-    "title": "Agent Orchestrator",
-    "subtitle": "Monitor, configure and deploy microservice agents",
-    "search": "Search agents...",
-    "newAgent": "New Agent",
-    "online": "Online",
-    "degraded": "Degraded",
-    "offline": "Offline",
-    "latency": "Latency",
-    "errorRate": "Error rate",
-    "actions": "Actions",
-    "noAgents": "No agents found",
-    "liveAgents": "Live agents",
-    "avgLatency": "Avg latency",
-    "ticketsInQueue": "Tickets in queue",
-    "view": "View",
-    "restart": "Restart",
-    "configure": "Configure",
-    "rollback": "Rollback"
+    "title": "Agent Management",
+    "createAgent": "Create Agent",
+    "runningAgents": "Running Agents",
+    "allAgents": "All Agents",
+    "status": {
+      "idle": "Idle",
+      "running": "Running",
+      "paused": "Paused",
+      "completed": "Completed",
+      "failed": "Failed"
+    },
+    "types": {
+      "parser": "Parser Agent",
+      "vectorizer": "Vectorizer Agent",
+      "verification": "Verification Agent",
+      "analysis": "Analysis Agent",
+      "termAlignment": "Term Alignment Agent"
+    },
+    "actions": {
+      "start": "Start",
+      "pause": "Pause",
+      "resume": "Resume",
+      "stop": "Stop",
+      "restart": "Restart",
+      "configure": "Configure"
+    }
   },
   
-  // Agent details
-  "agent": {
-    "details": "Agent Details",
-    "overview": "Overview",
-    "config": "Configuration",
-    "metrics": "Metrics",
-    "logs": "Logs",
-    "versions": "Versions",
-    "role": "Role",
-    "trigger": "Trigger",
-    "input": "Input",
-    "output": "Output",
-    "keyLogs": "Key Logs",
-    "lastUpdated": "Last Updated",
-    "flowDiagram": "Flow Diagram",
-    "currentEnv": "Current Environment",
-    "performance": "Performance Metrics",
-    "save": "Save Configuration",
-    "reset": "Reset",
-    "jsonPreview": "JSON Preview"
-  },
-  
-  // Wizard
-  "wizard": {
-    "createAgent": "Create New Agent",
-    "wizard": "Define a new microservice agent in three simple steps",
-    "step1": "Step 1: Select Template",
-    "step2": "Step 2: Configure Agent & Secrets",
-    "step3": "Step 3: SLA & Rollout Strategy",
-    "selectTemplate": "Choose a starting template for your new agent",
-    "previous": "Previous",
-    "next": "Next",
-    "finish": "Finish"
+  // Analytics
+  "analytics": {
+    "title": "Analytics Dashboard",
+    "documentStatistics": "Document Statistics",
+    "userActivity": "User Activity",
+    "topDocuments": "Top Documents",
+    "complianceRate": "Compliance Rate",
+    "issuesByCategory": "Issues by Category",
+    "timeRange": "Time Range",
+    "export": "Export Data"
   },
   
   // Settings
   "settings": {
     "title": "Settings",
-    "account": "Account Settings",
-    "preferences": "Preferences",
-    "language": "Language",
-    "theme": "Theme",
-    "light": "Light",
-    "dark": "Dark",
-    "system": "System Default",
-    "notification": "Notification Settings",
-    "emails": "Email Notifications",
-    "security": "Security",
-    "password": "Change Password",
-    "twoFactor": "Two-Factor Authentication",
-    "save": "Save Changes"
+    "tabs": {
+      "profile": "Profile",
+      "account": "Account",
+      "notifications": "Notifications",
+      "system": "System",
+      "aiModels": "AI & Models"
+    },
+    "profile": {
+      "title": "Profile Settings",
+      "subtitle": "Manage your personal information",
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "bio": "Biography",
+      "avatar": "Profile Image",
+      "change": "Change",
+      "saveProfile": "Save Profile"
+    },
+    "account": {
+      "title": "Account Settings",
+      "subtitle": "Manage your account preferences",
+      "username": "Username",
+      "language": "Interface Language",
+      "theme": "Interface Theme",
+      "themes": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System Default"
+      },
+      "security": "Security",
+      "changePassword": "Change Password",
+      "enableTwoFactor": "Enable Two-Factor Authentication",
+      "saveAccount": "Save Account Settings"
+    },
+    "notifications": {
+      "title": "Notification Settings",
+      "subtitle": "Control how you receive notifications",
+      "emailNotifications": "Email Notifications",
+      "emailNotificationsDesc": "Receive notifications via email",
+      "documentUpdates": "Document Updates",
+      "documentUpdatesDesc": "Notifications when documents you follow are updated",
+      "verificationAlerts": "Verification Alerts",
+      "verificationAlertsDesc": "Receive alerts about verification issues",
+      "weeklyDigest": "Weekly Digest",
+      "weeklyDigestDesc": "Receive a weekly summary of system activity",
+      "saveNotifications": "Save Notification Settings"
+    },
+    "system": {
+      "title": "System Settings",
+      "subtitle": "Configure system-wide settings",
+      "apiEndpoint": "API Endpoint",
+      "defaultXmlFormat": "Default XML Format",
+      "maxVersions": "Max Versions to Keep",
+      "experimental": "Enable Experimental Features",
+      "maintenance": "System Maintenance",
+      "rebuildGraph": "Rebuild Knowledge Graph",
+      "rescanDocuments": "Rescan Documents",
+      "clearCache": "Clear Cache",
+      "saveSystem": "Save System Settings"
+    },
+    "aiModels": {
+      "title": "AI & Models",
+      "subtitle": "Configure AI models and settings",
+      "apiKey": "AI Model API Key",
+      "model": "Default Model",
+      "maxTokens": "Max Tokens",
+      "semanticAnalysis": "Enable Semantic Analysis",
+      "automatedVerification": "Enable Automated Verification",
+      "saveAI": "Save AI Settings"
+    }
   },
   
-  // Authentication
-  "auth": {
-    "login": "Login",
-    "logout": "Logout",
-    "profile": "Profile",
-    "signUp": "Sign Up"
-  },
-  
-  // Misc
-  "actions": {
-    "create": "Create",
-    "edit": "Edit",
-    "delete": "Delete",
-    "cancel": "Cancel",
-    "save": "Save",
-    "confirm": "Confirm",
-    "apply": "Apply"
-  },
-  
-  // Status and notifications
-  "status": {
-    "success": "Success",
-    "error": "Error",
-    "warning": "Warning",
-    "info": "Information"
+  // Error messages
+  "errors": {
+    "general": "An error occurred. Please try again.",
+    "notFound": "The requested resource was not found.",
+    "unauthorized": "You are not authorized to perform this action.",
+    "serverError": "Server error occurred. Please try again later.",
+    "validation": "Please check your input and try again.",
+    "fileUpload": "File upload failed. Please try again."
   }
 };

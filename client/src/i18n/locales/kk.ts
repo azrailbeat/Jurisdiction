@@ -1,9 +1,18 @@
+// Kazakh translations
 export default {
-  // General
+  // App-wide shared strings
   "app": {
-    "name": "Юрисдикция",
-    "tagline": "Заңнамалық құжаттарды басқару",
-    "language": "Тіл"
+    "title": "Заңнамалық құжаттарды басқару жүйесі",
+    "language": "Тіл",
+    "search": "Іздеу",
+    "loading": "Жүктелуде...",
+    "save": "Сақтау",
+    "cancel": "Болдырмау",
+    "delete": "Жою",
+    "edit": "Өңдеу",
+    "create": "Құру",
+    "actions": "Әрекеттер",
+    "status": "Күй"
   },
   
   // Navigation
@@ -13,195 +22,218 @@ export default {
     "versions": "Нұсқалар",
     "knowledgeGraph": "Білім графы",
     "verification": "Тексеру",
-    "terminology": "Терминология",
     "agents": "Агенттер",
-    "settings": "Параметрлер"
+    "analytics": "Талдау",
+    "settings": "Параметрлер",
+    "logout": "Шығу",
+    "login": "Кіру"
   },
   
-  // Home page
-  "home": {
-    "welcome": "Юрисдикцияға қош келдіңіз",
-    "subtitle": "Заңнамалық құжаттарды басқарудың кеңейтілген платформасы",
-    "recentActivity": "Соңғы белсенділік",
-    "statistics": "Статистика",
-    "totalDocuments": "Құжаттар саны",
-    "totalVerifications": "Тексеру мәселелері",
-    "knowledgeNodes": "Білім графының түйіндері",
-    "legalTerms": "Заңды терминдер"
-  },
-  
-  // Documents page
+  // Document management
   "documents": {
-    "title": "Құжаттар",
+    "title": "Құжаттар қоймасы",
     "newDocument": "Жаңа құжат",
-    "search": "Құжаттарды іздеу...",
-    "filter": "Сүзгі",
-    "upload": "Жүктеу",
-    "noDocuments": "Құжаттар табылмады",
-    "addYourFirst": "Бастау үшін алғашқы құжатыңызды қосыңыз"
+    "upload": "Құжатты жүктеу",
+    "compare": "Құжаттарды салыстыру",
+    "search": "Құжаттарды іздеу",
+    "filters": "Сүзгілер",
+    "status": {
+      "draft": "Жоба",
+      "review": "Қаралуда",
+      "approved": "Мақұлданған",
+      "published": "Жарияланған",
+      "archived": "Мұрағатталған"
+    },
+    "fields": {
+      "title": "Тақырып",
+      "createdBy": "Құрастырушы",
+      "createdAt": "Құрылған күні",
+      "updatedAt": "Жаңартылған күні",
+      "status": "Күй",
+      "type": "Құжат түрі",
+      "category": "Санат",
+      "description": "Сипаттама"
+    },
+    "uploadInstructions": "Құжатты осында сүйреп тастаңыз немесе таңдау үшін басыңыз",
+    "supportedFormats": "Қолдау көрсетілетін форматтар: DOCX, PDF, TXT"
   },
   
-  // Document details
-  "document": {
-    "edit": "Өңдеу",
-    "delete": "Жою",
-    "view": "Қарау",
-    "createdBy": "Жасаған",
-    "createdAt": "Жасалған күні",
-    "updatedAt": "Жаңартылған күні",
-    "version": "Нұсқа",
-    "verify": "Тексеру",
-    "download": "Жүктеп алу",
-    "share": "Бөлісу"
-  },
-  
-  // Versions page
+  // Version control
   "versions": {
-    "title": "Құжат нұсқалары",
-    "document": "Құжат",
-    "version": "Нұсқа",
-    "date": "Күні",
-    "author": "Автор",
-    "compare": "Салыстыру",
-    "restore": "Қалпына келтіру",
-    "current": "Ағымдағы"
+    "title": "Нұсқалар тарихы",
+    "current": "Ағымдағы нұсқа",
+    "compare": "Ағымдағы нұсқамен салыстыру",
+    "revert": "Осы нұсқаға қайту",
+    "created": "{{date}} құрылған",
+    "by": "{{name}} құрастырған",
+    "changes": "Өзгерістер",
+    "added": "Қосылған",
+    "removed": "Жойылған",
+    "modified": "Өзгертілген"
   },
   
-  // Knowledge Graph
+  // Knowledge graph
   "knowledgeGraph": {
     "title": "Білім графы",
-    "search": "Нысандарды іздеу...",
-    "filter": "Түрі бойынша сүзу",
+    "nodes": "Түйіндер",
+    "edges": "Байланыстар",
+    "entityTypes": "Объект түрлері",
+    "relationTypes": "Қатынас түрлері",
+    "filters": "Сүзгілер",
+    "search": "Графта іздеу",
+    "details": "Объект мәліметтері",
     "statistics": "Граф статистикасы",
-    "nodeCount": "Түйіндер саны",
-    "edgeCount": "Қосылымдар саны",
-    "density": "Граф тығыздығы",
-    "centrality": "Орталықтық"
+    "export": "Графты экспорттау",
+    "relatedDocuments": "Байланысты құжаттар",
+    "pathAnalysis": "Жолдарды талдау"
   },
   
-  // Verification 
+  // Verification and compliance
   "verification": {
-    "title": "Құжаттарды тексеру",
-    "document": "Құжат",
-    "run": "Тексеруді іске қосу",
-    "issues": "Мәселелер",
-    "noIssues": "Мәселелер табылмады",
-    "severity": "Ауырлық",
-    "status": "Күйі",
-    "location": "Орны",
-    "description": "Сипаттама"
-  },
-  
-  // Terminology
-  "terminology": {
-    "title": "Заңдық терминология",
-    "search": "Терминдерді іздеу...",
-    "add": "Термин қосу",
-    "term": "Термин",
-    "definition": "Анықтама",
-    "category": "Санат",
-    "source": "Дереккөз"
+    "title": "Тексеру және сәйкестік",
+    "issues": "Табылған мәселелер",
+    "runVerification": "Тексеруді іске қосу",
+    "complianceReport": "Сәйкестік есебі",
+    "relatedLegislation": "Байланысты заңнама",
+    "severity": {
+      "critical": "Қауіпті",
+      "high": "Жоғары",
+      "medium": "Орташа",
+      "low": "Төмен",
+      "info": "Ақпараттық"
+    },
+    "status": {
+      "open": "Ашық",
+      "inProgress": "Жұмыс жүргізілуде",
+      "resolved": "Шешілді",
+      "closed": "Жабық",
+      "wontFix": "Түзетілмейді"
+    }
   },
   
   // Agents
   "agents": {
-    "title": "Агент оркестраторы",
-    "subtitle": "Микросервистік агенттерді бақылау, конфигурациялау және орналастыру",
-    "search": "Агенттерді іздеу...",
-    "newAgent": "Жаңа агент",
-    "online": "Онлайн",
-    "degraded": "Нашарлаған",
-    "offline": "Офлайн",
-    "latency": "Кідіріс",
-    "errorRate": "Қате жиілігі",
-    "actions": "Әрекеттер",
-    "noAgents": "Агенттер табылмады",
-    "liveAgents": "Белсенді агенттер",
-    "avgLatency": "Орташа кідіріс",
-    "ticketsInQueue": "Кезектегі тикеттер",
-    "view": "Қарау",
-    "restart": "Қайта іске қосу",
-    "configure": "Конфигурациялау",
-    "rollback": "Қайтару"
+    "title": "Агенттерді басқару",
+    "createAgent": "Агент құру",
+    "runningAgents": "Жұмыс істеп тұрған агенттер",
+    "allAgents": "Барлық агенттер",
+    "status": {
+      "idle": "Күту режимінде",
+      "running": "Жұмыс істеуде",
+      "paused": "Тоқтатылған",
+      "completed": "Аяқталған",
+      "failed": "Қателік"
+    },
+    "types": {
+      "parser": "Талдау агенті",
+      "vectorizer": "Векторизация агенті",
+      "verification": "Тексеру агенті",
+      "analysis": "Талдау агенті",
+      "termAlignment": "Термин теңестіру агенті"
+    },
+    "actions": {
+      "start": "Бастау",
+      "pause": "Кідірту",
+      "resume": "Жалғастыру",
+      "stop": "Тоқтату",
+      "restart": "Қайта бастау",
+      "configure": "Конфигурациялау"
+    }
   },
   
-  // Agent details
-  "agent": {
-    "details": "Агент мәліметтері",
-    "overview": "Шолу",
-    "config": "Конфигурация",
-    "metrics": "Метрикалар",
-    "logs": "Журналдар",
-    "versions": "Нұсқалар",
-    "role": "Рөл",
-    "trigger": "Триггер",
-    "input": "Кіріс",
-    "output": "Шығыс",
-    "keyLogs": "Негізгі журналдар",
-    "lastUpdated": "Соңғы жаңарту",
-    "flowDiagram": "Ағын диаграммасы",
-    "currentEnv": "Ағымдағы орта",
-    "performance": "Өнімділік метрикалары",
-    "save": "Конфигурацияны сақтау",
-    "reset": "Қайта орнату",
-    "jsonPreview": "JSON алдын-ала қарау"
-  },
-  
-  // Wizard
-  "wizard": {
-    "createAgent": "Жаңа агент жасау",
-    "wizard": "Жаңа микросервистік агентті үш қарапайым қадаммен анықтаңыз",
-    "step1": "1-қадам: Үлгі таңдау",
-    "step2": "2-қадам: Агентті және құпияларды конфигурациялау",
-    "step3": "3-қадам: SLA және орналастыру стратегиясы",
-    "selectTemplate": "Жаңа агентіңіз үшін бастапқы үлгіні таңдаңыз",
-    "previous": "Алдыңғы",
-    "next": "Келесі",
-    "finish": "Аяқтау"
+  // Analytics
+  "analytics": {
+    "title": "Аналитикалық тақта",
+    "documentStatistics": "Құжат статистикасы",
+    "userActivity": "Пайдаланушы белсенділігі",
+    "topDocuments": "Үздік құжаттар",
+    "complianceRate": "Сәйкестік деңгейі",
+    "issuesByCategory": "Санат бойынша мәселелер",
+    "timeRange": "Уақыт диапазоны",
+    "export": "Деректерді экспорттау"
   },
   
   // Settings
   "settings": {
     "title": "Параметрлер",
-    "account": "Аккаунт параметрлері",
-    "preferences": "Қалаулар",
-    "language": "Тіл",
-    "theme": "Тақырып",
-    "light": "Ашық",
-    "dark": "Қараңғы",
-    "system": "Жүйелік",
-    "notification": "Хабарландыру параметрлері",
-    "emails": "Электрондық пошта хабарландырулары",
-    "security": "Қауіпсіздік",
-    "password": "Құпия сөзді өзгерту",
-    "twoFactor": "Екі факторлы аутентификация",
-    "save": "Өзгерістерді сақтау"
+    "tabs": {
+      "profile": "Профиль",
+      "account": "Аккаунт",
+      "notifications": "Хабарландырулар",
+      "system": "Жүйе",
+      "aiModels": "AI және модельдер"
+    },
+    "profile": {
+      "title": "Профиль параметрлері",
+      "subtitle": "Жеке ақпаратты басқару",
+      "fullName": "Толық аты-жөні",
+      "email": "Электрондық пошта",
+      "bio": "Өмірбаян",
+      "avatar": "Профиль суреті",
+      "change": "Өзгерту",
+      "saveProfile": "Профильді сақтау"
+    },
+    "account": {
+      "title": "Аккаунт параметрлері",
+      "subtitle": "Аккаунт баптауларын басқару",
+      "username": "Пайдаланушы аты",
+      "language": "Интерфейс тілі",
+      "theme": "Интерфейс тақырыбы",
+      "themes": {
+        "light": "Жарық",
+        "dark": "Қараңғы",
+        "system": "Жүйелік"
+      },
+      "security": "Қауіпсіздік",
+      "changePassword": "Құпия сөзді өзгерту",
+      "enableTwoFactor": "Екі факторлы аутентификацияны қосу",
+      "saveAccount": "Аккаунт параметрлерін сақтау"
+    },
+    "notifications": {
+      "title": "Хабарландыру параметрлері",
+      "subtitle": "Хабарландыруларды басқару",
+      "emailNotifications": "Электрондық пошта хабарландырулары",
+      "emailNotificationsDesc": "Электрондық пошта арқылы хабарландырулар алу",
+      "documentUpdates": "Құжат жаңартулары",
+      "documentUpdatesDesc": "Бақыланатын құжаттар жаңартылғанда хабарлама алу",
+      "verificationAlerts": "Тексеру туралы ескертулер",
+      "verificationAlertsDesc": "Тексеру мәселелері туралы ескерту алу",
+      "weeklyDigest": "Апталық дайджест",
+      "weeklyDigestDesc": "Жүйе белсенділігінің апталық жиынтығын алу",
+      "saveNotifications": "Хабарландыру параметрлерін сақтау"
+    },
+    "system": {
+      "title": "Жүйе параметрлері",
+      "subtitle": "Жүйелік параметрлерді конфигурациялау",
+      "apiEndpoint": "API шеткі нүктесі",
+      "defaultXmlFormat": "Әдепкі XML форматы",
+      "maxVersions": "Сақталатын нұсқалардың максималды саны",
+      "experimental": "Эксперименттік мүмкіндіктерді қосу",
+      "maintenance": "Жүйе қызмет көрсету",
+      "rebuildGraph": "Білім графын қайта құру",
+      "rescanDocuments": "Құжаттарды қайта сканерлеу",
+      "clearCache": "Кэшті тазарту",
+      "saveSystem": "Жүйе параметрлерін сақтау"
+    },
+    "aiModels": {
+      "title": "AI және модельдер",
+      "subtitle": "AI модельдерін конфигурациялау",
+      "apiKey": "AI моделінің API кілті",
+      "model": "Әдепкі модель",
+      "maxTokens": "Токендердің максималды саны",
+      "semanticAnalysis": "Семантикалық талдауды қосу",
+      "automatedVerification": "Автоматты тексеруді қосу",
+      "saveAI": "AI параметрлерін сақтау"
+    }
   },
   
-  // Authentication
-  "auth": {
-    "login": "Кіру",
-    "logout": "Шығу",
-    "profile": "Профиль",
-    "signUp": "Тіркелу"
-  },
-  
-  // Misc
-  "actions": {
-    "create": "Жасау",
-    "edit": "Өңдеу",
-    "delete": "Жою",
-    "cancel": "Болдырмау",
-    "save": "Сақтау",
-    "confirm": "Растау",
-    "apply": "Қолдану"
-  },
-  
-  // Status and notifications
-  "status": {
-    "success": "Сәтті",
-    "error": "Қате",
-    "warning": "Ескерту",
-    "info": "Ақпарат"
+  // Error messages
+  "errors": {
+    "general": "Қате орын алды. Қайталап көріңіз.",
+    "notFound": "Сұралған ресурс табылмады.",
+    "unauthorized": "Бұл әрекетті орындауға рұқсатыңыз жоқ.",
+    "serverError": "Сервер қатесі орын алды. Кейінірек қайталап көріңіз.",
+    "validation": "Енгізілген деректерді тексеріп, қайталап көріңіз.",
+    "fileUpload": "Файлды жүктеу сәтсіз аяқталды. Қайталап көріңіз."
   }
 };
