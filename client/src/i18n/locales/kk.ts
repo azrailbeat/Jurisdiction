@@ -18,7 +18,9 @@ export default {
     confirm: "Растау",
     yes: "Иә",
     no: "Жоқ",
+    sort: "Сұрыптау",
     status: {
+      all: "Барлық күйлер",
       draft: "Жоба",
       review: "Қаралуда",
       approved: "Бекітілген",

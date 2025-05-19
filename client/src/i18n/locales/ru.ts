@@ -18,7 +18,9 @@ export default {
     confirm: "Подтвердить",
     yes: "Да",
     no: "Нет",
+    sort: "Сортировать",
     status: {
+      all: "Все статусы",
       draft: "Черновик",
       review: "На рассмотрении",
       approved: "Утверждено",
