@@ -104,8 +104,9 @@ const Documents: React.FC = () => {
     }
   };
 
-  const formatDate = (dateString: string) => {
-    return formatDistance(new Date(dateString), new Date(), { addSuffix: true });
+  const formatDate = (dateValue: string | Date) => {
+    const date = typeof dateValue === 'string' ? new Date(dateValue) : dateValue;
+    return formatDistance(date, new Date(), { addSuffix: true });
   };
 
   return (
@@ -169,8 +170,8 @@ const Documents: React.FC = () => {
                               {document.title}
                             </TableCell>
                             <TableCell>{getStatusBadge(document.status)}</TableCell>
-                            <TableCell>v{document.currentVersion}</TableCell>
-                            <TableCell>{formatDate(document.updatedAt)}</TableCell>
+                            <TableCell>v{document.currentVersion || "1.0"}</TableCell>
+                            <TableCell>{document.updatedAt ? formatDate(document.updatedAt.toString()) : "Just now"}</TableCell>
                             <TableCell className="text-right">
                               <Link href={`/documents/${document.id}`}>
                                 <Button
