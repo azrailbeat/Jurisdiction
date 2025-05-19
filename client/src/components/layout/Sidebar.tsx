@@ -70,7 +70,7 @@ const Sidebar: React.FC = () => {
           <div className="w-8 h-8 flex items-center justify-center bg-primary rounded-lg">
             <i className="fas fa-scale-balanced text-white"></i>
           </div>
-          {!collapsed && <h1 className="text-xl font-semibold text-neutral-800">LegalTrack</h1>}
+          {!collapsed && <h1 className="text-xl font-semibold text-neutral-800">Jurisdiction</h1>}
         </div>
         <Button 
           variant="ghost" 
