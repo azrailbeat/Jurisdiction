@@ -588,4 +588,9 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+// For testing and development, we'll use MemStorage for now
+// This will help us see documents immediately after upload
+export const storage = new MemStorage();
+
+// In production, we'll switch to:
+// export const storage = new DatabaseStorage();
