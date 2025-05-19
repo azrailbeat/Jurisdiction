@@ -63,7 +63,9 @@ const DocumentUpload: React.FC<DocumentUploadProps> = ({ onUploadComplete }) => 
           body: formData,
         });
         
-        return await response.json();
+        // apiRequest already handles the response validation
+        // We just need to return the response directly
+        return response;
       } catch (error) {
         throw error;
       } finally {
