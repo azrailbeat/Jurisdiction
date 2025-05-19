@@ -311,7 +311,7 @@ export default {
     current: "Текущая версия",
     previous: "Предыдущие версии",
     created: "Создано {{date}}",
-    createdBy: "Создано пользователем {{name}}",
+    createdBy: "Создано пользователем {{email}}",
     compare: "Сравнить версии",
     restore: "Восстановить эту версию",
     difference: "Различия с текущей версией",

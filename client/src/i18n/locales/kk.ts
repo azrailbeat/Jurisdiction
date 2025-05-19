@@ -311,7 +311,7 @@ export default {
     current: "Ағымдағы нұсқа",
     previous: "Алдыңғы нұсқалар",
     created: "Құрылған күні {{date}}",
-    createdBy: "{{name}} құрған",
+    createdBy: "{{email}} құрған",
     compare: "Нұсқаларды салыстыру",
     restore: "Осы нұсқаны қалпына келтіру",
     difference: "Ағымдағы нұсқадан айырмашылық",
