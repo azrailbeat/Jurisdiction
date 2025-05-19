@@ -300,7 +300,91 @@ export default {
     compare: "Нұсқаларды салыстыру",
     restore: "Осы нұсқаны қалпына келтіру",
     difference: "Ағымдағы нұсқадан айырмашылық",
-    noVersions: "Алдыңғы нұсқалар табылмады"
+    noVersions: "Алдыңғы нұсқалар табылмады",
+    selectDocument: "Құжатты таңдау",
+    selectDocumentPlaceholder: "Нұсқаларды көру үшін құжатты таңдаңыз",
+    viewTimeline: "Хронологияны көру",
+    compareVersions: "Нұсқаларды салыстыру",
+    sourceVersion: "Бастапқы нұсқа",
+    targetVersion: "Мақсатты нұсқа",
+    selectSourceVersion: "Бастапқы нұсқаны таңдаңыз",
+    selectTargetVersion: "Мақсатты нұсқаны таңдаңыз",
+    selectBothVersions: "Айырмашылықтарды көру үшін екі нұсқаны таңдаңыз",
+    semantic: {
+      analyzing: "Семантикалық айырмашылықтарды талдау...",
+      error: "Семантикалық салыстыруда қате орын алды",
+      tabs: {
+        standard: "Стандартты",
+        semantic: "Семантикалық",
+        deontic: "Деонтикалық логика",
+        definitions: "Анықтамалар",
+        references: "Сілтемелер"
+      },
+      overview: {
+        title: "Семантикалық талдау шолуы",
+        similarityScore: "Ұқсастық көрсеткіші",
+        addedSections: "Қосылған бөлімдер",
+        removedSections: "Жойылған бөлімдер",
+        modifiedSections: "Өзгертілген бөлімдер"
+      },
+      changes: {
+        title: "Семантикалық өзгерістер",
+        description: "Нұсқалар арасындағы егжей-тегжейлі семантикалық өзгерістер",
+        noChanges: "Семантикалық өзгерістер табылмады",
+        type: {
+          addition: "ҚОСЫЛҒАН",
+          removal: "ЖОЙЫЛҒАН",
+          modification: "ӨЗГЕРТІЛГЕН"
+        },
+        severity: {
+          critical: "МАҢЫЗДЫ",
+          major: "ЕЛЕУЛІ",
+          minor: "ШАҒЫН",
+          info: "АҚПАРАТ"
+        },
+        sourceVersion: "Бастапқы нұсқа:",
+        targetVersion: "Мақсатты нұсқа:",
+        addedContent: "Қосылған мазмұн:",
+        removedContent: "Жойылған мазмұн:"
+      },
+      deontic: {
+        title: "Деонтикалық логика талдауы",
+        obligations: "Міндеттемелер",
+        rights: "Құқықтар",
+        permissions: "Рұқсаттар",
+        prohibitions: "Тыйымдар",
+        noObligations: "Міндеттемелер екі нұсқада да табылмады",
+        noRights: "Құқықтар екі нұсқада да табылмады",
+        noPermissions: "Рұқсаттар екі нұсқада да табылмады",
+        noProhibitions: "Тыйымдар екі нұсқада да табылмады",
+        condition: "Шарт:",
+        unchanged: "ӨЗГЕРМЕГЕН"
+      },
+      definitions: {
+        title: "Терминдер анықтамалары",
+        description: "Заңды терминдер мен олардың анықтамаларындағы өзгерістер",
+        noDefinitions: "Анықтамалардағы өзгерістер табылмады",
+        term: "Термин",
+        sourceDefinition: "Бастапқы анықтама",
+        targetDefinition: "Мақсатты анықтама",
+        change: "Өзгеріс",
+        similarity: "Ұқсастық"
+      },
+      references: {
+        title: "Заңнамалық сілтемелер",
+        description: "Басқа заңнамалық актілерге сілтемелердегі өзгерістер",
+        noReferences: "Сілтемелердегі өзгерістер табылмады",
+        source: "Бастапқы:",
+        target: "Мақсатты:"
+      },
+      comparison: {
+        title: "Нұсқаларды салыстыру",
+        sideBy: "Қатар көрініс",
+        inline: "Енгізілген өзгерістер",
+        structured: "Құрылымдық",
+        element: "Элемент"
+      }
+    }
   },
   
   // Analytics

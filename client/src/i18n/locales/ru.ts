@@ -300,7 +300,91 @@ export default {
     compare: "Сравнить версии",
     restore: "Восстановить эту версию",
     difference: "Различия с текущей версией",
-    noVersions: "Предыдущие версии не найдены"
+    noVersions: "Предыдущие версии не найдены",
+    selectDocument: "Выберите документ",
+    selectDocumentPlaceholder: "Выберите документ для просмотра версий",
+    viewTimeline: "Просмотреть хронологию",
+    compareVersions: "Сравнить версии",
+    sourceVersion: "Исходная версия",
+    targetVersion: "Целевая версия",
+    selectSourceVersion: "Выберите исходную версию",
+    selectTargetVersion: "Выберите целевую версию",
+    selectBothVersions: "Выберите обе версии для просмотра различий",
+    semantic: {
+      analyzing: "Анализ семантических различий...",
+      error: "Ошибка при выполнении семантического сравнения",
+      tabs: {
+        standard: "Стандартное",
+        semantic: "Семантическое",
+        deontic: "Деонтическая логика",
+        definitions: "Определения",
+        references: "Ссылки"
+      },
+      overview: {
+        title: "Обзор семантического анализа",
+        similarityScore: "Оценка сходства",
+        addedSections: "Добавленные разделы",
+        removedSections: "Удаленные разделы",
+        modifiedSections: "Измененные разделы"
+      },
+      changes: {
+        title: "Семантические изменения",
+        description: "Подробные семантические изменения между версиями",
+        noChanges: "Семантические изменения не обнаружены",
+        type: {
+          addition: "ДОБАВЛЕНО",
+          removal: "УДАЛЕНО",
+          modification: "ИЗМЕНЕНО"
+        },
+        severity: {
+          critical: "КРИТИЧЕСКОЕ",
+          major: "ЗНАЧИТЕЛЬНОЕ",
+          minor: "НЕЗНАЧИТЕЛЬНОЕ",
+          info: "ИНФОРМАЦИЯ"
+        },
+        sourceVersion: "Исходная версия:",
+        targetVersion: "Целевая версия:",
+        addedContent: "Добавленное содержимое:",
+        removedContent: "Удаленное содержимое:"
+      },
+      deontic: {
+        title: "Анализ деонтической логики",
+        obligations: "Обязательства",
+        rights: "Права",
+        permissions: "Разрешения",
+        prohibitions: "Запреты",
+        noObligations: "Обязательства не найдены ни в одной из версий",
+        noRights: "Права не найдены ни в одной из версий",
+        noPermissions: "Разрешения не найдены ни в одной из версий",
+        noProhibitions: "Запреты не найдены ни в одной из версий",
+        condition: "Условие:",
+        unchanged: "БЕЗ ИЗМЕНЕНИЙ"
+      },
+      definitions: {
+        title: "Определения терминов",
+        description: "Изменения в юридических терминах и их определениях",
+        noDefinitions: "Изменения в определениях не обнаружены",
+        term: "Термин",
+        sourceDefinition: "Исходное определение",
+        targetDefinition: "Целевое определение",
+        change: "Изменение",
+        similarity: "Сходство"
+      },
+      references: {
+        title: "Законодательные ссылки",
+        description: "Изменения в ссылках на другие законодательные акты",
+        noReferences: "Изменения в ссылках не обнаружены",
+        source: "Источник:",
+        target: "Цель:"
+      },
+      comparison: {
+        title: "Сравнение версий",
+        sideBy: "Бок о бок",
+        inline: "Встроенные изменения",
+        structured: "Структурированное",
+        element: "Элемент"
+      }
+    }
   },
   
   // Analytics

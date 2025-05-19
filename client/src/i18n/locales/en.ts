@@ -300,7 +300,91 @@ export default {
     compare: "Compare Versions",
     restore: "Restore This Version",
     difference: "Difference from Current",
-    noVersions: "No previous versions found"
+    noVersions: "No previous versions found",
+    selectDocument: "Select Document",
+    selectDocumentPlaceholder: "Select a document to view versions",
+    viewTimeline: "View Timeline",
+    compareVersions: "Compare Versions",
+    sourceVersion: "Source Version",
+    targetVersion: "Target Version",
+    selectSourceVersion: "Select source version",
+    selectTargetVersion: "Select target version",
+    selectBothVersions: "Select both versions to view differences",
+    semantic: {
+      analyzing: "Analyzing semantic differences...",
+      error: "Error performing semantic comparison",
+      tabs: {
+        standard: "Standard",
+        semantic: "Semantic",
+        deontic: "Deontic Logic",
+        definitions: "Definitions",
+        references: "References"
+      },
+      overview: {
+        title: "Semantic Analysis Overview",
+        similarityScore: "Similarity Score",
+        addedSections: "Added Sections",
+        removedSections: "Removed Sections",
+        modifiedSections: "Modified Sections"
+      },
+      changes: {
+        title: "Semantic Changes",
+        description: "Showing detailed semantic changes between versions",
+        noChanges: "No semantic changes detected",
+        type: {
+          addition: "ADDED",
+          removal: "REMOVED",
+          modification: "MODIFIED"
+        },
+        severity: {
+          critical: "CRITICAL",
+          major: "MAJOR",
+          minor: "MINOR",
+          info: "INFO"
+        },
+        sourceVersion: "Source Version:",
+        targetVersion: "Target Version:",
+        addedContent: "Added Content:",
+        removedContent: "Removed Content:"
+      },
+      deontic: {
+        title: "Deontic Logic Analysis",
+        obligations: "Obligations",
+        rights: "Rights",
+        permissions: "Permissions",
+        prohibitions: "Prohibitions",
+        noObligations: "No obligations found in either version",
+        noRights: "No rights found in either version",
+        noPermissions: "No permissions found in either version",
+        noProhibitions: "No prohibitions found in either version",
+        condition: "Condition:",
+        unchanged: "UNCHANGED"
+      },
+      definitions: {
+        title: "Term Definitions",
+        description: "Changes in legal terms and their definitions",
+        noDefinitions: "No definition changes detected",
+        term: "Term",
+        sourceDefinition: "Source Definition",
+        targetDefinition: "Target Definition",
+        change: "Change",
+        similarity: "Similarity"
+      },
+      references: {
+        title: "Legislative References",
+        description: "Changes in references to other legislation",
+        noReferences: "No reference changes detected",
+        source: "Source:",
+        target: "Target:"
+      },
+      comparison: {
+        title: "Version Comparison",
+        sideBy: "Side by Side",
+        inline: "Inline Changes",
+        structured: "Structured",
+        element: "Element"
+      }
+    }
   },
   
   // Analytics
