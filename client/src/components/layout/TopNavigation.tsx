@@ -12,6 +12,7 @@ import { queryClient } from "@/lib/queryClient";
 import { useQuery } from "@tanstack/react-query";
 import { SearchResult } from "@/types";
 import { LoginButton } from "@/components/auth/LoginButton";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const TopNavigation: React.FC = () => {
   const [location] = useLocation();
@@ -59,6 +60,8 @@ const TopNavigation: React.FC = () => {
           />
           <i className="fas fa-search absolute left-3 top-2.5 text-neutral-300"></i>
         </form>
+
+        <LanguageSwitcher variant="minimal" />
 
         <div className="relative">
           <button className="relative p-2 text-neutral-400 hover:text-neutral-500">
