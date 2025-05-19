@@ -1,15 +1,27 @@
-import { pgTable, text, serial, integer, timestamp, boolean, json, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, timestamp, boolean, json, varchar, jsonb, index } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-// Users Table
+// Session storage table for Replit Auth
+export const sessions = pgTable(
+  "sessions",
+  {
+    sid: varchar("sid").primaryKey(),
+    sess: jsonb("sess").notNull(),
+    expire: timestamp("expire").notNull(),
+  },
+  (table) => [index("IDX_session_expire").on(table.expire)],
+);
+
+// Users Table - Modified for Replit Auth
 export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
-  name: text("name").notNull(),
-  avatar: text("avatar"),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
+  id: varchar("id").primaryKey().notNull(),
+  email: varchar("email").unique(),
+  firstName: varchar("first_name"),
+  lastName: varchar("last_name"),
+  profileImageUrl: varchar("profile_image_url"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 // Documents Table
@@ -20,8 +32,8 @@ export const documents = pgTable("documents", {
   content: text("content").notNull(),
   xml: text("xml").notNull(),
   currentVersion: text("current_version").notNull().default("1.0"),
-  createdBy: integer("created_by").notNull().references(() => users.id),
-  updatedBy: integer("updated_by").notNull().references(() => users.id),
+  createdBy: varchar("created_by").notNull().references(() => users.id),
+  updatedBy: varchar("updated_by").notNull().references(() => users.id),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
@@ -33,7 +45,7 @@ export const documentVersions = pgTable("document_versions", {
   version: text("version").notNull(),
   content: text("content").notNull(),
   xml: text("xml").notNull(),
-  createdBy: integer("created_by").notNull().references(() => users.id),
+  createdBy: varchar("created_by").notNull().references(() => users.id),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   description: text("description"),
   isCurrent: boolean("is_current").notNull().default(false),
@@ -44,7 +56,7 @@ export const activities = pgTable("activities", {
   id: serial("id").primaryKey(),
   type: text("type").notNull(),
   description: text("description").notNull(),
-  userId: integer("user_id").notNull().references(() => users.id),
+  userId: varchar("user_id").notNull().references(() => users.id),
   documentId: integer("document_id").references(() => documents.id),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
@@ -104,11 +116,16 @@ export const legalTerms = pgTable("legal_terms", {
 
 // Insert Schemas
 export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
-  name: true,
-  avatar: true,
+  id: true,
+  email: true,
+  firstName: true,
+  lastName: true,
+  profileImageUrl: true,
 });
+
+export const upsertUserSchema = createInsertSchema(users);
+
+export type UpsertUser = z.infer<typeof upsertUserSchema>;
 
 export const insertDocumentSchema = createInsertSchema(documents).pick({
   title: true,

@@ -12,9 +12,8 @@ import {
 
 export interface IStorage {
   // User operations
-  getUser(id: number): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  getUser(id: string): Promise<User | undefined>;
+  upsertUser(userData: UpsertUser): Promise<User>;
   
   // Document operations
   getDocuments(): Promise<Document[]>;
