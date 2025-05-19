@@ -1,78 +1,95 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-interface LanguageOption {
-  code: string;
-  name: string;
-  flag: string;
-}
-
-// List of available languages
-const languages: LanguageOption[] = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-  { code: 'kk', name: 'Қазақша', flag: '🇰🇿' },
-];
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { Globe } from "lucide-react";
 
 interface LanguageSwitcherProps {
-  variant?: 'minimal' | 'full';
+  variant?: "icon" | "full" | "minimal";
   className?: string;
 }
 
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ 
-  variant = 'full', 
-  className = '' 
-}) => {
-  const { i18n, t } = useTranslation();
-  
-  const handleLanguageChange = (language: string) => {
-    i18n.changeLanguage(language);
+export default function LanguageSwitcher({ variant = "icon", className = "" }: LanguageSwitcherProps) {
+  const { i18n } = useTranslation();
+
+  const languages = [
+    { code: "en", name: "English" },
+    { code: "ru", name: "Русский" },
+    { code: "kk", name: "Қазақша" },
+  ];
+
+  const handleLanguageChange = (langCode: string) => {
+    i18n.changeLanguage(langCode);
+    // Save the language preference to localStorage for persistence
+    localStorage.setItem("preferredLanguage", langCode);
   };
 
-  // Get current language details
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  // Load saved language preference on component mount
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("preferredLanguage");
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage);
+    }
+  }, [i18n]);
+
+  // Icon-only variant (for navbar)
+  if (variant === "icon") {
+    return (
+      <div className={`relative ${className}`}>
+        <Select value={i18n.language} onValueChange={handleLanguageChange}>
+          <SelectTrigger className="w-10 h-10 p-0 justify-center">
+            <Globe className="h-5 w-5" />
+          </SelectTrigger>
+          <SelectContent>
+            {languages.map((lang) => (
+              <SelectItem key={lang.code} value={lang.code}>
+                {lang.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+    );
+  }
+
+  // Minimal variant (for navbar with dropdown)
+  if (variant === "minimal") {
+    return (
+      <div className={`relative ${className}`}>
+        <Select value={i18n.language} onValueChange={handleLanguageChange}>
+          <SelectTrigger className="w-fit px-3">
+            <Globe className="h-4 w-4 mr-2" />
+            <span className="hidden sm:inline">{
+              languages.find(lang => lang.code === i18n.language)?.name || "Language"
+            }</span>
+          </SelectTrigger>
+          <SelectContent>
+            {languages.map((lang) => (
+              <SelectItem key={lang.code} value={lang.code}>
+                {lang.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+    );
+  }
   
+  // Full variant (for settings page)
   return (
     <div className={className}>
-      {variant === 'full' && (
-        <label className="mr-2 text-sm text-muted-foreground">
-          {t('app.language')}:
-        </label>
-      )}
-      <Select
-        value={i18n.language}
-        onValueChange={handleLanguageChange}
-      >
-        <SelectTrigger className={`${variant === 'minimal' ? 'w-auto p-1 h-8' : 'w-32'}`}>
-          <SelectValue>
-            <span className="flex items-center">
-              <span className="mr-2">{currentLanguage.flag}</span>
-              {variant === 'full' && (
-                <span>{currentLanguage.name}</span>
-              )}
-            </span>
-          </SelectValue>
+      <Select value={i18n.language} onValueChange={handleLanguageChange}>
+        <SelectTrigger>
+          <SelectValue placeholder="Select language" />
         </SelectTrigger>
         <SelectContent>
-          {languages.map((language) => (
-            <SelectItem key={language.code} value={language.code}>
-              <div className="flex items-center">
-                <span className="mr-2">{language.flag}</span>
-                <span>{language.name}</span>
-              </div>
+          {languages.map((lang) => (
+            <SelectItem key={lang.code} value={lang.code}>
+              {lang.name}
             </SelectItem>
           ))}
         </SelectContent>
       </Select>
     </div>
   );
-};
-
-export default LanguageSwitcher;
+}

@@ -202,18 +202,18 @@ const Settings: React.FC = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="theme">Interface Theme</Label>
+                  <Label htmlFor="theme">{t('settings.account.theme')}</Label>
                   <Select
                     value={accountSettings.theme}
                     onValueChange={(value) => setAccountSettings({ ...accountSettings, theme: value })}
                   >
                     <SelectTrigger id="theme">
-                      <SelectValue placeholder="Select theme" />
+                      <SelectValue placeholder={t('settings.account.theme')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="light">Light</SelectItem>
-                      <SelectItem value="dark">Dark</SelectItem>
-                      <SelectItem value="system">System Default</SelectItem>
+                      <SelectItem value="light">{t('settings.account.themes.light')}</SelectItem>
+                      <SelectItem value="dark">{t('settings.account.themes.dark')}</SelectItem>
+                      <SelectItem value="system">{t('settings.account.themes.system')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

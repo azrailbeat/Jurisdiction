@@ -13,21 +13,23 @@ import { useQuery } from "@tanstack/react-query";
 import { SearchResult } from "@/types";
 import { LoginButton } from "@/components/auth/LoginButton";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const TopNavigation: React.FC = () => {
   const [location] = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
+  const { t } = useTranslation();
   
-  // Map routes to titles
+  // Map routes to translation keys
   const routeTitles: Record<string, string> = {
-    "/": "Legislative Document Management",
-    "/documents": "Document Repository",
-    "/versions": "Version Control",
-    "/knowledge-graph": "Knowledge Graph",
-    "/verification": "Verification & Compliance",
+    "/": t("app.title"),
+    "/documents": t("documents.title"),
+    "/versions": t("versions.title"),
+    "/knowledge-graph": t("knowledgeGraph.title"),
+    "/verification": t("verification.title"),
     "/terminology": "Legal Terminology",
-    "/analytics": "Analytics Dashboard",
-    "/settings": "System Settings"
+    "/analytics": t("analytics.title"),
+    "/settings": t("settings.title")
   };
 
   const { data: searchResults } = useQuery<SearchResult[]>({
@@ -53,7 +55,7 @@ const TopNavigation: React.FC = () => {
         <form onSubmit={handleSearch} className="relative">
           <Input
             type="text"
-            placeholder="Search"
+            placeholder={t('app.search')}
             className="pl-10 pr-4 py-2 rounded-md border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent w-40 md:w-64"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
