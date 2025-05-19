@@ -15,19 +15,28 @@ export async function apiRequest(
   
   // Don't set Content-Type for FormData (browser will set it with boundary)
   const isFormData = body instanceof FormData;
-  const defaultHeaders = !isFormData && body 
-    ? { 'Content-Type': 'application/json' } 
-    : {};
   
-  const res = await fetch(url, {
+  // Create request config
+  const config: RequestInit = {
     method,
-    headers: { ...defaultHeaders, ...headers },
-    body: body instanceof FormData 
-      ? body 
-      : body ? JSON.stringify(body) : undefined,
+    headers: headers,
     credentials: "include",
-  });
-
+  };
+  
+  // Handle body based on content type
+  if (isFormData) {
+    // For FormData, browser will set content-type automatically
+    config.body = body;
+  } else if (body && method !== 'GET') {
+    // For JSON data
+    config.headers = {
+      ...config.headers,
+      'Content-Type': 'application/json',
+    };
+    config.body = JSON.stringify(body);
+  }
+  
+  const res = await fetch(url, config);
   await throwIfResNotOk(res);
   return res;
 }

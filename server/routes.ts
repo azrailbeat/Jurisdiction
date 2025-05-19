@@ -8,6 +8,8 @@ import { graphService } from "./services/graphService";
 import { registerDocumentUploadRoutes } from "./routes/document-upload";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Register document upload routes
+  registerDocumentUploadRoutes(app);
   // Users Routes
   app.get("/api/users/:id", async (req, res) => {
     const user = await storage.getUser(parseInt(req.params.id));

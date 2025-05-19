@@ -151,7 +151,8 @@ const Documents: React.FC = () => {
                         <TableHead>Status</TableHead>
                         <TableHead>Version</TableHead>
                         <TableHead>Last Updated</TableHead>
-                        <TableHead>Actions</TableHead>
+                        <TableHead>Updated By</TableHead>
+                        <TableHead className="text-right">Actions</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -162,8 +163,9 @@ const Documents: React.FC = () => {
                               {document.title}
                             </TableCell>
                             <TableCell>{getStatusBadge(document.status)}</TableCell>
-                            <TableCell>v{document.version}</TableCell>
-                            <TableCell>{formatDate(document.lastUpdated)}</TableCell>
+                            <TableCell>v{document.currentVersion || "1.0"}</TableCell>
+                            <TableCell>{formatDate(document.updatedAt || document.createdAt)}</TableCell>
+                            <TableCell>{document.updatedBy}</TableCell>
                             <TableCell className="text-right">
                               <Link href={`/documents/${document.id}`}>
                                 <Button
@@ -197,7 +199,7 @@ const Documents: React.FC = () => {
                       ) : (
                         <TableRow>
                           <TableCell
-                            colSpan={5}
+                            colSpan={6}
                             className="h-24 text-center text-neutral-500"
                           >
                             No documents found
