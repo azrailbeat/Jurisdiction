@@ -1,5 +1,5 @@
 import {
-  User, InsertUser, 
+  User, InsertUser, UpsertUser,
   Document, InsertDocument,
   DocumentVersion, InsertDocumentVersion,
   Activity, InsertActivity,
@@ -7,8 +7,13 @@ import {
   RelatedLegislation, InsertRelatedLegislation,
   KnowledgeGraphNode, InsertKnowledgeGraphNode,
   KnowledgeGraphEdge, InsertKnowledgeGraphEdge,
-  LegalTerm, InsertLegalTerm
+  LegalTerm, InsertLegalTerm,
+  users, documents, documentVersions, activities,
+  verificationIssues, relatedLegislation, knowledgeGraphNodes,
+  knowledgeGraphEdges, legalTerms
 } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   // User operations
@@ -334,4 +339,252 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// Database Storage Implementation
+export class DatabaseStorage implements IStorage {
+  // User operations
+  async getUser(id: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user;
+  }
+
+  async upsertUser(userData: UpsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(userData)
+      .onConflictDoUpdate({
+        target: users.id,
+        set: {
+          ...userData,
+          updatedAt: new Date(),
+        },
+      })
+      .returning();
+    return user;
+  }
+  
+  // Document operations
+  async getDocuments(): Promise<Document[]> {
+    return await db.select().from(documents);
+  }
+  
+  async getDocument(id: number): Promise<Document | undefined> {
+    const [document] = await db.select().from(documents).where(eq(documents.id, id));
+    return document;
+  }
+  
+  async createDocument(document: InsertDocument): Promise<Document> {
+    const [createdDocument] = await db
+      .insert(documents)
+      .values({
+        ...document,
+        currentVersion: "1.0"
+      })
+      .returning();
+    return createdDocument;
+  }
+  
+  async updateDocument(id: number, document: Partial<InsertDocument>): Promise<Document | undefined> {
+    const [updatedDocument] = await db
+      .update(documents)
+      .set({
+        ...document,
+        updatedAt: new Date()
+      })
+      .where(eq(documents.id, id))
+      .returning();
+    return updatedDocument;
+  }
+  
+  async deleteDocument(id: number): Promise<boolean> {
+    const result = await db
+      .delete(documents)
+      .where(eq(documents.id, id));
+    return true;
+  }
+  
+  // Document Version operations
+  async getDocumentVersions(documentId: number): Promise<DocumentVersion[]> {
+    return await db
+      .select()
+      .from(documentVersions)
+      .where(eq(documentVersions.documentId, documentId));
+  }
+  
+  async getDocumentVersion(id: number): Promise<DocumentVersion | undefined> {
+    const [version] = await db
+      .select()
+      .from(documentVersions)
+      .where(eq(documentVersions.id, id));
+    return version;
+  }
+  
+  async createDocumentVersion(version: InsertDocumentVersion): Promise<DocumentVersion> {
+    const [createdVersion] = await db
+      .insert(documentVersions)
+      .values(version)
+      .returning();
+    
+    if (version.isCurrent) {
+      // Update all other versions to not be current
+      await db
+        .update(documentVersions)
+        .set({ isCurrent: false })
+        .where(eq(documentVersions.documentId, version.documentId))
+        .where(eq(documentVersions.id, createdVersion.id).invert());
+      
+      // Update document's current version
+      await db
+        .update(documents)
+        .set({ 
+          currentVersion: version.version,
+          updatedAt: new Date()
+        })
+        .where(eq(documents.id, version.documentId));
+    }
+    
+    return createdVersion;
+  }
+  
+  // Activity operations
+  async getActivities(limit?: number): Promise<Activity[]> {
+    let query = db
+      .select()
+      .from(activities)
+      .orderBy(activities.createdAt);
+    
+    if (limit) {
+      query = query.limit(limit);
+    }
+    
+    return await query;
+  }
+  
+  async getDocumentActivities(documentId: number): Promise<Activity[]> {
+    return await db
+      .select()
+      .from(activities)
+      .where(eq(activities.documentId, documentId));
+  }
+  
+  async createActivity(activity: InsertActivity): Promise<Activity> {
+    const [createdActivity] = await db
+      .insert(activities)
+      .values(activity)
+      .returning();
+    return createdActivity;
+  }
+  
+  // Verification Issue operations
+  async getVerificationIssues(documentId: number): Promise<VerificationIssue[]> {
+    return await db
+      .select()
+      .from(verificationIssues)
+      .where(eq(verificationIssues.documentId, documentId));
+  }
+  
+  async getVerificationIssue(id: number): Promise<VerificationIssue | undefined> {
+    const [issue] = await db
+      .select()
+      .from(verificationIssues)
+      .where(eq(verificationIssues.id, id));
+    return issue;
+  }
+  
+  async createVerificationIssue(issue: InsertVerificationIssue): Promise<VerificationIssue> {
+    const [createdIssue] = await db
+      .insert(verificationIssues)
+      .values(issue)
+      .returning();
+    return createdIssue;
+  }
+  
+  async updateVerificationIssue(id: number, issue: Partial<InsertVerificationIssue>): Promise<VerificationIssue | undefined> {
+    const [updatedIssue] = await db
+      .update(verificationIssues)
+      .set({
+        ...issue,
+        updatedAt: new Date()
+      })
+      .where(eq(verificationIssues.id, id))
+      .returning();
+    return updatedIssue;
+  }
+  
+  // Related Legislation operations
+  async getRelatedLegislation(documentId: number): Promise<RelatedLegislation[]> {
+    return await db
+      .select()
+      .from(relatedLegislation)
+      .where(eq(relatedLegislation.documentId, documentId));
+  }
+  
+  async createRelatedLegislation(legislation: InsertRelatedLegislation): Promise<RelatedLegislation> {
+    const [createdLegislation] = await db
+      .insert(relatedLegislation)
+      .values(legislation)
+      .returning();
+    return createdLegislation;
+  }
+  
+  // Knowledge Graph operations
+  async getKnowledgeGraphNodes(): Promise<KnowledgeGraphNode[]> {
+    return await db
+      .select()
+      .from(knowledgeGraphNodes);
+  }
+  
+  async getKnowledgeGraphEdges(): Promise<KnowledgeGraphEdge[]> {
+    return await db
+      .select()
+      .from(knowledgeGraphEdges);
+  }
+  
+  async createKnowledgeGraphNode(node: InsertKnowledgeGraphNode): Promise<KnowledgeGraphNode> {
+    const [createdNode] = await db
+      .insert(knowledgeGraphNodes)
+      .values(node)
+      .returning();
+    return createdNode;
+  }
+  
+  async createKnowledgeGraphEdge(edge: InsertKnowledgeGraphEdge): Promise<KnowledgeGraphEdge> {
+    const [createdEdge] = await db
+      .insert(knowledgeGraphEdges)
+      .values(edge)
+      .returning();
+    return createdEdge;
+  }
+  
+  // Legal Term operations
+  async getLegalTerms(): Promise<LegalTerm[]> {
+    return await db
+      .select()
+      .from(legalTerms);
+  }
+  
+  async getLegalTerm(id: number): Promise<LegalTerm | undefined> {
+    const [term] = await db
+      .select()
+      .from(legalTerms)
+      .where(eq(legalTerms.id, id));
+    return term;
+  }
+  
+  async getLegalTermByTerm(term: string): Promise<LegalTerm | undefined> {
+    const [legalTerm] = await db
+      .select()
+      .from(legalTerms)
+      .where(eq(legalTerms.term, term));
+    return legalTerm;
+  }
+  
+  async createLegalTerm(term: InsertLegalTerm): Promise<LegalTerm> {
+    const [createdTerm] = await db
+      .insert(legalTerms)
+      .values(term)
+      .returning();
+    return createdTerm;
+  }
+}
+
+export const storage = new DatabaseStorage();

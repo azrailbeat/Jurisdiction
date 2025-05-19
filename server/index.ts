@@ -40,11 +40,7 @@ app.use((req, res, next) => {
 (async () => {
   try {
     // Initialize the database connection
-    const dbInitialized = await initializeDatabase();
-    if (!dbInitialized) {
-      log("Error initializing database connection. Check your DATABASE_URL environment variable.");
-      process.exit(1);
-    }
+    await initializeDatabase();
     
     log("Database connection established successfully");
     

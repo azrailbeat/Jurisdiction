@@ -6,29 +6,23 @@ import { versionService } from "./services/versionService";
 import { analysisService } from "./services/analysisService";
 import { graphService } from "./services/graphService";
 import { registerDocumentUploadRoutes } from "./routes/document-upload";
+import { setupAuth, isAuthenticated } from "./replitAuth";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Setup authentication
+  await setupAuth(app);
+  
   // Register document upload routes
   registerDocumentUploadRoutes(app);
-  // Users Routes
-  app.get("/api/users/:id", async (req, res) => {
-    const user = await storage.getUser(parseInt(req.params.id));
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-    // Don't send the password back
-    const { password, ...userWithoutPassword } = user;
-    res.json(userWithoutPassword);
-  });
-
-  app.post("/api/users", async (req, res) => {
+  // Auth routes
+  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
     try {
-      const user = await storage.createUser(req.body);
-      // Don't send the password back
-      const { password, ...userWithoutPassword } = user;
-      res.status(201).json(userWithoutPassword);
+      const userId = req.user.claims.sub;
+      const user = await storage.getUser(userId);
+      res.json(user);
     } catch (error) {
-      res.status(400).json({ message: "Failed to create user" });
+      console.error("Error fetching user:", error);
+      res.status(500).json({ message: "Failed to fetch user" });
     }
   });
 
