@@ -34,6 +34,7 @@ const Verification: React.FC = () => {
   const [selectedDocument, setSelectedDocument] = useState<number | null>(null);
   const [activeIssue, setActiveIssue] = useState<VerificationIssue | undefined>(undefined);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isAuthenticated, isLoading: authLoading } = useAuth();
 
   const { data: documents } = useQuery<Document[]>({
     queryKey: ["/api/documents"],
@@ -120,6 +121,36 @@ const Verification: React.FC = () => {
   const formatDate = (dateString: string) => {
     return formatDistance(new Date(dateString), new Date(), { addSuffix: true });
   };
+
+  // If not authenticated, show login prompt
+  if (!isAuthenticated && !authLoading) {
+    return (
+      <Card className="p-8 max-w-md mx-auto my-12">
+        <CardHeader>
+          <CardTitle className="text-center">Authentication Required</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-center">
+          <p>You need to be logged in to access verification features.</p>
+          <Button asChild className="mt-4">
+            <a href="/api/login">
+              <i className="fas fa-sign-in-alt mr-2"></i>
+              Login
+            </a>
+          </Button>
+        </CardContent>
+      </Card>
+    );
+  }
+  
+  // If loading auth status, show loading indicator
+  if (authLoading) {
+    return (
+      <div className="py-12 text-center">
+        <i className="fas fa-spinner fa-spin text-primary text-3xl mb-4"></i>
+        <p>Loading authentication status...</p>
+      </div>
+    );
+  }
 
   return (
     <>
