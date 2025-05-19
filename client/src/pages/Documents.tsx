@@ -465,56 +465,56 @@ const DocumentsPage: React.FC = () => {
       <Dialog open={newDocumentOpen} onOpenChange={setNewDocumentOpen}>
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
-            <DialogTitle>Create New Document</DialogTitle>
+            <DialogTitle>{t('documents.actions.newDocument')}</DialogTitle>
             <DialogDescription>
-              Provide basic information to start your new legislative document.
+              {t('documents.form.descriptionPlaceholder')}
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleCreateDocument}>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium">Document Title</label>
+                <label className="text-sm font-medium">{t('documents.form.title')}</label>
                 <Input
                   required
-                  placeholder="e.g., Civil Code Amendment 2025"
+                  placeholder={t('documents.form.titlePlaceholder')}
                   value={newDocument.title}
                   onChange={(e) => setNewDocument({...newDocument, title: e.target.value})}
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium">Description</label>
+                <label className="text-sm font-medium">{t('documents.form.description')}</label>
                 <Textarea
-                  placeholder="Briefly describe the purpose of this document..."
+                  placeholder={t('documents.form.descriptionPlaceholder')}
                   value={newDocument.description}
                   onChange={(e) => setNewDocument({...newDocument, description: e.target.value})}
                   rows={3}
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium">Status</label>
+                <label className="text-sm font-medium">{t('documents.form.status')}</label>
                 <Select 
                   value={newDocument.status} 
                   onValueChange={(value) => setNewDocument({...newDocument, status: value})}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select status" />
+                    <SelectValue placeholder={t('documents.form.status')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="draft">Draft</SelectItem>
-                    <SelectItem value="review">In Review</SelectItem>
-                    <SelectItem value="active">Active</SelectItem>
+                    <SelectItem value="draft">{t('common.status.draft')}</SelectItem>
+                    <SelectItem value="review">{t('common.status.review')}</SelectItem>
+                    <SelectItem value="active">{t('common.status.approved')}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
             <DialogFooter>
               <Button type="button" variant="outline" onClick={() => setNewDocumentOpen(false)}>
-                Cancel
+                {t('common.cancel')}
               </Button>
               <Button type="submit" disabled={createDocumentMutation.isPending}>
                 {createDocumentMutation.isPending ? 
-                  <><i className="fas fa-spinner fa-spin mr-2"></i> Creating...</> : 
-                  <><i className="fas fa-plus mr-2"></i> Create Document</>
+                  <><i className="fas fa-spinner fa-spin mr-2"></i> {t('common.creating')}</> : 
+                  <><i className="fas fa-plus mr-2"></i> {t('documents.actions.newDocument')}</>
                 }
               </Button>
             </DialogFooter>

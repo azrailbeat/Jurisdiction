@@ -1,343 +1,329 @@
 export default {
+  // Common
   common: {
-    appName: "Юрисдикция",
     loading: "Жүктелуде...",
-    error: "Қате орын алды",
-    save: "Сақтау",
+    noResults: "Нәтиже табылмады",
     cancel: "Болдырмау",
+    save: "Сақтау",
     delete: "Жою",
     edit: "Өңдеу",
     view: "Қарау",
-    create: "Жасау",
-    update: "Жаңарту",
-    submit: "Жіберу",
-    search: "Іздеу",
-    filter: "Сүзгі",
-    sort: "Сұрыптау",
-    upload: "Жүктеу",
     download: "Жүктеп алу",
-    noResults: "Нәтижелер табылмады",
-    back: "Артқа",
-    next: "Келесі",
+    upload: "Жүктеу",
+    search: "Іздеу",
+    creating: "Құрылуда...",
+    saving: "Сақталуда...",
+    deleting: "Жойылуда...",
+    close: "Жабу",
     confirm: "Растау",
-    actions: "Әрекеттер",
+    yes: "Иә",
+    no: "Жоқ",
     status: {
       draft: "Жоба",
-      pending: "Күтуде",
-      review: "Қарастырылуда",
-      approved: "Мақұлданды",
-      published: "Жарияланды",
-      rejected: "Қабылданбады",
+      review: "Қаралуда",
+      approved: "Бекітілген",
+      active: "Белсенді",
       archived: "Мұрағатталған",
-      all: "Барлық статустар"
-    },
-    dateFormat: {
-      short: "DD.MM.YYYY",
-      long: "YYYY 'ж.' D MMMM",
-      time: "HH:mm"
+      rejected: "Қабылданбаған"
     }
   },
-  auth: {
-    signIn: "Кіру",
-    signOut: "Шығу",
-    profile: "Профиль",
-    settings: "Параметрлер"
-  },
-  navigation: {
-    dashboard: "Басқару тақтасы",
+
+  // Navigation
+  nav: {
+    home: "Басты бет",
     documents: "Құжаттар",
+    versions: "Нұсқалар",
+    knowledgeGraph: "Білім базасы",
     verification: "Тексеру",
-    knowledgeGraph: "Білім графигі",
-    agents: "Агенттер",
     settings: "Параметрлер",
-    analytics: "Талдау",
-    help: "Көмек"
+    agents: "Агенттер",
+    logout: "Шығу"
   },
-  dashboard: {
+
+  // App
+  app: {
+    title: "Юрисдикция",
+    search: "Іздеу...",
+    welcome: "Юрисдикция жүйесіне қош келдіңіз",
+    description: "Заңнамалық құжаттарды басқару платформасы"
+  },
+
+  // Home
+  home: {
     title: "Басқару тақтасы",
-    subtitle: "Заңнамалық жүйеңіздің шолуы",
-    welcome: "Қайта қош келдіңіз",
-    cards: {
-      documents: {
-        title: "Құжаттар",
-        subtitle: "Заңнамалық құжаттарды басқару"
-      },
-      activity: {
-        title: "Соңғы әрекеттер",
-        subtitle: "Жүйедегі соңғы әрекеттер",
-        noActivity: "Жақында әрекеттер жоқ"
-      },
-      verification: {
-        title: "Тексеру мәселелері",
-        subtitle: "Тексеруді қажет ететін құжаттар",
-        noIssues: "Тексеру мәселелері табылмады"
-      },
-      knowledge: {
-        title: "Білім графигі",
-        subtitle: "Құжаттар арасындағы байланыстарды зерттеу",
-      },
-      agents: {
-        title: "Белсенді агенттер",
-        subtitle: "Тапсырмаларды орындайтын ИИ агенттері",
-        noAgents: "Белсенді агенттер табылмады"
-      }
-    }
+    recentDocuments: "Соңғы құжаттар",
+    recentActivity: "Соңғы әрекеттер",
+    quickAccess: "Жылдам қол жетімділік",
+    statistics: "Статистика",
+    viewAll: "Барлығын қарау",
+    welcomeMessage: "Қайта оралуыңызбен, {{name}}!",
+    overviewTitle: "Құжаттар шолуы",
+    totalDocuments: "Барлық құжаттар",
+    documentsInReview: "Қаралуда",
+    approvedDocuments: "Бекітілген құжаттар",
+    documentsWithIssues: "Мәселелері бар құжаттар"
   },
+
+  // Documents
   documents: {
     title: "Құжаттар",
-    subtitle: "Заңнамалық құжаттарды басқарыңыз және бірлесіп жұмыс істеңіз",
-    actions: {
-      newDocument: "Жаңа құжат",
-      uploadDocument: "Құжат жүктеу",
-      searchDocuments: "Құжаттарды іздеу...",
-      filterByStatus: "Статус бойынша сүзу"
+    searchPlaceholder: "Құжаттарды іздеу...",
+    filterByStatus: "Күй бойынша сүзу",
+    filterByDate: "Күні бойынша сүзу",
+    sortBy: "Сұрыптау",
+    view: {
+      list: "Тізім көрінісі",
+      grid: "Тор көрінісі"
     },
-    table: {
+    columns: {
       title: "Атауы",
-      status: "Статус",
-      created: "Құрылған",
-      modified: "Соңғы өзгерту",
-      author: "Автор",
-      version: "Нұсқа"
+      status: "Күйі",
+      date: "Құрылған күні",
+      version: "Нұсқасы",
+      actions: "Әрекеттер"
+    },
+    actions: {
+      newDocument: "Жаңа құжат құру",
+      upload: "Құжатты жүктеу",
+      export: "Экспорттау",
+      compare: "Салыстыру",
+      archive: "Мұрағаттау"
     },
     form: {
       title: "Атауы",
-      titlePlaceholder: "Құжат атауын енгізіңіз",
+      titlePlaceholder: "мысалы, Азаматтық кодекске 2025 жылғы өзгерістер",
       description: "Сипаттама",
-      descriptionPlaceholder: "Құжат сипаттамасын енгізіңіз",
-      status: "Статус",
-      submit: "Құжат жасау",
-      cancel: "Болдырмау"
-    },
-    details: {
-      title: "Құжат мәліметтері",
-      versions: "Нұсқалар",
-      metadata: "Метадеректер",
-      relatedDocuments: "Байланысты құжаттар",
-      verification: "Тексеру күйі"
-    },
-    editor: {
-      title: "Құжат редакторы",
-      save: "Өзгерістерді сақтау",
-      history: "Нұсқалар тарихы",
-      compare: "Нұсқаларды салыстыру",
-      preview: "Алдын ала қарау",
-      comments: "Пікірлер"
-    },
-    messages: {
-      createSuccess: "Құжат сәтті құрылды",
-      updateSuccess: "Құжат сәтті жаңартылды",
-      deleteSuccess: "Құжат сәтті жойылды",
-      createError: "Құжатты жасау кезінде қате",
-      updateError: "Құжатты жаңарту кезінде қате",
-      deleteError: "Құжатты жою кезінде қате"
+      descriptionPlaceholder: "Бұл құжаттың мақсатын қысқаша сипаттаңыз...",
+      status: "Күйі",
+      submit: "Құжат құру",
+      update: "Құжатты жаңарту"
     },
     noDocuments: "Құжаттар табылмады",
     emptyState: {
-      title: "Құжаттар әлі жоқ",
-      description: "Бастау үшін алғашқы құжатыңызды жасаңыз",
-      action: "Құжат жасау"
+      title: "Құжаттар табылмады",
+      description: "Жұмысты бастау үшін алғашқы құжатыңызды құрыңыз"
     },
-    upload: {
-      title: "Құжат жүктеу",
-      instructions: "Файлды сүйреп әкеліңіз немесе шолу үшін басыңыз",
-      supportedFormats: "Қолдау көрсетілетін форматтар: .docx, .pdf, .xml",
-      uploading: "Жүктелуде...",
-      success: "Жүктеу сәтті аяқталды",
-      error: "Жүктеу сәтсіз аяқталды",
-      retry: "Қайта жүктеу"
+    deleteConfirm: "Бұл құжатты шынымен жойғыңыз келе ме? Бұл әрекетті болдырмау мүмкін емес."
+  },
+
+  // Document Editor
+  editor: {
+    title: "Құжат редакторы",
+    save: "Өзгерістерді сақтау",
+    saveAndPublish: "Сақтау және жариялау",
+    publish: "Жариялау",
+    discard: "Өзгерістерден бас тарту",
+    preview: "Алдын ала қарау",
+    history: "Тарих",
+    versions: "Нұсқалар",
+    comments: "Пікірлер",
+    formatting: "Пішімдеу",
+    addComment: "Пікір қосу",
+    resolveComment: "Шешу",
+    autoSaved: "{{time}} автоматты түрде сақталды",
+    unsavedChanges: "Сақталмаған өзгерістер бар",
+    versionCreated: "{{number}} нұсқасы құрылды",
+    sections: {
+      add: "Бөлім қосу",
+      edit: "Бөлімді өңдеу",
+      delete: "Бөлімді жою"
     }
   },
+
+  // Verification
   verification: {
     title: "Тексеру",
-    subtitle: "Заңнамалық құжаттарды үйлесімділік пен сәйкестікке тексеру",
+    runVerification: "Тексеруді іске қосу",
+    lastRun: "Соңғы іске қосу: {{date}}",
+    status: {
+      passed: "Өтті",
+      failed: "Сәтсіз",
+      warning: "Ескерту",
+      running: "Орындалуда",
+      pending: "Күтілуде"
+    },
+    issues: {
+      critical: "Маңызды мәселелер",
+      major: "Елеулі мәселелер",
+      minor: "Шағын мәселелер",
+      info: "Ақпарат"
+    },
     filters: {
       all: "Барлық мәселелер",
-      critical: "Маңызды",
-      major: "Негізгі",
-      minor: "Елеусіз",
-      resolved: "Шешілген"
+      open: "Ашық мәселелер",
+      resolved: "Шешілген мәселелер"
     },
-    table: {
-      document: "Құжат",
-      issue: "Мәселе",
-      severity: "Маңыздылық",
-      status: "Статус",
-      location: "Орналасуы",
-      detected: "Анықталған"
-    },
-    details: {
-      title: "Мәселе мәліметтері",
-      description: "Сипаттама",
-      context: "Контекст",
-      conflictingReference: "Қайшылықты сілтеме",
-      resolution: "Шешім",
-      actions: {
-        markAsResolved: "Шешілген деп белгілеу",
-        reopenIssue: "Мәселені қайта ашу",
-        assignTo: "Тағайындау"
-      }
-    },
-    noIssues: "Тексеру мәселелері табылмады",
-    emptyState: {
-      title: "Тексеру мәселелері жоқ",
-      description: "Барлық құжаттар тексеруден өтті",
-      action: "Құжаттарды тексеру"
-    }
+    noIssues: "Мәселелер табылмады",
+    resolveIssue: "Шешілген деп белгілеу",
+    reopenIssue: "Мәселені қайта ашу"
   },
+  
+  // Knowledge Graph
   knowledgeGraph: {
-    title: "Білім графигі",
-    subtitle: "Заңнамалық құжаттар арасындағы байланыстарды зерттеу",
-    actions: {
-      zoom: "Масштаб",
-      filter: "График сүзгісі",
-      layout: "Орналасуды өзгерту",
-      export: "Графикті экспорттау",
-      search: "Объектілерді іздеу",
-      focus: "Таңдалғанға назар аудару"
-    },
-    legend: {
-      title: "Шартты белгілер",
-      document: "Құжат",
-      term: "Заңдық термин",
-      concept: "Тұжырымдама",
-      entity: "Объект",
-      relation: "Қатынас"
-    },
-    details: {
-      title: "Объект мәліметтері",
-      type: "Түрі",
-      connections: "Байланыстар",
-      documents: "Сілтеме берілген құжаттар"
-    },
-    stats: {
-      title: "График статистикасы",
+    title: "Білім базасы",
+    nodeTypes: "Түйін түрлері",
+    edgeTypes: "Байланыс түрлері",
+    findConnections: "Байланыстарды табу",
+    exportGraph: "Графті экспорттау",
+    focusNode: "Түйінге назар аудару",
+    expand: "Түйінді кеңейту",
+    collapse: "Түйінді жию",
+    showDetails: "Мәліметтерді көрсету",
+    hideDetails: "Мәліметтерді жасыру",
+    statistics: {
+      title: "Граф статистикасы",
       nodes: "Барлық түйіндер",
       edges: "Барлық байланыстар",
-      clusters: "Кластерлер",
-      density: "График тығыздығы"
+      documents: "Құжаттар",
+      terms: "Заңды терминдер",
+      entities: "Нысандар"
     },
     search: {
-      placeholder: "Объектілерді іздеу...",
-      noResults: "Объектілер табылмады"
+      placeholder: "Графті іздеу...",
+      results: "{{count}} нәтиже табылды",
+      noResults: "Нәтиже табылмады"
     },
-    emptyState: {
-      title: "Білім графигі бос",
-      description: "Білім графигін толтыру үшін құжаттар қосыңыз",
-      action: "Құжаттар қосу"
+    filters: {
+      title: "Сүзгілер",
+      showNodes: "Түйіндерді көрсету",
+      showEdges: "Байланыстарды көрсету",
+      reset: "Сүзгілерді қалпына келтіру"
     }
   },
-  agents: {
-    title: "Агенттер",
-    subtitle: "Заңнамалық құжаттарды талдайтын ИИ агенттерін басқару",
-    list: {
-      name: "Аты",
-      status: "Күйі",
-      type: "Түрі",
-      lastActive: "Соңғы белсенділік",
-      documents: "Құжаттар",
-      tasks: "Тапсырмалар"
-    },
-    status: {
-      active: "Белсенді",
-      idle: "Бос",
-      processing: "Өңделуде",
-      error: "Қате",
-      offline: "Желіден тыс"
-    },
-    details: {
-      title: "Агент мәліметтері",
-      description: "Сипаттама",
-      capabilities: "Мүмкіндіктер",
-      metrics: "Өнімділік көрсеткіштері",
-      logs: "Әрекет журналдары",
-      configuration: "Конфигурация"
-    },
-    actions: {
-      start: "Агентті бастау",
-      stop: "Агентті тоқтату",
-      restart: "Агентті қайта бастау",
-      configure: "Агентті конфигурациялау",
-      viewLogs: "Журналдарды қарау"
-    },
-    types: {
-      parser: "Құжат талдағышы",
-      validator: "Тексеруші",
-      analyzer: "Семантикалық талдағыш",
-      classifier: "Құжат жіктеуіші",
-      extractor: "Объект шығарғыш",
-      comparator: "Құжат салыстырғыш",
-      termAlignment: "Терминдерді түзету"
-    },
-    noAgents: "Агенттер табылмады",
-    emptyState: {
-      title: "Агенттер конфигурацияланбаған",
-      description: "Құжаттарды талдау үшін агенттерді конфигурациялаңыз",
-      action: "Агенттерді конфигурациялау"
-    }
-  },
+
+  // Settings
   settings: {
     title: "Параметрлер",
-    subtitle: "Қолданба параметрлерін конфигурациялау",
-    sections: {
-      general: "Жалпы",
-      account: "Тіркелгі",
+    profile: {
+      title: "Профиль",
+      name: "Аты",
+      email: "Эл. пошта",
+      position: "Лауазым",
+      department: "Бөлім",
+      save: "Өзгерістерді сақтау"
+    },
+    tabs: {
+      profile: "Профиль",
       notifications: "Хабарландырулар",
-      system: "Жүйе",
-      integrations: "Интеграциялар",
-      appearance: "Сыртқы түрі",
+      appearance: "Сыртқы көрініс",
+      security: "Қауіпсіздік",
+      language: "Тіл",
       advanced: "Кеңейтілген"
     },
     language: {
       title: "Тіл",
-      description: "Қолданба интерфейсінің тілін өзгерту",
-      languages: {
-        en: "English",
-        ru: "Русский",
-        kk: "Қазақша"
+      select: "Тілді таңдаңыз",
+      options: {
+        en: "Ағылшын",
+        ru: "Орыс",
+        kk: "Қазақ"
       }
+    },
+    notifications: {
+      title: "Хабарландырулар",
+      emailNotifications: "Эл. пошта хабарландырулары",
+      documentUpdates: "Құжат жаңартулары",
+      commentNotifications: "Пікір хабарландырулары",
+      systemNotifications: "Жүйелік хабарландырулар"
     },
     theme: {
       title: "Тақырып",
-      description: "Қалаған түс тақырыбын таңдаңыз",
-      options: {
-        light: "Жарық",
-        dark: "Қараңғы",
-        system: "Жүйелік"
-      }
-    },
-    account: {
-      title: "Тіркелгі ақпараты",
-      email: "Эл. пошта",
-      name: "Аты",
-      role: "Рөл",
-      organization: "Ұйым",
-      changePassword: "Құпия сөзді өзгерту"
-    },
-    notifications: {
-      title: "Хабарландыру параметрлері",
-      email: "Эл. пошта хабарландырулары",
-      push: "Push-хабарландырулар",
-      digest: "Күнделікті дайджест",
-      mentions: "Айтылымдар және пікірлер"
-    },
-    system: {
-      title: "Жүйе параметрлері",
-      dateFormat: "Күн форматы",
-      timeZone: "Уақыт белдеуі",
-      accessibility: "Қол жетімділік опциялары"
-    },
-    integrations: {
-      title: "Интеграциялар",
-      connectedServices: "Қосылған қызметтер",
-      apiKeys: "API кілттері",
-      webhooks: "Вебхуктар"
-    },
-    save: "Параметрлерді сақтау",
-    cancel: "Өзгерістерден бас тарту",
-    messages: {
-      saveSuccess: "Параметрлер сәтті сақталды",
-      saveError: "Параметрлерді сақтау кезінде қате"
+      light: "Жарық",
+      dark: "Қараңғы",
+      system: "Жүйелік"
     }
+  },
+  
+  // Agents
+  agents: {
+    title: "Агенттер",
+    search: "Агенттерді іздеу...",
+    status: {
+      title: "Күйі",
+      active: "Белсенді",
+      idle: "Күту режимінде",
+      busy: "Бос емес",
+      error: "Қате",
+      offline: "Желіден тыс"
+    },
+    actions: {
+      start: "Агентті іске қосу",
+      stop: "Агентті тоқтату",
+      restart: "Агентті қайта іске қосу",
+      configure: "Баптау"
+    },
+    details: {
+      title: "Агент мәліметтері",
+      description: "Сипаттама",
+      status: "Ағымдағы күйі",
+      lastActive: "Соңғы белсенділік",
+      tasks: "Орындалған тапсырмалар",
+      uptime: "Жұмыс уақыты",
+      logs: "Журналдар"
+    },
+    types: {
+      documentParser: "Құжат талдаушы",
+      termExtractor: "Терминдерді шығару құралы",
+      knowledgeGraphBuilder: "Білім базасы құрастырушы",
+      semanticVerifier: "Семантикалық тексеруші",
+      consistencyChecker: "Сәйкестік тексеруші",
+      referenceResolver: "Сілтемелерді шешуші"
+    },
+    monitoring: {
+      title: "Агенттерді бақылау",
+      performance: "Өнімділік",
+      memory: "Жад қолданысы",
+      cpu: "Процессор қолданысы",
+      queue: "Тапсырмалар кезегі"
+    },
+    noAgents: "Агенттер табылмады"
+  },
+  
+  // Versions
+  versions: {
+    title: "Нұсқалар тарихы",
+    current: "Ағымдағы нұсқа",
+    previous: "Алдыңғы нұсқалар",
+    created: "Құрылған күні {{date}}",
+    createdBy: "{{name}} құрған",
+    compare: "Нұсқаларды салыстыру",
+    restore: "Осы нұсқаны қалпына келтіру",
+    difference: "Ағымдағы нұсқадан айырмашылық",
+    noVersions: "Алдыңғы нұсқалар табылмады"
+  },
+  
+  // Analytics
+  analytics: {
+    title: "Аналитика",
+    documentAnalytics: "Құжаттар аналитикасы",
+    userActivity: "Пайдаланушы белсенділігі",
+    systemPerformance: "Жүйе өнімділігі",
+    period: {
+      day: "24 сағат",
+      week: "7 күн",
+      month: "30 күн",
+      quarter: "3 ай",
+      year: "12 ай"
+    },
+    metrics: {
+      documentsCreated: "Құрылған құжаттар",
+      documentEdits: "Құжат өңдеулері",
+      verificationRuns: "Тексеру іске қосулары",
+      issuesFound: "Табылған мәселелер",
+      issuesResolved: "Шешілген мәселелер"
+    }
+  },
+  
+  // Errors
+  errors: {
+    general: "Қате орын алды",
+    notFound: "Ресурс табылмады",
+    unauthorized: "Рұқсатсыз қол жетімділік",
+    serverError: "Сервер қатесі",
+    networkError: "Желі қатесі",
+    retry: "Қайталау",
+    fileNotFound: "Файл табылмады",
+    fileUploadFailed: "Файлды жүктеу сәтсіз аяқталды",
+    invalidForm: "Формадағы қателерді тексеріңіз"
   }
 };

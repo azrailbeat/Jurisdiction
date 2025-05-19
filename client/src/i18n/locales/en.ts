@@ -1,343 +1,329 @@
 export default {
+  // Common
   common: {
-    appName: "Jurisdiction",
     loading: "Loading...",
-    error: "An error occurred",
-    save: "Save",
+    noResults: "No results found",
     cancel: "Cancel",
+    save: "Save",
     delete: "Delete",
     edit: "Edit",
     view: "View",
-    create: "Create",
-    update: "Update",
-    submit: "Submit",
-    search: "Search",
-    filter: "Filter",
-    sort: "Sort",
-    upload: "Upload",
     download: "Download",
-    noResults: "No results found",
-    back: "Back",
-    next: "Next",
+    upload: "Upload",
+    search: "Search",
+    creating: "Creating...",
+    saving: "Saving...",
+    deleting: "Deleting...",
+    close: "Close",
     confirm: "Confirm",
-    actions: "Actions",
+    yes: "Yes",
+    no: "No",
     status: {
       draft: "Draft",
-      pending: "Pending",
       review: "In Review",
       approved: "Approved",
-      published: "Published",
-      rejected: "Rejected",
+      active: "Active",
       archived: "Archived",
-      all: "All Statuses"
-    },
-    dateFormat: {
-      short: "MM/DD/YYYY",
-      long: "MMMM D, YYYY",
-      time: "h:mm A"
+      rejected: "Rejected"
     }
   },
-  auth: {
-    signIn: "Sign In",
-    signOut: "Sign Out",
-    profile: "Profile",
-    settings: "Settings"
-  },
-  navigation: {
-    dashboard: "Dashboard",
+
+  // Navigation
+  nav: {
+    home: "Home",
     documents: "Documents",
-    verification: "Verification",
+    versions: "Versions",
     knowledgeGraph: "Knowledge Graph",
-    agents: "Agents",
+    verification: "Verification",
     settings: "Settings",
-    analytics: "Analytics",
-    help: "Help"
+    agents: "Agents",
+    logout: "Log Out"
   },
-  dashboard: {
+
+  // App
+  app: {
+    title: "Jurisdiction",
+    search: "Search...",
+    welcome: "Welcome to Jurisdiction",
+    description: "Legal document management platform"
+  },
+
+  // Home
+  home: {
     title: "Dashboard",
-    subtitle: "Overview of your legislative system",
-    welcome: "Welcome back",
-    cards: {
-      documents: {
-        title: "Documents",
-        subtitle: "Manage your legislative documents"
-      },
-      activity: {
-        title: "Recent Activity",
-        subtitle: "Latest activities in the system",
-        noActivity: "No recent activity"
-      },
-      verification: {
-        title: "Verification Issues",
-        subtitle: "Documents requiring review",
-        noIssues: "No verification issues found"
-      },
-      knowledge: {
-        title: "Knowledge Graph",
-        subtitle: "Explore document relationships",
-      },
-      agents: {
-        title: "Active Agents",
-        subtitle: "AI agents performing tasks",
-        noAgents: "No active agents found"
-      }
-    }
+    recentDocuments: "Recent Documents",
+    recentActivity: "Recent Activity",
+    quickAccess: "Quick Access",
+    statistics: "Statistics",
+    viewAll: "View All",
+    welcomeMessage: "Welcome back, {{name}}!",
+    overviewTitle: "Your Documents Overview",
+    totalDocuments: "Total Documents",
+    documentsInReview: "In Review",
+    approvedDocuments: "Approved Documents",
+    documentsWithIssues: "Documents With Issues"
   },
+
+  // Documents
   documents: {
     title: "Documents",
-    subtitle: "Manage and collaborate on your legislative documents",
-    actions: {
-      newDocument: "New Document",
-      uploadDocument: "Upload Document",
-      searchDocuments: "Search documents...",
-      filterByStatus: "Filter by status"
+    searchPlaceholder: "Search documents...",
+    filterByStatus: "Filter by status",
+    filterByDate: "Filter by date",
+    sortBy: "Sort by",
+    view: {
+      list: "List view",
+      grid: "Grid view"
     },
-    table: {
+    columns: {
       title: "Title",
       status: "Status",
-      created: "Created",
-      modified: "Last Modified",
-      author: "Author",
-      version: "Version"
+      date: "Date Created",
+      version: "Version",
+      actions: "Actions"
+    },
+    actions: {
+      newDocument: "Create New Document",
+      upload: "Upload Document",
+      export: "Export",
+      compare: "Compare",
+      archive: "Archive"
     },
     form: {
       title: "Title",
-      titlePlaceholder: "Enter document title",
+      titlePlaceholder: "e.g., Civil Code Amendment 2025",
       description: "Description",
-      descriptionPlaceholder: "Enter document description",
+      descriptionPlaceholder: "Briefly describe the purpose of this document...",
       status: "Status",
       submit: "Create Document",
-      cancel: "Cancel"
-    },
-    details: {
-      title: "Document Details",
-      versions: "Versions",
-      metadata: "Metadata",
-      relatedDocuments: "Related Documents",
-      verification: "Verification Status"
-    },
-    editor: {
-      title: "Document Editor",
-      save: "Save Changes",
-      history: "Version History",
-      compare: "Compare Versions",
-      preview: "Preview",
-      comments: "Comments"
-    },
-    messages: {
-      createSuccess: "Document created successfully",
-      updateSuccess: "Document updated successfully",
-      deleteSuccess: "Document deleted successfully",
-      createError: "Failed to create document",
-      updateError: "Failed to update document",
-      deleteError: "Failed to delete document"
+      update: "Update Document"
     },
     noDocuments: "No documents found",
     emptyState: {
-      title: "No documents yet",
-      description: "Create your first document to get started",
-      action: "Create Document"
+      title: "No documents found",
+      description: "Create your first document to get started"
     },
-    upload: {
-      title: "Upload Document",
-      instructions: "Drag and drop a file or click to browse",
-      supportedFormats: "Supported formats: .docx, .pdf, .xml",
-      uploading: "Uploading...",
-      success: "Upload successful",
-      error: "Upload failed",
-      retry: "Retry Upload"
+    deleteConfirm: "Are you sure you want to delete this document? This action cannot be undone."
+  },
+
+  // Document Editor
+  editor: {
+    title: "Document Editor",
+    save: "Save Changes",
+    saveAndPublish: "Save & Publish",
+    publish: "Publish",
+    discard: "Discard Changes",
+    preview: "Preview",
+    history: "History",
+    versions: "Versions",
+    comments: "Comments",
+    formatting: "Formatting",
+    addComment: "Add Comment",
+    resolveComment: "Resolve",
+    autoSaved: "Auto-saved at {{time}}",
+    unsavedChanges: "You have unsaved changes",
+    versionCreated: "Version {{number}} created",
+    sections: {
+      add: "Add Section",
+      edit: "Edit Section",
+      delete: "Delete Section"
     }
   },
+
+  // Verification
   verification: {
     title: "Verification",
-    subtitle: "Verify legislative documents for consistency and compliance",
+    runVerification: "Run Verification",
+    lastRun: "Last run: {{date}}",
+    status: {
+      passed: "Passed",
+      failed: "Failed",
+      warning: "Warning",
+      running: "Running",
+      pending: "Pending"
+    },
+    issues: {
+      critical: "Critical Issues",
+      major: "Major Issues",
+      minor: "Minor Issues",
+      info: "Information"
+    },
     filters: {
       all: "All Issues",
-      critical: "Critical",
-      major: "Major",
-      minor: "Minor",
-      resolved: "Resolved"
+      open: "Open Issues",
+      resolved: "Resolved Issues"
     },
-    table: {
-      document: "Document",
-      issue: "Issue",
-      severity: "Severity",
-      status: "Status",
-      location: "Location",
-      detected: "Detected"
-    },
-    details: {
-      title: "Issue Details",
-      description: "Description",
-      context: "Context",
-      conflictingReference: "Conflicting Reference",
-      resolution: "Resolution",
-      actions: {
-        markAsResolved: "Mark as Resolved",
-        reopenIssue: "Reopen Issue",
-        assignTo: "Assign To"
-      }
-    },
-    noIssues: "No verification issues found",
-    emptyState: {
-      title: "No verification issues",
-      description: "All documents have passed verification",
-      action: "Verify Documents"
-    }
+    noIssues: "No issues found",
+    resolveIssue: "Mark as Resolved",
+    reopenIssue: "Reopen Issue"
   },
+  
+  // Knowledge Graph
   knowledgeGraph: {
     title: "Knowledge Graph",
-    subtitle: "Explore relationships between legislative documents",
-    actions: {
-      zoom: "Zoom",
-      filter: "Filter Graph",
-      layout: "Change Layout",
-      export: "Export Graph",
-      search: "Search Entities",
-      focus: "Focus on Selection"
-    },
-    legend: {
-      title: "Legend",
-      document: "Document",
-      term: "Legal Term",
-      concept: "Concept",
-      entity: "Entity",
-      relation: "Relation"
-    },
-    details: {
-      title: "Entity Details",
-      type: "Type",
-      connections: "Connections",
-      documents: "Referenced Documents"
-    },
-    stats: {
+    nodeTypes: "Node Types",
+    edgeTypes: "Edge Types",
+    findConnections: "Find Connections",
+    exportGraph: "Export Graph",
+    focusNode: "Focus on Node",
+    expand: "Expand Node",
+    collapse: "Collapse Node",
+    showDetails: "Show Details",
+    hideDetails: "Hide Details",
+    statistics: {
       title: "Graph Statistics",
       nodes: "Total Nodes",
-      edges: "Total Connections",
-      clusters: "Clusters",
-      density: "Graph Density"
+      edges: "Total Edges",
+      documents: "Documents",
+      terms: "Legal Terms",
+      entities: "Entities"
     },
     search: {
-      placeholder: "Search entities...",
-      noResults: "No entities found"
+      placeholder: "Search the graph...",
+      results: "{{count}} results found",
+      noResults: "No results found"
     },
-    emptyState: {
-      title: "Knowledge graph is empty",
-      description: "Add documents to populate the knowledge graph",
-      action: "Add Documents"
+    filters: {
+      title: "Filters",
+      showNodes: "Show Nodes",
+      showEdges: "Show Edges",
+      reset: "Reset Filters"
     }
   },
+
+  // Settings
+  settings: {
+    title: "Settings",
+    profile: {
+      title: "Profile",
+      name: "Name",
+      email: "Email",
+      position: "Position",
+      department: "Department",
+      save: "Save Changes"
+    },
+    tabs: {
+      profile: "Profile",
+      notifications: "Notifications",
+      appearance: "Appearance",
+      security: "Security",
+      language: "Language",
+      advanced: "Advanced"
+    },
+    language: {
+      title: "Language",
+      select: "Select Language",
+      options: {
+        en: "English",
+        ru: "Russian",
+        kk: "Kazakh"
+      }
+    },
+    notifications: {
+      title: "Notifications",
+      emailNotifications: "Email Notifications",
+      documentUpdates: "Document Updates",
+      commentNotifications: "Comment Notifications",
+      systemNotifications: "System Notifications"
+    },
+    theme: {
+      title: "Theme",
+      light: "Light",
+      dark: "Dark",
+      system: "System Default"
+    }
+  },
+  
+  // Agents
   agents: {
     title: "Agents",
-    subtitle: "Manage AI agents analyzing your legislative documents",
-    list: {
-      name: "Name",
-      status: "Status",
-      type: "Type",
-      lastActive: "Last Active",
-      documents: "Documents",
-      tasks: "Tasks"
-    },
+    search: "Search agents...",
     status: {
+      title: "Status",
       active: "Active",
       idle: "Idle",
-      processing: "Processing",
+      busy: "Busy",
       error: "Error",
       offline: "Offline"
-    },
-    details: {
-      title: "Agent Details",
-      description: "Description",
-      capabilities: "Capabilities",
-      metrics: "Performance Metrics",
-      logs: "Activity Logs",
-      configuration: "Configuration"
     },
     actions: {
       start: "Start Agent",
       stop: "Stop Agent",
       restart: "Restart Agent",
-      configure: "Configure Agent",
-      viewLogs: "View Logs"
+      configure: "Configure"
+    },
+    details: {
+      title: "Agent Details",
+      description: "Description",
+      status: "Current Status",
+      lastActive: "Last Active",
+      tasks: "Tasks Completed",
+      uptime: "Uptime",
+      logs: "Logs"
     },
     types: {
-      parser: "Document Parser",
-      validator: "Validator",
-      analyzer: "Semantic Analyzer",
-      classifier: "Document Classifier",
-      extractor: "Entity Extractor",
-      comparator: "Document Comparator",
-      termAlignment: "Term Alignment"
+      documentParser: "Document Parser",
+      termExtractor: "Term Extractor",
+      knowledgeGraphBuilder: "Knowledge Graph Builder",
+      semanticVerifier: "Semantic Verifier",
+      consistencyChecker: "Consistency Checker",
+      referenceResolver: "Reference Resolver"
     },
-    noAgents: "No agents found",
-    emptyState: {
-      title: "No agents configured",
-      description: "Configure agents to analyze documents",
-      action: "Configure Agents"
+    monitoring: {
+      title: "Agent Monitoring",
+      performance: "Performance",
+      memory: "Memory Usage",
+      cpu: "CPU Usage",
+      queue: "Task Queue"
+    },
+    noAgents: "No agents found"
+  },
+  
+  // Versions
+  versions: {
+    title: "Version History",
+    current: "Current Version",
+    previous: "Previous Versions",
+    created: "Created {{date}}",
+    createdBy: "Created by {{name}}",
+    compare: "Compare Versions",
+    restore: "Restore This Version",
+    difference: "Difference from Current",
+    noVersions: "No previous versions found"
+  },
+  
+  // Analytics
+  analytics: {
+    title: "Analytics",
+    documentAnalytics: "Document Analytics",
+    userActivity: "User Activity",
+    systemPerformance: "System Performance",
+    period: {
+      day: "24 Hours",
+      week: "7 Days",
+      month: "30 Days",
+      quarter: "3 Months",
+      year: "12 Months"
+    },
+    metrics: {
+      documentsCreated: "Documents Created",
+      documentEdits: "Document Edits",
+      verificationRuns: "Verification Runs",
+      issuesFound: "Issues Found",
+      issuesResolved: "Issues Resolved"
     }
   },
-  settings: {
-    title: "Settings",
-    subtitle: "Configure your application preferences",
-    sections: {
-      general: "General",
-      account: "Account",
-      notifications: "Notifications",
-      system: "System",
-      integrations: "Integrations",
-      appearance: "Appearance",
-      advanced: "Advanced"
-    },
-    language: {
-      title: "Language",
-      description: "Change the language of the application interface",
-      languages: {
-        en: "English",
-        ru: "Русский",
-        kk: "Қазақша"
-      }
-    },
-    theme: {
-      title: "Theme",
-      description: "Choose your preferred color theme",
-      options: {
-        light: "Light",
-        dark: "Dark",
-        system: "System"
-      }
-    },
-    account: {
-      title: "Account Information",
-      email: "Email",
-      name: "Name",
-      role: "Role",
-      organization: "Organization",
-      changePassword: "Change Password"
-    },
-    notifications: {
-      title: "Notification Preferences",
-      email: "Email Notifications",
-      push: "Push Notifications",
-      digest: "Daily Digest",
-      mentions: "Mentions and Comments"
-    },
-    system: {
-      title: "System Settings",
-      dateFormat: "Date Format",
-      timeZone: "Time Zone",
-      accessibility: "Accessibility Options"
-    },
-    integrations: {
-      title: "Integrations",
-      connectedServices: "Connected Services",
-      apiKeys: "API Keys",
-      webhooks: "Webhooks"
-    },
-    save: "Save Settings",
-    cancel: "Cancel Changes",
-    messages: {
-      saveSuccess: "Settings saved successfully",
-      saveError: "Failed to save settings"
-    }
+  
+  // Errors
+  errors: {
+    general: "An error occurred",
+    notFound: "Resource not found",
+    unauthorized: "Unauthorized access",
+    serverError: "Server error",
+    networkError: "Network error",
+    retry: "Retry",
+    fileNotFound: "File not found",
+    fileUploadFailed: "File upload failed",
+    invalidForm: "Please check the form for errors"
   }
 };

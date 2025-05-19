@@ -1,343 +1,329 @@
 export default {
+  // Common
   common: {
-    appName: "Юрисдикция",
     loading: "Загрузка...",
-    error: "Произошла ошибка",
-    save: "Сохранить",
+    noResults: "Результаты не найдены",
     cancel: "Отмена",
+    save: "Сохранить",
     delete: "Удалить",
     edit: "Редактировать",
     view: "Просмотр",
-    create: "Создать",
-    update: "Обновить",
-    submit: "Отправить",
-    search: "Поиск",
-    filter: "Фильтр",
-    sort: "Сортировка",
-    upload: "Загрузить",
     download: "Скачать",
-    noResults: "Результаты не найдены",
-    back: "Назад",
-    next: "Далее",
+    upload: "Загрузить",
+    search: "Поиск",
+    creating: "Создание...",
+    saving: "Сохранение...",
+    deleting: "Удаление...",
+    close: "Закрыть",
     confirm: "Подтвердить",
-    actions: "Действия",
+    yes: "Да",
+    no: "Нет",
     status: {
       draft: "Черновик",
-      pending: "В ожидании",
       review: "На рассмотрении",
-      approved: "Одобрено",
-      published: "Опубликовано",
-      rejected: "Отклонено",
+      approved: "Утверждено",
+      active: "Активно",
       archived: "В архиве",
-      all: "Все статусы"
-    },
-    dateFormat: {
-      short: "DD.MM.YYYY",
-      long: "D MMMM YYYY",
-      time: "HH:mm"
+      rejected: "Отклонено"
     }
   },
-  auth: {
-    signIn: "Войти",
-    signOut: "Выйти",
-    profile: "Профиль",
-    settings: "Настройки"
-  },
-  navigation: {
-    dashboard: "Панель управления",
+
+  // Navigation
+  nav: {
+    home: "Главная",
     documents: "Документы",
-    verification: "Верификация",
-    knowledgeGraph: "График знаний",
-    agents: "Агенты",
+    versions: "Версии",
+    knowledgeGraph: "База знаний",
+    verification: "Проверка",
     settings: "Настройки",
-    analytics: "Аналитика",
-    help: "Помощь"
+    agents: "Агенты",
+    logout: "Выйти"
   },
-  dashboard: {
+
+  // App
+  app: {
+    title: "Юрисдикция",
+    search: "Поиск...",
+    welcome: "Добро пожаловать в Юрисдикцию",
+    description: "Платформа управления юридическими документами"
+  },
+
+  // Home
+  home: {
     title: "Панель управления",
-    subtitle: "Обзор вашей законодательной системы",
-    welcome: "Добро пожаловать",
-    cards: {
-      documents: {
-        title: "Документы",
-        subtitle: "Управление законодательными документами"
-      },
-      activity: {
-        title: "Последние действия",
-        subtitle: "Последние действия в системе",
-        noActivity: "Нет недавних действий"
-      },
-      verification: {
-        title: "Проблемы верификации",
-        subtitle: "Документы, требующие проверки",
-        noIssues: "Проблемы верификации не найдены"
-      },
-      knowledge: {
-        title: "График знаний",
-        subtitle: "Исследуйте взаимосвязи документов",
-      },
-      agents: {
-        title: "Активные агенты",
-        subtitle: "ИИ-агенты, выполняющие задачи",
-        noAgents: "Активные агенты не найдены"
-      }
-    }
+    recentDocuments: "Недавние документы",
+    recentActivity: "Недавняя активность",
+    quickAccess: "Быстрый доступ",
+    statistics: "Статистика",
+    viewAll: "Просмотреть все",
+    welcomeMessage: "С возвращением, {{name}}!",
+    overviewTitle: "Обзор ваших документов",
+    totalDocuments: "Всего документов",
+    documentsInReview: "На рассмотрении",
+    approvedDocuments: "Утвержденные документы",
+    documentsWithIssues: "Документы с проблемами"
   },
+
+  // Documents
   documents: {
     title: "Документы",
-    subtitle: "Управляйте и сотрудничайте над законодательными документами",
-    actions: {
-      newDocument: "Новый документ",
-      uploadDocument: "Загрузить документ",
-      searchDocuments: "Поиск документов...",
-      filterByStatus: "Фильтр по статусу"
+    searchPlaceholder: "Поиск документов...",
+    filterByStatus: "Фильтр по статусу",
+    filterByDate: "Фильтр по дате",
+    sortBy: "Сортировать по",
+    view: {
+      list: "В виде списка",
+      grid: "В виде сетки"
     },
-    table: {
+    columns: {
       title: "Название",
       status: "Статус",
-      created: "Создано",
-      modified: "Изменено",
-      author: "Автор",
-      version: "Версия"
+      date: "Дата создания",
+      version: "Версия",
+      actions: "Действия"
+    },
+    actions: {
+      newDocument: "Создать новый документ",
+      upload: "Загрузить документ",
+      export: "Экспорт",
+      compare: "Сравнить",
+      archive: "Архивировать"
     },
     form: {
       title: "Название",
-      titlePlaceholder: "Введите название документа",
+      titlePlaceholder: "например, Поправка к Гражданскому кодексу 2025",
       description: "Описание",
-      descriptionPlaceholder: "Введите описание документа",
+      descriptionPlaceholder: "Кратко опишите цель этого документа...",
       status: "Статус",
       submit: "Создать документ",
-      cancel: "Отмена"
-    },
-    details: {
-      title: "Детали документа",
-      versions: "Версии",
-      metadata: "Метаданные",
-      relatedDocuments: "Связанные документы",
-      verification: "Статус верификации"
-    },
-    editor: {
-      title: "Редактор документов",
-      save: "Сохранить изменения",
-      history: "История версий",
-      compare: "Сравнить версии",
-      preview: "Предпросмотр",
-      comments: "Комментарии"
-    },
-    messages: {
-      createSuccess: "Документ успешно создан",
-      updateSuccess: "Документ успешно обновлен",
-      deleteSuccess: "Документ успешно удален",
-      createError: "Не удалось создать документ",
-      updateError: "Не удалось обновить документ",
-      deleteError: "Не удалось удалить документ"
+      update: "Обновить документ"
     },
     noDocuments: "Документы не найдены",
     emptyState: {
-      title: "Документы отсутствуют",
-      description: "Создайте свой первый документ, чтобы начать работу",
-      action: "Создать документ"
+      title: "Документы не найдены",
+      description: "Создайте ваш первый документ, чтобы начать работу"
     },
-    upload: {
-      title: "Загрузить документ",
-      instructions: "Перетащите файл или нажмите для выбора",
-      supportedFormats: "Поддерживаемые форматы: .docx, .pdf, .xml",
-      uploading: "Загрузка...",
-      success: "Загрузка выполнена успешно",
-      error: "Загрузка не удалась",
-      retry: "Повторить загрузку"
+    deleteConfirm: "Вы уверены, что хотите удалить этот документ? Это действие нельзя будет отменить."
+  },
+
+  // Document Editor
+  editor: {
+    title: "Редактор документов",
+    save: "Сохранить изменения",
+    saveAndPublish: "Сохранить и опубликовать",
+    publish: "Опубликовать",
+    discard: "Отменить изменения",
+    preview: "Предпросмотр",
+    history: "История",
+    versions: "Версии",
+    comments: "Комментарии",
+    formatting: "Форматирование",
+    addComment: "Добавить комментарий",
+    resolveComment: "Решить",
+    autoSaved: "Автосохранение в {{time}}",
+    unsavedChanges: "У вас есть несохраненные изменения",
+    versionCreated: "Версия {{number}} создана",
+    sections: {
+      add: "Добавить раздел",
+      edit: "Редактировать раздел",
+      delete: "Удалить раздел"
     }
   },
+
+  // Verification
   verification: {
-    title: "Верификация",
-    subtitle: "Проверка законодательных документов на согласованность и соответствие",
+    title: "Проверка",
+    runVerification: "Запустить проверку",
+    lastRun: "Последний запуск: {{date}}",
+    status: {
+      passed: "Пройдено",
+      failed: "Не пройдено",
+      warning: "Предупреждение",
+      running: "В процессе",
+      pending: "Ожидание"
+    },
+    issues: {
+      critical: "Критические проблемы",
+      major: "Серьезные проблемы",
+      minor: "Незначительные проблемы",
+      info: "Информация"
+    },
     filters: {
       all: "Все проблемы",
-      critical: "Критические",
-      major: "Серьезные",
-      minor: "Незначительные",
-      resolved: "Решенные"
+      open: "Открытые проблемы",
+      resolved: "Решенные проблемы"
     },
-    table: {
-      document: "Документ",
-      issue: "Проблема",
-      severity: "Серьезность",
-      status: "Статус",
-      location: "Расположение",
-      detected: "Обнаружено"
-    },
-    details: {
-      title: "Детали проблемы",
-      description: "Описание",
-      context: "Контекст",
-      conflictingReference: "Конфликтующая ссылка",
-      resolution: "Решение",
-      actions: {
-        markAsResolved: "Отметить как решенное",
-        reopenIssue: "Переоткрыть проблему",
-        assignTo: "Назначить"
-      }
-    },
-    noIssues: "Проблемы верификации не найдены",
-    emptyState: {
-      title: "Нет проблем верификации",
-      description: "Все документы прошли верификацию",
-      action: "Проверить документы"
-    }
+    noIssues: "Проблемы не найдены",
+    resolveIssue: "Отметить как решенную",
+    reopenIssue: "Переоткрыть проблему"
   },
+  
+  // Knowledge Graph
   knowledgeGraph: {
-    title: "График знаний",
-    subtitle: "Исследуйте взаимосвязи между законодательными документами",
-    actions: {
-      zoom: "Масштаб",
-      filter: "Фильтр графика",
-      layout: "Изменить разметку",
-      export: "Экспорт графика",
-      search: "Поиск сущностей",
-      focus: "Фокус на выбранном"
-    },
-    legend: {
-      title: "Легенда",
-      document: "Документ",
-      term: "Юридический термин",
-      concept: "Концепция",
-      entity: "Сущность",
-      relation: "Отношение"
-    },
-    details: {
-      title: "Детали сущности",
-      type: "Тип",
-      connections: "Связи",
-      documents: "Упомянутые документы"
-    },
-    stats: {
-      title: "Статистика графика",
+    title: "База знаний",
+    nodeTypes: "Типы узлов",
+    edgeTypes: "Типы связей",
+    findConnections: "Найти связи",
+    exportGraph: "Экспорт графа",
+    focusNode: "Фокус на узле",
+    expand: "Расширить узел",
+    collapse: "Свернуть узел",
+    showDetails: "Показать детали",
+    hideDetails: "Скрыть детали",
+    statistics: {
+      title: "Статистика графа",
       nodes: "Всего узлов",
       edges: "Всего связей",
-      clusters: "Кластеры",
-      density: "Плотность графика"
+      documents: "Документы",
+      terms: "Юридические термины",
+      entities: "Сущности"
     },
     search: {
-      placeholder: "Поиск сущностей...",
-      noResults: "Сущности не найдены"
+      placeholder: "Поиск по графу...",
+      results: "Найдено {{count}} результатов",
+      noResults: "Результаты не найдены"
     },
-    emptyState: {
-      title: "График знаний пуст",
-      description: "Добавьте документы для наполнения графика знаний",
-      action: "Добавить документы"
+    filters: {
+      title: "Фильтры",
+      showNodes: "Показать узлы",
+      showEdges: "Показать связи",
+      reset: "Сбросить фильтры"
     }
   },
+
+  // Settings
+  settings: {
+    title: "Настройки",
+    profile: {
+      title: "Профиль",
+      name: "Имя",
+      email: "Эл. почта",
+      position: "Должность",
+      department: "Отдел",
+      save: "Сохранить изменения"
+    },
+    tabs: {
+      profile: "Профиль",
+      notifications: "Уведомления",
+      appearance: "Внешний вид",
+      security: "Безопасность",
+      language: "Язык",
+      advanced: "Расширенные"
+    },
+    language: {
+      title: "Язык",
+      select: "Выберите язык",
+      options: {
+        en: "Английский",
+        ru: "Русский",
+        kk: "Казахский"
+      }
+    },
+    notifications: {
+      title: "Уведомления",
+      emailNotifications: "Уведомления по эл. почте",
+      documentUpdates: "Обновления документов",
+      commentNotifications: "Уведомления о комментариях",
+      systemNotifications: "Системные уведомления"
+    },
+    theme: {
+      title: "Тема",
+      light: "Светлая",
+      dark: "Темная",
+      system: "Системная"
+    }
+  },
+  
+  // Agents
   agents: {
     title: "Агенты",
-    subtitle: "Управление ИИ-агентами, анализирующими законодательные документы",
-    list: {
-      name: "Имя",
-      status: "Статус",
-      type: "Тип",
-      lastActive: "Последняя активность",
-      documents: "Документы",
-      tasks: "Задачи"
-    },
+    search: "Поиск агентов...",
     status: {
+      title: "Статус",
       active: "Активен",
-      idle: "Простаивает",
-      processing: "Обработка",
+      idle: "В ожидании",
+      busy: "Занят",
       error: "Ошибка",
       offline: "Офлайн"
-    },
-    details: {
-      title: "Детали агента",
-      description: "Описание",
-      capabilities: "Возможности",
-      metrics: "Показатели производительности",
-      logs: "Журналы активности",
-      configuration: "Конфигурация"
     },
     actions: {
       start: "Запустить агента",
       stop: "Остановить агента",
       restart: "Перезапустить агента",
-      configure: "Настроить агента",
-      viewLogs: "Просмотр журналов"
+      configure: "Настроить"
+    },
+    details: {
+      title: "Детали агента",
+      description: "Описание",
+      status: "Текущий статус",
+      lastActive: "Последняя активность",
+      tasks: "Выполненные задачи",
+      uptime: "Время работы",
+      logs: "Логи"
     },
     types: {
-      parser: "Парсер документов",
-      validator: "Валидатор",
-      analyzer: "Семантический анализатор",
-      classifier: "Классификатор документов",
-      extractor: "Экстрактор сущностей",
-      comparator: "Компаратор документов",
-      termAlignment: "Согласование терминов"
+      documentParser: "Анализатор документов",
+      termExtractor: "Экстрактор терминов",
+      knowledgeGraphBuilder: "Построитель графа знаний",
+      semanticVerifier: "Семантический верификатор",
+      consistencyChecker: "Проверка согласованности",
+      referenceResolver: "Обработчик ссылок"
     },
-    noAgents: "Агенты не найдены",
-    emptyState: {
-      title: "Агенты не настроены",
-      description: "Настройте агентов для анализа документов",
-      action: "Настроить агентов"
+    monitoring: {
+      title: "Мониторинг агентов",
+      performance: "Производительность",
+      memory: "Использование памяти",
+      cpu: "Использование ЦП",
+      queue: "Очередь задач"
+    },
+    noAgents: "Агенты не найдены"
+  },
+  
+  // Versions
+  versions: {
+    title: "История версий",
+    current: "Текущая версия",
+    previous: "Предыдущие версии",
+    created: "Создано {{date}}",
+    createdBy: "Создано пользователем {{name}}",
+    compare: "Сравнить версии",
+    restore: "Восстановить эту версию",
+    difference: "Различия с текущей версией",
+    noVersions: "Предыдущие версии не найдены"
+  },
+  
+  // Analytics
+  analytics: {
+    title: "Аналитика",
+    documentAnalytics: "Аналитика документов",
+    userActivity: "Активность пользователей",
+    systemPerformance: "Производительность системы",
+    period: {
+      day: "24 часа",
+      week: "7 дней",
+      month: "30 дней",
+      quarter: "3 месяца",
+      year: "12 месяцев"
+    },
+    metrics: {
+      documentsCreated: "Созданные документы",
+      documentEdits: "Правки документов",
+      verificationRuns: "Запуски проверки",
+      issuesFound: "Найденные проблемы",
+      issuesResolved: "Решенные проблемы"
     }
   },
-  settings: {
-    title: "Настройки",
-    subtitle: "Настройка параметров приложения",
-    sections: {
-      general: "Основные",
-      account: "Аккаунт",
-      notifications: "Уведомления",
-      system: "Система",
-      integrations: "Интеграции",
-      appearance: "Внешний вид",
-      advanced: "Расширенные"
-    },
-    language: {
-      title: "Язык",
-      description: "Изменить язык интерфейса приложения",
-      languages: {
-        en: "English",
-        ru: "Русский",
-        kk: "Қазақша"
-      }
-    },
-    theme: {
-      title: "Тема",
-      description: "Выберите предпочитаемую цветовую тему",
-      options: {
-        light: "Светлая",
-        dark: "Темная",
-        system: "Системная"
-      }
-    },
-    account: {
-      title: "Информация об аккаунте",
-      email: "Эл. почта",
-      name: "Имя",
-      role: "Роль",
-      organization: "Организация",
-      changePassword: "Изменить пароль"
-    },
-    notifications: {
-      title: "Настройки уведомлений",
-      email: "Уведомления по эл. почте",
-      push: "Push-уведомления",
-      digest: "Ежедневная сводка",
-      mentions: "Упоминания и комментарии"
-    },
-    system: {
-      title: "Системные настройки",
-      dateFormat: "Формат даты",
-      timeZone: "Часовой пояс",
-      accessibility: "Параметры доступности"
-    },
-    integrations: {
-      title: "Интеграции",
-      connectedServices: "Подключенные сервисы",
-      apiKeys: "API-ключи",
-      webhooks: "Вебхуки"
-    },
-    save: "Сохранить настройки",
-    cancel: "Отменить изменения",
-    messages: {
-      saveSuccess: "Настройки успешно сохранены",
-      saveError: "Не удалось сохранить настройки"
-    }
+  
+  // Errors
+  errors: {
+    general: "Произошла ошибка",
+    notFound: "Ресурс не найден",
+    unauthorized: "Несанкционированный доступ",
+    serverError: "Ошибка сервера",
+    networkError: "Ошибка сети",
+    retry: "Повторить",
+    fileNotFound: "Файл не найден",
+    fileUploadFailed: "Загрузка файла не удалась",
+    invalidForm: "Пожалуйста, проверьте форму на наличие ошибок"
   }
 };
