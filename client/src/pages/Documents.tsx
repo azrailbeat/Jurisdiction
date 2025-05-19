@@ -59,13 +59,15 @@ const Documents: React.FC = () => {
     try {
       const userId = 1; // In a real app, this would come from authentication
       
+      const data = {
+        ...newDocument,
+        createdBy: userId,
+        updatedBy: userId,
+      };
+      
       await apiRequest("/api/documents", {
         method: "POST",
-        body: {
-          ...newDocument,
-          createdBy: userId,
-          updatedBy: userId,
-        }
+        body: data
       });
 
       // Reset form and close dialog
