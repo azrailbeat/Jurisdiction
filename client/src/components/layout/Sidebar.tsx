@@ -60,6 +60,12 @@ const Sidebar: React.FC = () => {
       label: "Terminology", 
       description: "Manage legal terms glossary" 
     },
+    { 
+      path: "/agents", 
+      icon: "fa-robot", 
+      label: "Agents", 
+      description: "Monitor and manage microservice agents" 
+    },
   ];
 
   return (

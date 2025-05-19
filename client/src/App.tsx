@@ -11,6 +11,7 @@ import Versions from "@/pages/Versions";
 import KnowledgeGraph from "@/pages/KnowledgeGraph";
 import Verification from "@/pages/Verification";
 import Terminology from "@/pages/Terminology";
+import Agents from "@/pages/Agents";
 import Settings from "@/pages/Settings";
 import AppShell from "@/components/layout/AppShell";
 
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/knowledge-graph" component={KnowledgeGraph} />
       <Route path="/verification" component={Verification} />
       <Route path="/terminology" component={Terminology} />
+      <Route path="/agents" component={Agents} />
       <Route path="/settings" component={Settings} />
       <Route component={NotFound} />
     </Switch>
