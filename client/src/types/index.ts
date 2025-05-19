@@ -14,11 +14,13 @@ export interface Document {
   id: number;
   title: string;
   status: DocumentStatus;
-  lastUpdated: string;
-  lastUpdatedBy: User;
-  version: string;
+  createdAt: string | Date;
+  updatedAt: string | Date;
+  currentVersion: string;
   content: string;
   xml: string;
+  createdBy: string;
+  updatedBy: string;
 }
 
 export interface DocumentVersion {

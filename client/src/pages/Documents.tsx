@@ -169,8 +169,8 @@ const Documents: React.FC = () => {
                               {document.title}
                             </TableCell>
                             <TableCell>{getStatusBadge(document.status)}</TableCell>
-                            <TableCell>v{document.version}</TableCell>
-                            <TableCell>{formatDate(document.lastUpdated)}</TableCell>
+                            <TableCell>v{document.currentVersion}</TableCell>
+                            <TableCell>{formatDate(document.updatedAt)}</TableCell>
                             <TableCell className="text-right">
                               <Link href={`/documents/${document.id}`}>
                                 <Button
