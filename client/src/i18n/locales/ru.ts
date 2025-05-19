@@ -219,7 +219,22 @@ export default {
       appearance: "Внешний вид",
       security: "Безопасность",
       language: "Язык",
-      advanced: "Расширенные"
+      advanced: "Расширенные",
+      account: "Аккаунт",
+      system: "Система",
+      aiModels: "AI модели"
+    },
+    account: {
+      title: "Управление аккаунтом",
+      subtitle: "Управление настройками вашего аккаунта",
+      username: "Имя пользователя",
+      language: "Язык интерфейса",
+      theme: "Тема оформления",
+      themes: {
+        light: "Светлая",
+        dark: "Темная",
+        system: "Системная"
+      }
     },
     language: {
       title: "Язык",

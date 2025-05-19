@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 import {
   Card,
   CardContent,
@@ -81,6 +82,7 @@ interface SemanticComparisonResult {
 }
 
 const Versions: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedDocumentId, setSelectedDocumentId] = useState<number | null>(null);
   const [compareMode, setCompareMode] = useState(false);
   const [compareVersions, setCompareVersions] = useState<{
@@ -146,26 +148,26 @@ const Versions: React.FC = () => {
   return (
     <>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Version Control</h1>
+        <h1 className="text-2xl font-bold">{t('versions.title')}</h1>
         <Button
           variant="outline"
           className="border-primary text-primary"
           onClick={() => setCompareMode(!compareMode)}
         >
           <i className={`fas fa-${compareMode ? 'timeline' : 'code-compare'} mr-2`}></i>
-          {compareMode ? "View Timeline" : "Compare Versions"}
+          {compareMode ? t('versions.viewTimeline') : t('versions.compareVersions')}
         </Button>
       </div>
 
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle>Select Document</CardTitle>
+          <CardTitle>{t('versions.selectDocument')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex items-center space-x-4">
             <Select onValueChange={handleDocumentSelect}>
               <SelectTrigger className="w-[350px]">
-                <SelectValue placeholder="Select a document to view versions" />
+                <SelectValue placeholder={t('versions.selectDocumentPlaceholder')} />
               </SelectTrigger>
               <SelectContent>
                 {documents?.map((document) => (
@@ -177,7 +179,7 @@ const Versions: React.FC = () => {
             </Select>
             {selectedDocument && (
               <Badge className="bg-secondary text-white">
-                Current: v{selectedDocument.currentVersion}
+                {t('versions.current')}: v{selectedDocument.currentVersion}
               </Badge>
             )}
           </div>
