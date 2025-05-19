@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { queryClient } from "@/lib/queryClient";
 import { useQuery } from "@tanstack/react-query";
 import { SearchResult } from "@/types";
+import { LoginButton } from "@/components/auth/LoginButton";
 
 const TopNavigation: React.FC = () => {
   const [location] = useLocation();
@@ -68,21 +69,7 @@ const TopNavigation: React.FC = () => {
           </button>
         </div>
 
-        <DropdownMenu>
-          <DropdownMenuTrigger className="flex items-center space-x-2 cursor-pointer">
-            <Avatar className="h-8 w-8">
-              <AvatarImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" alt="User avatar" />
-              <AvatarFallback>NI</AvatarFallback>
-            </Avatar>
-            <span className="hidden md:inline">Nikolay Ivanov</span>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Preferences</DropdownMenuItem>
-            <DropdownMenuItem>Help</DropdownMenuItem>
-            <DropdownMenuItem>Sign out</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <LoginButton />
       </div>
     </header>
   );
