@@ -61,7 +61,7 @@ export interface IStorage {
 }
 
 export class MemStorage implements IStorage {
-  private users: Map<number, User>;
+  private users: Map<string, User>;
   private documents: Map<number, Document>;
   private documentVersions: Map<number, DocumentVersion>;
   private activities: Map<number, Activity>;
@@ -71,7 +71,6 @@ export class MemStorage implements IStorage {
   private knowledgeGraphEdges: Map<string, KnowledgeGraphEdge>;
   private legalTerms: Map<number, LegalTerm>;
   
-  private userId: number;
   private documentId: number;
   private documentVersionId: number;
   private activityId: number;
@@ -90,7 +89,6 @@ export class MemStorage implements IStorage {
     this.knowledgeGraphEdges = new Map();
     this.legalTerms = new Map();
     
-    this.userId = 1;
     this.documentId = 1;
     this.documentVersionId = 1;
     this.activityId = 1;
@@ -99,34 +97,28 @@ export class MemStorage implements IStorage {
     this.legalTermId = 1;
     
     // Add example user
-    this.createUser({
-      username: "admin",
-      password: "password",
-      name: "Nikolay Ivanov",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100"
+    this.upsertUser({
+      id: "1",
+      email: "admin@example.com",
+      firstName: "Nikolay",
+      lastName: "Ivanov",
+      profileImageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100"
     });
   }
 
   // User operations
-  async getUser(id: number): Promise<User | undefined> {
+  async getUser(id: string): Promise<User | undefined> {
     return this.users.get(id);
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.userId++;
+  async upsertUser(userData: UpsertUser): Promise<User> {
     const now = new Date();
-    const user: User = { 
-      ...insertUser, 
-      id,
-      createdAt: now
+    const user: User = {
+      ...userData,
+      createdAt: userData.id in this.users ? this.users.get(userData.id)?.createdAt || now : now,
+      updatedAt: now
     };
-    this.users.set(id, user);
+    this.users.set(userData.id, user);
     return user;
   }
 

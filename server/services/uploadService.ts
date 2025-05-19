@@ -111,7 +111,7 @@ class UploadService {
     title: string, 
     content: string, 
     xml: string, 
-    userId: number
+    userId: string
   ): Promise<Document> {
     const docData: InsertDocument = {
       title,
