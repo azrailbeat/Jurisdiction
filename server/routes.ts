@@ -21,6 +21,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const documents = await storage.getDocuments();
     res.json(documents);
   });
+  
+  // Secured document creation route
+  app.post("/api/documents", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const document = await storage.createDocument({
+        ...req.body,
+        createdBy: userId,
+        updatedBy: userId
+      });
+      res.status(201).json(document);
+    } catch (error) {
+      console.error("Error creating document:", error);
+      res.status(500).json({ message: "Failed to create document" });
+    }
+  });
 
   app.get("/api/documents/:id", async (req, res) => {
     const document = await storage.getDocument(parseInt(req.params.id));

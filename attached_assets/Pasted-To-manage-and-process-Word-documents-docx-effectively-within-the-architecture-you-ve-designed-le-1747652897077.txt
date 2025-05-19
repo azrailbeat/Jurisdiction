@@ -1,0 +1,160 @@
+To manage and process Word documents (.docx) effectively within the architecture you've designed (legal system with versioning, agents, RAG, etc.), you’ll want a structured, multi-stage pipeline that converts Word input into machine-readable, semantically rich formats (e.g., XML, Markdown, JSON), which can be indexed, versioned, and reasoned over.
+
+Here’s a step-by-step technical guide for managing and processing Word documents:
+
+✅ 1. Ingestion: Reading Word Documents
+Use a robust parser that preserves structure and formatting:
+
+Python: python-docx
+
+python
+Копировать
+Редактировать
+from docx import Document
+
+def extract_paragraphs(file_path):
+    doc = Document(file_path)
+    return [p.text for p in doc.paragraphs if p.text.strip()]
+Alternative for complex layouts: mammoth — converts .docx to HTML cleanly.
+
+For table extraction: use docx.table or docx2python.
+
+✅ 2. Structural Conversion
+Convert Word content into a structured legal format:
+
+Use Akoma Ntoso or custom XML schema.
+
+Or markdown-based intermediate format:
+
+markdown
+Копировать
+Редактировать
+# Title of Law
+## Chapter 1: General Provisions
+### Article 1
+This law applies to...
+This aids:
+
+Parsing
+
+Indexing
+
+Semantic chunking
+
+Version control
+
+🔧 Tools:
+
+Use Python to transform Word into Markdown or Akoma Ntoso (custom script or with XML templates).
+
+Normalize legal headings like “Article”, “Clause”, etc., using regex.
+
+✅ 3. Metadata Extraction
+Capture useful metadata from document properties or manually:
+
+Title
+
+Jurisdiction
+
+Issuing body
+
+Date of adoption
+
+Version (if any)
+
+Extract from:
+
+Word’s built-in metadata (using docx.coreprops)
+
+Filename conventions or embedded tags
+
+✅ 4. Semantic Chunking
+Split document into legal units:
+
+Articles → paragraphs → clauses
+
+Attach metadata to each chunk:
+
+ID
+
+Hierarchy level
+
+Source file
+
+Version tag
+
+Each chunk becomes a document for:
+
+Vector embedding
+
+Graph node creation
+
+Legal agent input
+
+✅ 5. Version Control Integration
+After transformation:
+
+Save structured files (Markdown, XML, JSON) in Git repository.
+
+Track changes to:
+
+Article content
+
+Terminology
+
+Structural hierarchy
+
+Use tools like:
+
+pandoc (convert to/from multiple formats)
+
+diff engines with semantic legal awareness
+
+GitHub or GitLab pipelines to log changes
+
+🔧 Automate with Git hooks:
+
+bash
+Копировать
+Редактировать
+#!/bin/bash
+# .git/hooks/pre-commit
+python scripts/check_legal_structure.py
+✅ 6. Agent Triggering
+Once the document is chunked and stored:
+
+Trigger DocParserAgent to validate structure
+
+Trigger VectorizerAgent to embed chunks
+
+Trigger GraphBuilderAgent to populate the legal knowledge graph
+
+Trigger ComplianceAgent to check contradictions
+
+Agents operate on the structured format, not raw Word files.
+
+✅ 7. Tools & Libraries Summary
+Task	Tool/Library
+Read DOCX	python-docx, mammoth, docx2python
+Convert to Markdown/XML	pandoc, custom Python scripts
+Legal Structure Parsing	Regex, custom parsers
+Versioning	Git, GitHub/GitLab
+Vector Embedding	Sentence Transformers, Mistral
+Graph Population	Neo4j, RDFLib, SpaCy + NetworkX
+Workflow Automation	LangChain, AgentSmith, n8n, Airflow
+
+✅ 8. Example Workflow
+Upload .docx to web dashboard
+
+System reads & parses the file
+
+Output = structured Markdown + metadata
+
+Stored in Git → git commit -m "Initial draft of Law X"
+
+Chunks are indexed into vector DB & graph
+
+Agents process the law: classification, comparison, summarization, etc.
+
+UI shows version history + semantic map
+
