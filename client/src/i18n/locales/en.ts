@@ -1,396 +1,343 @@
 export default {
-  // Application Name
-  "appName": "Jurisdiction",
-  
-  // Common actions
-  "actions": {
-    "save": "Save",
-    "cancel": "Cancel",
-    "edit": "Edit",
-    "delete": "Delete",
-    "create": "Create",
-    "upload": "Upload",
-    "download": "Download",
-    "search": "Search",
-    "filter": "Filter",
-    "sortBy": "Sort by",
-    "apply": "Apply",
-    "confirm": "Confirm",
-    "submit": "Submit",
-    "back": "Back",
-    "next": "Next",
-    "finish": "Finish",
-    "view": "View",
-    "duplicate": "Duplicate",
-    "archive": "Archive"
-  },
-  
-  // Navigation
-  "nav": {
-    "home": "Home",
-    "dashboard": "Dashboard",
-    "documents": "Documents",
-    "versions": "Versions",
-    "knowledgeGraph": "Knowledge Graph",
-    "verification": "Verification",
-    "terminology": "Terminology",
-    "agents": "Agents",
-    "settings": "Settings",
-    "help": "Help",
-    "logout": "Logout"
-  },
-  
-  // Dashboard
-  "dashboard": {
-    "title": "Dashboard",
-    "welcome": "Welcome to Jurisdiction",
-    "subtitle": "Legislative document management system",
-    "summary": "Summary",
-    "recentActivity": "Recent Activity",
-    "quickAccess": "Quick Access",
-    "statistics": "Statistics",
-    "seeAll": "See all",
-    "documentStats": "Document Statistics",
-    "statsTotal": "Total Documents",
-    "statsActive": "Active Documents",
-    "statsDraft": "Drafts",
-    "statsReview": "In Review"
-  },
-  
-  // Documents
-  "documents": {
-    "title": "Documents",
-    "subtitle": "Manage and collaborate on your legislative documents",
-    "createNew": "Create New Document",
-    "createDescription": "Start drafting a new legislative document",
-    "noDocuments": "No documents found",
-    "searchPlaceholder": "Search documents...",
-    "filters": {
-      "allStatuses": "All Statuses",
-      "draft": "Draft",
-      "review": "In Review",
-      "active": "Active",
-      "archived": "Archived"
+  common: {
+    appName: "Jurisdiction",
+    loading: "Loading...",
+    error: "An error occurred",
+    save: "Save",
+    cancel: "Cancel",
+    delete: "Delete",
+    edit: "Edit",
+    view: "View",
+    create: "Create",
+    update: "Update",
+    submit: "Submit",
+    search: "Search",
+    filter: "Filter",
+    sort: "Sort",
+    upload: "Upload",
+    download: "Download",
+    noResults: "No results found",
+    back: "Back",
+    next: "Next",
+    confirm: "Confirm",
+    actions: "Actions",
+    status: {
+      draft: "Draft",
+      pending: "Pending",
+      review: "In Review",
+      approved: "Approved",
+      published: "Published",
+      rejected: "Rejected",
+      archived: "Archived",
+      all: "All Statuses"
     },
-    "sort": {
-      "date": "Last Updated",
-      "title": "Title",
-      "status": "Status"
-    },
-    "properties": {
-      "title": "Title",
-      "description": "Description",
-      "status": "Status",
-      "version": "Version",
-      "updated": "Updated",
-      "created": "Created",
-      "author": "Author",
-      "collaborators": "Collaborators"
-    },
-    "status": {
-      "active": "Active",
-      "draft": "Draft",
-      "review": "In Review",
-      "archived": "Archived"
-    },
-    "actions": {
-      "newDocument": "New Document",
-      "editDocument": "Edit Document",
-      "deleteDocument": "Delete Document",
-      "duplicateDocument": "Duplicate Document",
-      "archiveDocument": "Archive Document"
-    },
-    "prompts": {
-      "noDescription": "No description provided.",
-      "featureComingSoon": "Feature Coming Soon",
-      "duplicatePrompt": "Document duplication will be available in a future update",
-      "archivePrompt": "Document archiving will be available in a future update",
-      "deletePrompt": "Document deletion will be available in a future update",
-      "titleRequired": "Document title is required",
-      "createSuccess": "Document created successfully",
-      "createError": "Failed to create document"
+    dateFormat: {
+      short: "MM/DD/YYYY",
+      long: "MMMM D, YYYY",
+      time: "h:mm A"
     }
   },
-  
-  // Document Editor
-  "editor": {
-    "title": "Document Editor",
-    "save": "Save Changes",
-    "discard": "Discard Changes",
-    "lastSaved": "Last saved",
-    "autoSaving": "Auto-saving...",
-    "sections": {
-      "content": "Content",
-      "properties": "Properties",
-      "history": "History",
-      "comments": "Comments",
-      "verification": "Verification"
-    },
-    "version": {
-      "currentVersion": "Current Version",
-      "viewVersion": "View Version",
-      "compareVersions": "Compare Versions",
-      "restoreVersion": "Restore This Version",
-      "versionHistory": "Version History",
-      "createdBy": "Created by",
-      "on": "on",
-      "changesSummary": "Changes Summary"
-    },
-    "toolbar": {
-      "heading": "Heading",
-      "paragraph": "Paragraph",
-      "bold": "Bold",
-      "italic": "Italic",
-      "underline": "Underline",
-      "bulletList": "Bullet List",
-      "numberedList": "Numbered List",
-      "quote": "Quote",
-      "code": "Code",
-      "link": "Link"
-    }
+  auth: {
+    signIn: "Sign In",
+    signOut: "Sign Out",
+    profile: "Profile",
+    settings: "Settings"
   },
-  
-  // Knowledge Graph
-  "knowledgeGraph": {
-    "title": "Knowledge Graph",
-    "subtitle": "Visualize relationships between documents and legal concepts",
-    "noData": "No graph data available",
-    "nodes": "Nodes",
-    "edges": "Edges",
-    "zoomIn": "Zoom In",
-    "zoomOut": "Zoom Out",
-    "resetView": "Reset View",
-    "filters": "Filters",
-    "search": "Search in graph",
-    "details": "Entity Details",
-    "relatedDocuments": "Related Documents",
-    "nodeTypes": {
-      "document": "Document",
-      "term": "Legal Term",
-      "entity": "Entity",
-      "obligation": "Obligation",
-      "right": "Right",
-      "court": "Court",
-      "case": "Case"
-    },
-    "statistics": {
-      "graphStatistics": "Graph Statistics",
-      "documentCount": "Documents",
-      "termCount": "Legal Terms",
-      "entityCount": "Entities",
-      "connectionCount": "Connections",
-      "densityScore": "Graph Density",
-      "centralDocuments": "Central Documents"
-    }
+  navigation: {
+    dashboard: "Dashboard",
+    documents: "Documents",
+    verification: "Verification",
+    knowledgeGraph: "Knowledge Graph",
+    agents: "Agents",
+    settings: "Settings",
+    analytics: "Analytics",
+    help: "Help"
   },
-  
-  // Verification
-  "verification": {
-    "title": "Verification",
-    "subtitle": "Validate document compliance and consistency",
-    "runVerification": "Run Verification",
-    "lastRun": "Last verification ran",
-    "noIssues": "No issues found",
-    "issuesFound": "Issues Found",
-    "status": {
-      "passed": "Passed",
-      "failed": "Failed",
-      "warning": "Warning",
-      "inProgress": "In Progress",
-      "notRun": "Not Run"
-    },
-    "severity": {
-      "critical": "Critical",
-      "high": "High",
-      "medium": "Medium",
-      "low": "Low",
-      "info": "Info"
-    },
-    "categories": {
-      "consistency": "Consistency",
-      "compliance": "Compliance",
-      "formatting": "Formatting",
-      "terminology": "Terminology",
-      "logic": "Logical Analysis"
-    },
-    "issueActions": {
-      "resolve": "Mark as Resolved",
-      "ignore": "Ignore",
-      "viewDetails": "View Details",
-      "view": "View in Context"
-    }
-  },
-  
-  // Agents
-  "agents": {
-    "title": "Agents",
-    "subtitle": "Monitor and manage microservice agents",
-    "overview": "Agent Overview",
-    "status": {
-      "active": "Active",
-      "inactive": "Inactive",
-      "error": "Error",
-      "starting": "Starting",
-      "stopping": "Stopping"
-    },
-    "controls": {
-      "start": "Start Agent",
-      "stop": "Stop Agent",
-      "restart": "Restart Agent",
-      "configure": "Configure"
-    },
-    "metrics": {
-      "uptime": "Uptime",
-      "memory": "Memory Usage",
-      "cpu": "CPU Usage",
-      "requests": "Requests Processed",
-      "errors": "Errors"
-    },
-    "types": {
-      "docParser": "Document Parser",
-      "verifier": "Verifier",
-      "vectorizer": "Vectorizer",
-      "termAlign": "Term Alignment",
-      "graphBuilder": "Graph Builder",
-      "searchIndex": "Search Indexer",
-      "llmProxy": "LLM Proxy"
-    },
-    "actions": {
-      "createAgent": "Create New Agent",
-      "editAgent": "Edit Agent",
-      "deleteAgent": "Delete Agent",
-      "viewLogs": "View Logs"
-    }
-  },
-  
-  // Terminology
-  "terminology": {
-    "title": "Terminology",
-    "subtitle": "Manage legal terms and definitions",
-    "searchPlaceholder": "Search terms...",
-    "addTerm": "Add Term",
-    "importTerms": "Import Terms",
-    "exportTerms": "Export Terms",
-    "termDetails": "Term Details",
-    "noTerms": "No terms found",
-    "properties": {
-      "term": "Term",
-      "definition": "Definition",
-      "source": "Source",
-      "category": "Category",
-      "relatedTerms": "Related Terms",
-      "usageContext": "Usage Context",
-      "examples": "Examples"
-    }
-  },
-  
-  // Settings
-  "settings": {
-    "title": "Settings",
-    "subtitle": "Configure application preferences and account settings",
-    "saveChanges": "Save Changes",
-    "tabs": {
-      "profile": "Profile",
-      "appearance": "Appearance",
-      "notifications": "Notifications",
-      "language": "Language",
-      "security": "Security",
-      "advanced": "Advanced"
-    },
-    "profile": {
-      "title": "My Account",
-      "personalInfo": "Personal Information",
-      "name": "Name",
-      "email": "Email Address",
-      "position": "Position",
-      "department": "Department",
-      "avatar": "Profile Picture",
-      "changeAvatar": "Change Profile Picture"
-    },
-    "appearance": {
-      "theme": "Theme",
-      "themes": {
-        "light": "Light",
-        "dark": "Dark",
-        "system": "System Default"
+  dashboard: {
+    title: "Dashboard",
+    subtitle: "Overview of your legislative system",
+    welcome: "Welcome back",
+    cards: {
+      documents: {
+        title: "Documents",
+        subtitle: "Manage your legislative documents"
       },
-      "fontSize": "Font Size",
-      "fontSizes": {
-        "small": "Small",
-        "medium": "Medium",
-        "large": "Large"
+      activity: {
+        title: "Recent Activity",
+        subtitle: "Latest activities in the system",
+        noActivity: "No recent activity"
       },
-      "density": "Interface Density",
-      "densities": {
-        "compact": "Compact",
-        "comfortable": "Comfortable",
-        "spacious": "Spacious"
+      verification: {
+        title: "Verification Issues",
+        subtitle: "Documents requiring review",
+        noIssues: "No verification issues found"
+      },
+      knowledge: {
+        title: "Knowledge Graph",
+        subtitle: "Explore document relationships",
+      },
+      agents: {
+        title: "Active Agents",
+        subtitle: "AI agents performing tasks",
+        noAgents: "No active agents found"
       }
-    },
-    "language": {
-      "selectLanguage": "Select Language",
-      "languages": {
-        "en": "English",
-        "ru": "Russian",
-        "kk": "Kazakh"
-      }
-    },
-    "notifications": {
-      "emailNotifications": "Email Notifications",
-      "pushNotifications": "Push Notifications",
-      "notifyOn": {
-        "documentChanges": "Document Changes",
-        "mentions": "Mentions",
-        "comments": "Comments",
-        "verificationResults": "Verification Results",
-        "systemUpdates": "System Updates"
-      }
-    },
-    "security": {
-      "password": "Password",
-      "changePassword": "Change Password",
-      "twoFactor": "Two-Factor Authentication",
-      "enableTwoFactor": "Enable Two-Factor Authentication",
-      "loginHistory": "Login History",
-      "sessionManagement": "Session Management"
     }
   },
-  
-  // Error messages
-  "errors": {
-    "genericError": "An error occurred",
-    "connectionError": "Connection error",
-    "notFound": "Not found",
-    "unauthorized": "Unauthorized",
-    "forbidden": "Forbidden",
-    "serverError": "Server error",
-    "validationError": "Validation error",
-    "requiredField": "This field is required",
-    "invalidInput": "Invalid input"
+  documents: {
+    title: "Documents",
+    subtitle: "Manage and collaborate on your legislative documents",
+    actions: {
+      newDocument: "New Document",
+      uploadDocument: "Upload Document",
+      searchDocuments: "Search documents...",
+      filterByStatus: "Filter by status"
+    },
+    table: {
+      title: "Title",
+      status: "Status",
+      created: "Created",
+      modified: "Last Modified",
+      author: "Author",
+      version: "Version"
+    },
+    form: {
+      title: "Title",
+      titlePlaceholder: "Enter document title",
+      description: "Description",
+      descriptionPlaceholder: "Enter document description",
+      status: "Status",
+      submit: "Create Document",
+      cancel: "Cancel"
+    },
+    details: {
+      title: "Document Details",
+      versions: "Versions",
+      metadata: "Metadata",
+      relatedDocuments: "Related Documents",
+      verification: "Verification Status"
+    },
+    editor: {
+      title: "Document Editor",
+      save: "Save Changes",
+      history: "Version History",
+      compare: "Compare Versions",
+      preview: "Preview",
+      comments: "Comments"
+    },
+    messages: {
+      createSuccess: "Document created successfully",
+      updateSuccess: "Document updated successfully",
+      deleteSuccess: "Document deleted successfully",
+      createError: "Failed to create document",
+      updateError: "Failed to update document",
+      deleteError: "Failed to delete document"
+    },
+    noDocuments: "No documents found",
+    emptyState: {
+      title: "No documents yet",
+      description: "Create your first document to get started",
+      action: "Create Document"
+    },
+    upload: {
+      title: "Upload Document",
+      instructions: "Drag and drop a file or click to browse",
+      supportedFormats: "Supported formats: .docx, .pdf, .xml",
+      uploading: "Uploading...",
+      success: "Upload successful",
+      error: "Upload failed",
+      retry: "Retry Upload"
+    }
   },
-  
-  // Success messages
-  "success": {
-    "changesSaved": "Changes saved successfully",
-    "itemCreated": "Item created successfully",
-    "itemUpdated": "Item updated successfully",
-    "itemDeleted": "Item deleted successfully"
+  verification: {
+    title: "Verification",
+    subtitle: "Verify legislative documents for consistency and compliance",
+    filters: {
+      all: "All Issues",
+      critical: "Critical",
+      major: "Major",
+      minor: "Minor",
+      resolved: "Resolved"
+    },
+    table: {
+      document: "Document",
+      issue: "Issue",
+      severity: "Severity",
+      status: "Status",
+      location: "Location",
+      detected: "Detected"
+    },
+    details: {
+      title: "Issue Details",
+      description: "Description",
+      context: "Context",
+      conflictingReference: "Conflicting Reference",
+      resolution: "Resolution",
+      actions: {
+        markAsResolved: "Mark as Resolved",
+        reopenIssue: "Reopen Issue",
+        assignTo: "Assign To"
+      }
+    },
+    noIssues: "No verification issues found",
+    emptyState: {
+      title: "No verification issues",
+      description: "All documents have passed verification",
+      action: "Verify Documents"
+    }
   },
-  
-  // Time-related terms
-  "time": {
-    "now": "Just now",
-    "minutesAgo": "{{count}} minute ago",
-    "minutesAgo_plural": "{{count}} minutes ago",
-    "hoursAgo": "{{count}} hour ago",
-    "hoursAgo_plural": "{{count}} hours ago",
-    "daysAgo": "{{count}} day ago",
-    "daysAgo_plural": "{{count}} days ago",
-    "weeksAgo": "{{count}} week ago",
-    "weeksAgo_plural": "{{count}} weeks ago",
-    "monthsAgo": "{{count}} month ago",
-    "monthsAgo_plural": "{{count}} months ago",
-    "yesterday": "Yesterday",
-    "today": "Today"
+  knowledgeGraph: {
+    title: "Knowledge Graph",
+    subtitle: "Explore relationships between legislative documents",
+    actions: {
+      zoom: "Zoom",
+      filter: "Filter Graph",
+      layout: "Change Layout",
+      export: "Export Graph",
+      search: "Search Entities",
+      focus: "Focus on Selection"
+    },
+    legend: {
+      title: "Legend",
+      document: "Document",
+      term: "Legal Term",
+      concept: "Concept",
+      entity: "Entity",
+      relation: "Relation"
+    },
+    details: {
+      title: "Entity Details",
+      type: "Type",
+      connections: "Connections",
+      documents: "Referenced Documents"
+    },
+    stats: {
+      title: "Graph Statistics",
+      nodes: "Total Nodes",
+      edges: "Total Connections",
+      clusters: "Clusters",
+      density: "Graph Density"
+    },
+    search: {
+      placeholder: "Search entities...",
+      noResults: "No entities found"
+    },
+    emptyState: {
+      title: "Knowledge graph is empty",
+      description: "Add documents to populate the knowledge graph",
+      action: "Add Documents"
+    }
+  },
+  agents: {
+    title: "Agents",
+    subtitle: "Manage AI agents analyzing your legislative documents",
+    list: {
+      name: "Name",
+      status: "Status",
+      type: "Type",
+      lastActive: "Last Active",
+      documents: "Documents",
+      tasks: "Tasks"
+    },
+    status: {
+      active: "Active",
+      idle: "Idle",
+      processing: "Processing",
+      error: "Error",
+      offline: "Offline"
+    },
+    details: {
+      title: "Agent Details",
+      description: "Description",
+      capabilities: "Capabilities",
+      metrics: "Performance Metrics",
+      logs: "Activity Logs",
+      configuration: "Configuration"
+    },
+    actions: {
+      start: "Start Agent",
+      stop: "Stop Agent",
+      restart: "Restart Agent",
+      configure: "Configure Agent",
+      viewLogs: "View Logs"
+    },
+    types: {
+      parser: "Document Parser",
+      validator: "Validator",
+      analyzer: "Semantic Analyzer",
+      classifier: "Document Classifier",
+      extractor: "Entity Extractor",
+      comparator: "Document Comparator",
+      termAlignment: "Term Alignment"
+    },
+    noAgents: "No agents found",
+    emptyState: {
+      title: "No agents configured",
+      description: "Configure agents to analyze documents",
+      action: "Configure Agents"
+    }
+  },
+  settings: {
+    title: "Settings",
+    subtitle: "Configure your application preferences",
+    sections: {
+      general: "General",
+      account: "Account",
+      notifications: "Notifications",
+      system: "System",
+      integrations: "Integrations",
+      appearance: "Appearance",
+      advanced: "Advanced"
+    },
+    language: {
+      title: "Language",
+      description: "Change the language of the application interface",
+      languages: {
+        en: "English",
+        ru: "Русский",
+        kk: "Қазақша"
+      }
+    },
+    theme: {
+      title: "Theme",
+      description: "Choose your preferred color theme",
+      options: {
+        light: "Light",
+        dark: "Dark",
+        system: "System"
+      }
+    },
+    account: {
+      title: "Account Information",
+      email: "Email",
+      name: "Name",
+      role: "Role",
+      organization: "Organization",
+      changePassword: "Change Password"
+    },
+    notifications: {
+      title: "Notification Preferences",
+      email: "Email Notifications",
+      push: "Push Notifications",
+      digest: "Daily Digest",
+      mentions: "Mentions and Comments"
+    },
+    system: {
+      title: "System Settings",
+      dateFormat: "Date Format",
+      timeZone: "Time Zone",
+      accessibility: "Accessibility Options"
+    },
+    integrations: {
+      title: "Integrations",
+      connectedServices: "Connected Services",
+      apiKeys: "API Keys",
+      webhooks: "Webhooks"
+    },
+    save: "Save Settings",
+    cancel: "Cancel Changes",
+    messages: {
+      saveSuccess: "Settings saved successfully",
+      saveError: "Failed to save settings"
+    }
   }
 };

@@ -6,6 +6,7 @@ import { queryClient } from '@/lib/queryClient';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
 import { formatDistance } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 // UI Components
 import {
@@ -73,6 +74,7 @@ const DocumentsPage: React.FC = () => {
   const [, navigate] = useLocation();
   const { user } = useAuth();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [newDocumentOpen, setNewDocumentOpen] = useState(false);
@@ -374,9 +376,9 @@ const DocumentsPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold">Documents</h1>
+          <h1 className="text-3xl font-bold">{t('documents.title')}</h1>
           <p className="text-neutral-500 mt-1">
-            Manage and collaborate on your legislative documents
+            {t('documents.subtitle')}
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -387,7 +389,7 @@ const DocumentsPage: React.FC = () => {
             <i className="fas fa-list"></i>
           </Button>
           <Button onClick={() => setNewDocumentOpen(true)}>
-            <i className="fas fa-plus mr-2"></i> New Document
+            <i className="fas fa-plus mr-2"></i> {t('documents.actions.newDocument')}
           </Button>
         </div>
       </div>

@@ -12,10 +12,12 @@ interface LanguageSwitcherProps {
 export default function LanguageSwitcher({ variant = "icon", className = "" }: LanguageSwitcherProps) {
   const { i18n } = useTranslation();
 
+  const { t } = useTranslation();
+
   const languages = [
-    { code: "en", name: "English" },
-    { code: "ru", name: "Русский" },
-    { code: "kk", name: "Қазақша" },
+    { code: "en", name: t('settings.language.languages.en') },
+    { code: "ru", name: t('settings.language.languages.ru') },
+    { code: "kk", name: t('settings.language.languages.kk') },
   ];
 
   const handleLanguageChange = (langCode: string) => {
