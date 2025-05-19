@@ -5,13 +5,12 @@ const Sidebar: React.FC = () => {
   const [location] = useLocation();
 
   const navItems = [
-    { path: "/", icon: "fa-home", label: "Dashboard" },
+    { path: "/", icon: "fa-chart-line", label: "Dashboard & Analytics" },
     { path: "/documents", icon: "fa-file-lines", label: "Documents" },
     { path: "/versions", icon: "fa-code-branch", label: "Versions" },
     { path: "/knowledge-graph", icon: "fa-diagram-project", label: "Knowledge Graph" },
     { path: "/verification", icon: "fa-check-double", label: "Verification" },
     { path: "/terminology", icon: "fa-book", label: "Terminology" },
-    { path: "/analytics", icon: "fa-chart-line", label: "Analytics" },
   ];
 
   return (
