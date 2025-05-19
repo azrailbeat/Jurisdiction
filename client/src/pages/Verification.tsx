@@ -118,8 +118,9 @@ const Verification: React.FC = () => {
     }
   };
 
-  const formatDate = (dateString: string) => {
-    return formatDistance(new Date(dateString), new Date(), { addSuffix: true });
+  const formatDate = (dateValue: string | Date) => {
+    const date = dateValue instanceof Date ? dateValue : new Date(dateValue);
+    return formatDistance(date, new Date(), { addSuffix: true });
   };
 
   // If not authenticated, show login prompt

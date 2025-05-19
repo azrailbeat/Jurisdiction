@@ -1,8 +1,11 @@
 export interface User {
-  id: number;
-  username: string;
-  name: string;
-  avatar?: string;
+  id: string;
+  email: string | null;
+  firstName: string | null;
+  lastName: string | null;
+  profileImageUrl: string | null;
+  createdAt?: string | Date;
+  updatedAt?: string | Date;
 }
 
 export type DocumentStatus = 'draft' | 'review' | 'active' | 'archived';
@@ -43,12 +46,14 @@ export interface VerificationIssue {
   documentId: number;
   title: string;
   description: string;
-  severity: 'warning' | 'error' | 'info';
-  status: 'open' | 'resolved' | 'ignored';
+  severity: string;
+  status: string;
   location: string;
-  conflictingReferenceId?: string;
-  conflictingReferenceTitle?: string;
-  conflictingReferenceContent?: string;
+  conflictingReferenceId: string | null;
+  conflictingReferenceTitle: string | null;
+  conflictingReferenceContent: string | null;
+  createdAt: string | Date;
+  updatedAt: string | Date;
 }
 
 export interface RelatedLegislation {
