@@ -101,7 +101,7 @@ const RecentActivity: React.FC = () => {
                 <div>
                   {renderActivityDescription(activity)}
                   <p className="text-xs text-neutral-400">
-                    {formatDate(activity.timestamp)}
+                    {activity.createdAt ? formatDate(activity.createdAt.toString()) : "Recently"}
                   </p>
                 </div>
               </div>

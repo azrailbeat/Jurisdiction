@@ -104,6 +104,69 @@ export class MemStorage implements IStorage {
       lastName: "Ivanov",
       profileImageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100"
     });
+    
+    // Add sample documents for development
+    this.createSampleDocuments();
+  }
+  
+  private async createSampleDocuments() {
+    // Create sample document 1: Civil Code
+    const civilCode = await this.createDocument({
+      title: "Civil Code of Kazakhstan",
+      content: "Article 1. Basic Provisions\n\n1.1 This Civil Code regulates property relations and personal non-property relations connected with them.\n\n1.2 Participants in the relations regulated by civil legislation are citizens, legal entities, and the state.",
+      xml: "<document><title>Civil Code of Kazakhstan</title><article number=\"1\"><heading>Basic Provisions</heading><paragraph number=\"1.1\">This Civil Code regulates property relations and personal non-property relations connected with them.</paragraph><paragraph number=\"1.2\">Participants in the relations regulated by civil legislation are citizens, legal entities, and the state.</paragraph></article></document>",
+      status: "active",
+      createdBy: "1",
+      updatedBy: "1"
+    });
+    
+    // Create sample document version for Civil Code
+    await this.createDocumentVersion({
+      documentId: civilCode.id,
+      version: "1.0",
+      content: civilCode.content,
+      xml: civilCode.xml,
+      createdBy: civilCode.createdBy,
+      description: "Initial version of Civil Code",
+      isCurrent: true
+    });
+    
+    // Create activity for Civil Code
+    await this.createActivity({
+      type: "create",
+      description: "Created Civil Code of Kazakhstan",
+      userId: civilCode.createdBy,
+      documentId: civilCode.id
+    });
+    
+    // Create sample document 2: Criminal Code
+    const criminalCode = await this.createDocument({
+      title: "Criminal Code of Kazakhstan",
+      content: "Article 1. Criminal Law\n\n1.1 The criminal legislation of the Republic of Kazakhstan consists exclusively of this Code.\n\n1.2 This Code is based on the Constitution of the Republic of Kazakhstan and generally recognized principles and norms of international law.",
+      xml: "<document><title>Criminal Code of Kazakhstan</title><article number=\"1\"><heading>Criminal Law</heading><paragraph number=\"1.1\">The criminal legislation of the Republic of Kazakhstan consists exclusively of this Code.</paragraph><paragraph number=\"1.2\">This Code is based on the Constitution of the Republic of Kazakhstan and generally recognized principles and norms of international law.</paragraph></article></document>",
+      status: "draft",
+      createdBy: "1",
+      updatedBy: "1"
+    });
+    
+    // Create sample document version for Criminal Code
+    await this.createDocumentVersion({
+      documentId: criminalCode.id,
+      version: "0.9",
+      content: criminalCode.content,
+      xml: criminalCode.xml,
+      createdBy: criminalCode.createdBy,
+      description: "Draft version of Criminal Code",
+      isCurrent: true
+    });
+    
+    // Create activity for Criminal Code
+    await this.createActivity({
+      type: "create",
+      description: "Created draft of Criminal Code of Kazakhstan",
+      userId: criminalCode.createdBy,
+      documentId: criminalCode.id
+    });
   }
 
   // User operations
