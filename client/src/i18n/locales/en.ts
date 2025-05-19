@@ -1,239 +1,396 @@
-// English translations
 export default {
-  // App-wide shared strings
-  "app": {
-    "title": "Legislative Document Manager",
-    "language": "Language",
-    "search": "Search",
-    "loading": "Loading...",
+  // Application Name
+  "appName": "Jurisdiction",
+  
+  // Common actions
+  "actions": {
     "save": "Save",
     "cancel": "Cancel",
-    "delete": "Delete",
     "edit": "Edit",
+    "delete": "Delete",
     "create": "Create",
-    "actions": "Actions",
-    "status": "Status"
+    "upload": "Upload",
+    "download": "Download",
+    "search": "Search",
+    "filter": "Filter",
+    "sortBy": "Sort by",
+    "apply": "Apply",
+    "confirm": "Confirm",
+    "submit": "Submit",
+    "back": "Back",
+    "next": "Next",
+    "finish": "Finish",
+    "view": "View",
+    "duplicate": "Duplicate",
+    "archive": "Archive"
   },
   
   // Navigation
   "nav": {
     "home": "Home",
+    "dashboard": "Dashboard",
     "documents": "Documents",
     "versions": "Versions",
     "knowledgeGraph": "Knowledge Graph",
     "verification": "Verification",
+    "terminology": "Terminology",
     "agents": "Agents",
-    "analytics": "Analytics",
     "settings": "Settings",
-    "logout": "Logout",
-    "login": "Login"
+    "help": "Help",
+    "logout": "Logout"
   },
   
-  // Document management
+  // Dashboard
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome to Jurisdiction",
+    "subtitle": "Legislative document management system",
+    "summary": "Summary",
+    "recentActivity": "Recent Activity",
+    "quickAccess": "Quick Access",
+    "statistics": "Statistics",
+    "seeAll": "See all",
+    "documentStats": "Document Statistics",
+    "statsTotal": "Total Documents",
+    "statsActive": "Active Documents",
+    "statsDraft": "Drafts",
+    "statsReview": "In Review"
+  },
+  
+  // Documents
   "documents": {
-    "title": "Document Repository",
-    "newDocument": "New Document",
-    "upload": "Upload Document",
-    "compare": "Compare Documents",
-    "search": "Search Documents",
-    "filters": "Filters",
-    "status": {
+    "title": "Documents",
+    "subtitle": "Manage and collaborate on your legislative documents",
+    "createNew": "Create New Document",
+    "createDescription": "Start drafting a new legislative document",
+    "noDocuments": "No documents found",
+    "searchPlaceholder": "Search documents...",
+    "filters": {
+      "allStatuses": "All Statuses",
       "draft": "Draft",
-      "review": "Under Review",
-      "approved": "Approved",
-      "published": "Published",
+      "review": "In Review",
+      "active": "Active",
       "archived": "Archived"
     },
-    "fields": {
+    "sort": {
+      "date": "Last Updated",
       "title": "Title",
-      "createdBy": "Created By",
-      "createdAt": "Created At",
-      "updatedAt": "Updated At",
-      "status": "Status",
-      "type": "Document Type",
-      "category": "Category",
-      "description": "Description"
+      "status": "Status"
     },
-    "uploadInstructions": "Drag and drop your document here, or click to select",
-    "supportedFormats": "Supported formats: DOCX, PDF, TXT"
+    "properties": {
+      "title": "Title",
+      "description": "Description",
+      "status": "Status",
+      "version": "Version",
+      "updated": "Updated",
+      "created": "Created",
+      "author": "Author",
+      "collaborators": "Collaborators"
+    },
+    "status": {
+      "active": "Active",
+      "draft": "Draft",
+      "review": "In Review",
+      "archived": "Archived"
+    },
+    "actions": {
+      "newDocument": "New Document",
+      "editDocument": "Edit Document",
+      "deleteDocument": "Delete Document",
+      "duplicateDocument": "Duplicate Document",
+      "archiveDocument": "Archive Document"
+    },
+    "prompts": {
+      "noDescription": "No description provided.",
+      "featureComingSoon": "Feature Coming Soon",
+      "duplicatePrompt": "Document duplication will be available in a future update",
+      "archivePrompt": "Document archiving will be available in a future update",
+      "deletePrompt": "Document deletion will be available in a future update",
+      "titleRequired": "Document title is required",
+      "createSuccess": "Document created successfully",
+      "createError": "Failed to create document"
+    }
   },
   
-  // Version control
-  "versions": {
-    "title": "Version History",
-    "current": "Current Version",
-    "compare": "Compare with Current",
-    "revert": "Revert to this Version",
-    "created": "Created on {{date}}",
-    "by": "by {{name}}",
-    "changes": "Changes",
-    "added": "Added",
-    "removed": "Removed",
-    "modified": "Modified"
+  // Document Editor
+  "editor": {
+    "title": "Document Editor",
+    "save": "Save Changes",
+    "discard": "Discard Changes",
+    "lastSaved": "Last saved",
+    "autoSaving": "Auto-saving...",
+    "sections": {
+      "content": "Content",
+      "properties": "Properties",
+      "history": "History",
+      "comments": "Comments",
+      "verification": "Verification"
+    },
+    "version": {
+      "currentVersion": "Current Version",
+      "viewVersion": "View Version",
+      "compareVersions": "Compare Versions",
+      "restoreVersion": "Restore This Version",
+      "versionHistory": "Version History",
+      "createdBy": "Created by",
+      "on": "on",
+      "changesSummary": "Changes Summary"
+    },
+    "toolbar": {
+      "heading": "Heading",
+      "paragraph": "Paragraph",
+      "bold": "Bold",
+      "italic": "Italic",
+      "underline": "Underline",
+      "bulletList": "Bullet List",
+      "numberedList": "Numbered List",
+      "quote": "Quote",
+      "code": "Code",
+      "link": "Link"
+    }
   },
   
-  // Knowledge graph
+  // Knowledge Graph
   "knowledgeGraph": {
     "title": "Knowledge Graph",
+    "subtitle": "Visualize relationships between documents and legal concepts",
+    "noData": "No graph data available",
     "nodes": "Nodes",
     "edges": "Edges",
-    "entityTypes": "Entity Types",
-    "relationTypes": "Relation Types",
+    "zoomIn": "Zoom In",
+    "zoomOut": "Zoom Out",
+    "resetView": "Reset View",
     "filters": "Filters",
-    "search": "Search in Graph",
+    "search": "Search in graph",
     "details": "Entity Details",
-    "statistics": "Graph Statistics",
-    "export": "Export Graph",
     "relatedDocuments": "Related Documents",
-    "pathAnalysis": "Path Analysis"
+    "nodeTypes": {
+      "document": "Document",
+      "term": "Legal Term",
+      "entity": "Entity",
+      "obligation": "Obligation",
+      "right": "Right",
+      "court": "Court",
+      "case": "Case"
+    },
+    "statistics": {
+      "graphStatistics": "Graph Statistics",
+      "documentCount": "Documents",
+      "termCount": "Legal Terms",
+      "entityCount": "Entities",
+      "connectionCount": "Connections",
+      "densityScore": "Graph Density",
+      "centralDocuments": "Central Documents"
+    }
   },
   
-  // Verification and compliance
+  // Verification
   "verification": {
-    "title": "Verification & Compliance",
-    "issues": "Detected Issues",
+    "title": "Verification",
+    "subtitle": "Validate document compliance and consistency",
     "runVerification": "Run Verification",
-    "complianceReport": "Compliance Report",
-    "relatedLegislation": "Related Legislation",
+    "lastRun": "Last verification ran",
+    "noIssues": "No issues found",
+    "issuesFound": "Issues Found",
+    "status": {
+      "passed": "Passed",
+      "failed": "Failed",
+      "warning": "Warning",
+      "inProgress": "In Progress",
+      "notRun": "Not Run"
+    },
     "severity": {
       "critical": "Critical",
       "high": "High",
       "medium": "Medium",
       "low": "Low",
-      "info": "Information"
+      "info": "Info"
     },
-    "status": {
-      "open": "Open",
-      "inProgress": "In Progress",
-      "resolved": "Resolved",
-      "closed": "Closed",
-      "wontFix": "Won't Fix"
+    "categories": {
+      "consistency": "Consistency",
+      "compliance": "Compliance",
+      "formatting": "Formatting",
+      "terminology": "Terminology",
+      "logic": "Logical Analysis"
+    },
+    "issueActions": {
+      "resolve": "Mark as Resolved",
+      "ignore": "Ignore",
+      "viewDetails": "View Details",
+      "view": "View in Context"
     }
   },
   
   // Agents
   "agents": {
-    "title": "Agent Management",
-    "createAgent": "Create Agent",
-    "runningAgents": "Running Agents",
-    "allAgents": "All Agents",
+    "title": "Agents",
+    "subtitle": "Monitor and manage microservice agents",
+    "overview": "Agent Overview",
     "status": {
-      "idle": "Idle",
-      "running": "Running",
-      "paused": "Paused",
-      "completed": "Completed",
-      "failed": "Failed"
+      "active": "Active",
+      "inactive": "Inactive",
+      "error": "Error",
+      "starting": "Starting",
+      "stopping": "Stopping"
+    },
+    "controls": {
+      "start": "Start Agent",
+      "stop": "Stop Agent",
+      "restart": "Restart Agent",
+      "configure": "Configure"
+    },
+    "metrics": {
+      "uptime": "Uptime",
+      "memory": "Memory Usage",
+      "cpu": "CPU Usage",
+      "requests": "Requests Processed",
+      "errors": "Errors"
     },
     "types": {
-      "parser": "Parser Agent",
-      "vectorizer": "Vectorizer Agent",
-      "verification": "Verification Agent",
-      "analysis": "Analysis Agent",
-      "termAlignment": "Term Alignment Agent"
+      "docParser": "Document Parser",
+      "verifier": "Verifier",
+      "vectorizer": "Vectorizer",
+      "termAlign": "Term Alignment",
+      "graphBuilder": "Graph Builder",
+      "searchIndex": "Search Indexer",
+      "llmProxy": "LLM Proxy"
     },
     "actions": {
-      "start": "Start",
-      "pause": "Pause",
-      "resume": "Resume",
-      "stop": "Stop",
-      "restart": "Restart",
-      "configure": "Configure"
+      "createAgent": "Create New Agent",
+      "editAgent": "Edit Agent",
+      "deleteAgent": "Delete Agent",
+      "viewLogs": "View Logs"
     }
   },
   
-  // Analytics
-  "analytics": {
-    "title": "Analytics Dashboard",
-    "documentStatistics": "Document Statistics",
-    "userActivity": "User Activity",
-    "topDocuments": "Top Documents",
-    "complianceRate": "Compliance Rate",
-    "issuesByCategory": "Issues by Category",
-    "timeRange": "Time Range",
-    "export": "Export Data"
+  // Terminology
+  "terminology": {
+    "title": "Terminology",
+    "subtitle": "Manage legal terms and definitions",
+    "searchPlaceholder": "Search terms...",
+    "addTerm": "Add Term",
+    "importTerms": "Import Terms",
+    "exportTerms": "Export Terms",
+    "termDetails": "Term Details",
+    "noTerms": "No terms found",
+    "properties": {
+      "term": "Term",
+      "definition": "Definition",
+      "source": "Source",
+      "category": "Category",
+      "relatedTerms": "Related Terms",
+      "usageContext": "Usage Context",
+      "examples": "Examples"
+    }
   },
   
   // Settings
   "settings": {
     "title": "Settings",
+    "subtitle": "Configure application preferences and account settings",
+    "saveChanges": "Save Changes",
     "tabs": {
       "profile": "Profile",
-      "account": "Account",
+      "appearance": "Appearance",
       "notifications": "Notifications",
-      "system": "System",
-      "aiModels": "AI & Models"
+      "language": "Language",
+      "security": "Security",
+      "advanced": "Advanced"
     },
     "profile": {
-      "title": "Profile Settings",
-      "subtitle": "Manage your personal information",
-      "fullName": "Full Name",
+      "title": "My Account",
+      "personalInfo": "Personal Information",
+      "name": "Name",
       "email": "Email Address",
-      "bio": "Biography",
-      "avatar": "Profile Image",
-      "change": "Change",
-      "saveProfile": "Save Profile"
+      "position": "Position",
+      "department": "Department",
+      "avatar": "Profile Picture",
+      "changeAvatar": "Change Profile Picture"
     },
-    "account": {
-      "title": "Account Settings",
-      "subtitle": "Manage your account preferences",
-      "username": "Username",
-      "language": "Interface Language",
-      "theme": "Interface Theme",
+    "appearance": {
+      "theme": "Theme",
       "themes": {
         "light": "Light",
         "dark": "Dark",
         "system": "System Default"
       },
-      "security": "Security",
-      "changePassword": "Change Password",
-      "enableTwoFactor": "Enable Two-Factor Authentication",
-      "saveAccount": "Save Account Settings"
+      "fontSize": "Font Size",
+      "fontSizes": {
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large"
+      },
+      "density": "Interface Density",
+      "densities": {
+        "compact": "Compact",
+        "comfortable": "Comfortable",
+        "spacious": "Spacious"
+      }
+    },
+    "language": {
+      "selectLanguage": "Select Language",
+      "languages": {
+        "en": "English",
+        "ru": "Russian",
+        "kk": "Kazakh"
+      }
     },
     "notifications": {
-      "title": "Notification Settings",
-      "subtitle": "Control how you receive notifications",
       "emailNotifications": "Email Notifications",
-      "emailNotificationsDesc": "Receive notifications via email",
-      "documentUpdates": "Document Updates",
-      "documentUpdatesDesc": "Notifications when documents you follow are updated",
-      "verificationAlerts": "Verification Alerts",
-      "verificationAlertsDesc": "Receive alerts about verification issues",
-      "weeklyDigest": "Weekly Digest",
-      "weeklyDigestDesc": "Receive a weekly summary of system activity",
-      "saveNotifications": "Save Notification Settings"
+      "pushNotifications": "Push Notifications",
+      "notifyOn": {
+        "documentChanges": "Document Changes",
+        "mentions": "Mentions",
+        "comments": "Comments",
+        "verificationResults": "Verification Results",
+        "systemUpdates": "System Updates"
+      }
     },
-    "system": {
-      "title": "System Settings",
-      "subtitle": "Configure system-wide settings",
-      "apiEndpoint": "API Endpoint",
-      "defaultXmlFormat": "Default XML Format",
-      "maxVersions": "Max Versions to Keep",
-      "experimental": "Enable Experimental Features",
-      "maintenance": "System Maintenance",
-      "rebuildGraph": "Rebuild Knowledge Graph",
-      "rescanDocuments": "Rescan Documents",
-      "clearCache": "Clear Cache",
-      "saveSystem": "Save System Settings"
-    },
-    "aiModels": {
-      "title": "AI & Models",
-      "subtitle": "Configure AI models and settings",
-      "apiKey": "AI Model API Key",
-      "model": "Default Model",
-      "maxTokens": "Max Tokens",
-      "semanticAnalysis": "Enable Semantic Analysis",
-      "automatedVerification": "Enable Automated Verification",
-      "saveAI": "Save AI Settings"
+    "security": {
+      "password": "Password",
+      "changePassword": "Change Password",
+      "twoFactor": "Two-Factor Authentication",
+      "enableTwoFactor": "Enable Two-Factor Authentication",
+      "loginHistory": "Login History",
+      "sessionManagement": "Session Management"
     }
   },
   
   // Error messages
   "errors": {
-    "general": "An error occurred. Please try again.",
-    "notFound": "The requested resource was not found.",
-    "unauthorized": "You are not authorized to perform this action.",
-    "serverError": "Server error occurred. Please try again later.",
-    "validation": "Please check your input and try again.",
-    "fileUpload": "File upload failed. Please try again."
+    "genericError": "An error occurred",
+    "connectionError": "Connection error",
+    "notFound": "Not found",
+    "unauthorized": "Unauthorized",
+    "forbidden": "Forbidden",
+    "serverError": "Server error",
+    "validationError": "Validation error",
+    "requiredField": "This field is required",
+    "invalidInput": "Invalid input"
+  },
+  
+  // Success messages
+  "success": {
+    "changesSaved": "Changes saved successfully",
+    "itemCreated": "Item created successfully",
+    "itemUpdated": "Item updated successfully",
+    "itemDeleted": "Item deleted successfully"
+  },
+  
+  // Time-related terms
+  "time": {
+    "now": "Just now",
+    "minutesAgo": "{{count}} minute ago",
+    "minutesAgo_plural": "{{count}} minutes ago",
+    "hoursAgo": "{{count}} hour ago",
+    "hoursAgo_plural": "{{count}} hours ago",
+    "daysAgo": "{{count}} day ago",
+    "daysAgo_plural": "{{count}} days ago",
+    "weeksAgo": "{{count}} week ago",
+    "weeksAgo_plural": "{{count}} weeks ago",
+    "monthsAgo": "{{count}} month ago",
+    "monthsAgo_plural": "{{count}} months ago",
+    "yesterday": "Yesterday",
+    "today": "Today"
   }
 };

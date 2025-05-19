@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { useAuth } from "@/hooks/useAuth";
+import { useTranslation } from "react-i18next";
 import { 
   Tooltip, 
   TooltipContent, 
@@ -21,37 +22,38 @@ import {
 const Sidebar: React.FC = () => {
   const [location] = useLocation();
   const { user } = useAuth();
+  const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
 
   const navItems = [
     { 
       path: "/", 
       icon: "fa-home", 
-      label: "Home", 
+      label: t("nav.home"), 
       description: "Dashboard overview and quick access" 
     },
     { 
       path: "/documents", 
       icon: "fa-file-lines", 
-      label: "Documents", 
+      label: t("nav.documents"), 
       description: "Manage legislative documents" 
     },
     { 
       path: "/versions", 
       icon: "fa-code-branch", 
-      label: "Versions", 
+      label: t("nav.versions"), 
       description: "Track document revisions" 
     },
     { 
       path: "/knowledge-graph", 
       icon: "fa-diagram-project", 
-      label: "Knowledge Graph", 
+      label: t("nav.knowledgeGraph"), 
       description: "Visualize document relationships" 
     },
     { 
       path: "/verification", 
       icon: "fa-check-double", 
-      label: "Verification", 
+      label: t("nav.verification"), 
       description: "Validate document compliance" 
     },
     { 
@@ -63,7 +65,7 @@ const Sidebar: React.FC = () => {
     { 
       path: "/agents", 
       icon: "fa-robot", 
-      label: "Agents", 
+      label: t("nav.agents"), 
       description: "Monitor and manage microservice agents" 
     },
   ];
@@ -155,30 +157,30 @@ const Sidebar: React.FC = () => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuLabel>{t('settings.profile.title')}</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <Link href="/profile">
               <DropdownMenuItem>
                 <i className="fas fa-user mr-2 text-neutral-500"></i>
-                <span>Profile</span>
+                <span>{t('settings.tabs.profile')}</span>
               </DropdownMenuItem>
             </Link>
             <Link href="/notifications">
               <DropdownMenuItem>
                 <i className="fas fa-bell mr-2 text-neutral-500"></i>
-                <span>Notifications</span>
+                <span>{t('settings.tabs.notifications')}</span>
               </DropdownMenuItem>
             </Link>
             <Link href="/settings">
               <DropdownMenuItem>
                 <i className="fas fa-gear mr-2 text-neutral-500"></i>
-                <span>Settings</span>
+                <span>{t('settings.title')}</span>
               </DropdownMenuItem>
             </Link>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="text-red-600">
               <i className="fas fa-sign-out-alt mr-2"></i>
-              <span>Logout</span>
+              <span>{t('nav.logout')}</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
