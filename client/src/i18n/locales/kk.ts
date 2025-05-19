@@ -69,6 +69,7 @@ export default {
   // Documents
   documents: {
     title: "Құжаттар",
+    subtitle: "Заңнамалық құжаттарды басқару",
     searchPlaceholder: "Құжаттарды іздеу...",
     filterByStatus: "Күй бойынша сүзу",
     filterByDate: "Күні бойынша сүзу",
@@ -84,7 +85,13 @@ export default {
       version: "Нұсқасы",
       actions: "Әрекеттер"
     },
+    table: {
+      title: "Атауы",
+      status: "Күйі",
+      modified: "Соңғы өзгеріс"
+    },
     actions: {
+      searchDocuments: "Құжаттарды іздеу",
       newDocument: "Жаңа құжат құру",
       upload: "Құжатты жүктеу",
       export: "Экспорттау",

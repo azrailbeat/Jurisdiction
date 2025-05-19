@@ -69,6 +69,7 @@ export default {
   // Documents
   documents: {
     title: "Документы",
+    subtitle: "Управление законодательными документами",
     searchPlaceholder: "Поиск документов...",
     filterByStatus: "Фильтр по статусу",
     filterByDate: "Фильтр по дате",
@@ -84,7 +85,13 @@ export default {
       version: "Версия",
       actions: "Действия"
     },
+    table: {
+      title: "Название",
+      status: "Статус",
+      modified: "Последнее изменение"
+    },
     actions: {
+      searchDocuments: "Поиск документов",
       newDocument: "Создать новый документ",
       upload: "Загрузить документ",
       export: "Экспорт",

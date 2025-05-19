@@ -18,7 +18,9 @@ export default {
     confirm: "Confirm",
     yes: "Yes",
     no: "No",
+    sort: "Sort",
     status: {
+      all: "All statuses",
       draft: "Draft",
       review: "In Review",
       approved: "Approved",
@@ -69,6 +71,7 @@ export default {
   // Documents
   documents: {
     title: "Documents",
+    subtitle: "Manage legislative documents",
     searchPlaceholder: "Search documents...",
     filterByStatus: "Filter by status",
     filterByDate: "Filter by date",
@@ -84,7 +87,13 @@ export default {
       version: "Version",
       actions: "Actions"
     },
+    table: {
+      title: "Title",
+      status: "Status",
+      modified: "Last Modified"
+    },
     actions: {
+      searchDocuments: "Search documents",
       newDocument: "Create New Document",
       upload: "Upload Document",
       export: "Export",
