@@ -31,24 +31,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
         createdBy: userId,
         updatedBy: userId
       });
-      res.status(201).json(document);
-    } catch (error) {
-      console.error("Error creating document:", error);
-      res.status(500).json({ message: "Failed to create document" });
-    }
-  });
-
-  app.get("/api/documents/:id", async (req, res) => {
-    const document = await storage.getDocument(parseInt(req.params.id));
-    if (!document) {
-      return res.status(404).json({ message: "Document not found" });
-    }
-    res.json(document);
-  });
-
-  app.post("/api/documents", async (req, res) => {
-    try {
-      const document = await storage.createDocument(req.body);
       
       // Create initial version
       await storage.createDocumentVersion({
@@ -71,8 +53,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       res.status(201).json(document);
     } catch (error) {
-      res.status(400).json({ message: "Failed to create document" });
+      console.error("Error creating document:", error);
+      res.status(500).json({ message: "Failed to create document" });
     }
+  });
+
+  app.get("/api/documents/:id", async (req, res) => {
+    const document = await storage.getDocument(parseInt(req.params.id));
+    if (!document) {
+      return res.status(404).json({ message: "Document not found" });
+    }
+    res.json(document);
   });
 
   app.put("/api/documents/:id", async (req, res) => {
@@ -197,6 +188,47 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const nodes = await storage.getKnowledgeGraphNodes();
     const edges = await storage.getKnowledgeGraphEdges();
     res.json({ nodes, edges });
+  });
+  
+  // Test route for document creation
+  app.post("/api/documents/test", async (req, res) => {
+    try {
+      // Create a test document
+      const document = await storage.createDocument({
+        title: "Test Document",
+        content: "This is a test document content",
+        xml: "<document><title>Test Document</title><body>This is a test document content</body></document>",
+        status: "draft",
+        createdBy: "test-user",
+        updatedBy: "test-user"
+      });
+      
+      console.log("Created test document:", document);
+      
+      // Create initial version
+      await storage.createDocumentVersion({
+        documentId: document.id,
+        version: "1.0",
+        content: document.content,
+        xml: document.xml,
+        createdBy: document.createdBy,
+        description: "Initial test version",
+        isCurrent: true,
+      });
+      
+      // Create activity
+      await storage.createActivity({
+        type: "create",
+        description: `Created test document: ${document.title}`,
+        userId: document.createdBy,
+        documentId: document.id,
+      });
+      
+      res.status(201).json(document);
+    } catch (error) {
+      console.error("Error creating test document:", error);
+      res.status(500).json({ error: error.message });
+    }
   });
 
   // Legal Terms Routes
