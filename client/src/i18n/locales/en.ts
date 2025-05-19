@@ -37,6 +37,8 @@ export default {
     verification: "Verification",
     settings: "Settings",
     agents: "Agents",
+    terminology: "Terminology",
+    terminologyDescription: "Manage legal terms glossary",
     logout: "Log Out"
   },
 

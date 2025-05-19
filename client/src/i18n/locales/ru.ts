@@ -37,6 +37,8 @@ export default {
     verification: "Проверка",
     settings: "Настройки",
     agents: "Агенты",
+    terminology: "Терминология",
+    terminologyDescription: "Управление глоссарием юридических терминов",
     logout: "Выйти"
   },
 

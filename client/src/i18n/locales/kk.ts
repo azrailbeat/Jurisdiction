@@ -37,6 +37,8 @@ export default {
     verification: "Тексеру",
     settings: "Параметрлер",
     agents: "Агенттер",
+    terminology: "Терминология",
+    terminologyDescription: "Заңды терминдер глоссарийін басқару",
     logout: "Шығу"
   },
 

@@ -15,9 +15,9 @@ export default function LanguageSwitcher({ variant = "icon", className = "" }: L
   const { t } = useTranslation();
 
   const languages = [
-    { code: "en", name: t('settings.language.languages.en') },
-    { code: "ru", name: t('settings.language.languages.ru') },
-    { code: "kk", name: t('settings.language.languages.kk') },
+    { code: "en", name: t('settings.language.options.en') },
+    { code: "ru", name: t('settings.language.options.ru') },
+    { code: "kk", name: t('settings.language.options.kk') },
   ];
 
   const handleLanguageChange = (langCode: string) => {
@@ -82,7 +82,7 @@ export default function LanguageSwitcher({ variant = "icon", className = "" }: L
     <div className={className}>
       <Select value={i18n.language} onValueChange={handleLanguageChange}>
         <SelectTrigger>
-          <SelectValue placeholder="Select language" />
+          <SelectValue placeholder={t('settings.language.select')} />
         </SelectTrigger>
         <SelectContent>
           {languages.map((lang) => (

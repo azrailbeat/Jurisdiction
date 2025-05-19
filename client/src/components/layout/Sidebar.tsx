@@ -59,8 +59,8 @@ const Sidebar: React.FC = () => {
     { 
       path: "/terminology", 
       icon: "fa-book", 
-      label: "Terminology", 
-      description: "Manage legal terms glossary" 
+      label: t("nav.terminology"), 
+      description: t("nav.terminologyDescription") 
     },
     { 
       path: "/agents", 
