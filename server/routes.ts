@@ -5,6 +5,7 @@ import { documentService } from "./services/documentService";
 import { versionService } from "./services/versionService";
 import { analysisService } from "./services/analysisService";
 import { graphService } from "./services/graphService";
+import { semanticDiffService } from "./services/semanticDiffService";
 import { registerDocumentUploadRoutes } from "./routes/document-upload";
 import { setupAuth, isAuthenticated } from "./replitAuth";
 
@@ -269,6 +270,48 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(comparison);
     } catch (error) {
       res.status(400).json({ message: "Failed to compare documents" });
+    }
+  });
+  
+  // Advanced semantic document comparison
+  app.post("/api/documents/semantic-compare", async (req, res) => {
+    try {
+      const { sourceId, targetId } = req.body;
+      const source = await storage.getDocument(parseInt(sourceId));
+      const target = await storage.getDocument(parseInt(targetId));
+      
+      if (!source || !target) {
+        return res.status(404).json({ message: "One or both documents not found" });
+      }
+      
+      const semanticComparison = await semanticDiffService.compareDocuments(source, target);
+      res.json(semanticComparison);
+    } catch (error) {
+      console.error("Error performing semantic comparison:", error);
+      res.status(400).json({ message: "Failed to perform semantic comparison" });
+    }
+  });
+  
+  // Advanced semantic version comparison
+  app.post("/api/documents/:id/versions/semantic-compare", async (req, res) => {
+    try {
+      const documentId = parseInt(req.params.id);
+      const { versionA, versionB } = req.body;
+      
+      if (!versionA || !versionB) {
+        return res.status(400).json({ message: "Both versionA and versionB are required" });
+      }
+      
+      const document = await storage.getDocument(documentId);
+      if (!document) {
+        return res.status(404).json({ message: "Document not found" });
+      }
+      
+      const semanticComparison = await semanticDiffService.compareVersions(documentId, versionA, versionB);
+      res.json(semanticComparison);
+    } catch (error) {
+      console.error("Error performing semantic version comparison:", error);
+      res.status(400).json({ message: "Failed to perform semantic version comparison" });
     }
   });
 

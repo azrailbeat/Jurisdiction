@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import {
   Card,
   CardContent,
@@ -18,6 +19,8 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Document, DocumentVersion } from "@/types";
 import { formatDistance } from "date-fns";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const Versions: React.FC = () => {
   const [selectedDocumentId, setSelectedDocumentId] = useState<number | null>(null);
