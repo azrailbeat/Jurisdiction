@@ -62,7 +62,8 @@ export function registerDocumentUploadRoutes(router: Router) {
       }
       
       // Get user ID from authenticated user in request
-      const userId = req.user?.claims?.sub || "anonymous";
+      // req.user contains user info from passport authentication
+      const userId = (req.user as any)?.claims?.sub || "anonymous";
       
       // Process the document
       const document = await uploadService.processDocument(req.file, userId);

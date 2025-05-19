@@ -69,7 +69,10 @@ const Documents: React.FC = () => {
       
       await apiRequest("/api/documents", {
         method: "POST",
-        body: data
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
 
       // Reset form and close dialog

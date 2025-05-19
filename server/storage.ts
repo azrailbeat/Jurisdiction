@@ -143,6 +143,7 @@ export class MemStorage implements IStorage {
       id,
       createdAt: now,
       updatedAt: now,
+      currentVersion: "1.0"
     };
     this.documents.set(id, document);
     return document;
