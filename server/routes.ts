@@ -226,9 +226,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
       
       res.status(201).json(document);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error creating test document:", error);
-      res.status(500).json({ error: error.message });
+      res.status(500).json({ error: error.message || "Неизвестная ошибка" });
     }
   });
 

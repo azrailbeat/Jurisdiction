@@ -532,7 +532,7 @@ class SemanticDiffService {
     }
     
     // Find removed references
-    for (const ref of sourceReferences) {
+    Array.from(sourceReferences).forEach(ref => {
       if (!targetReferences.has(ref)) {
         changes.push({
           sourceRef: ref,
@@ -540,7 +540,7 @@ class SemanticDiffService {
           description: `Removed reference to ${ref}`
         });
       }
-    }
+    });
     
     return changes;
   }
@@ -772,8 +772,8 @@ class SemanticDiffService {
     const wordsA = new Set(textA.toLowerCase().split(/\s+/));
     const wordsB = new Set(textB.toLowerCase().split(/\s+/));
     
-    const intersection = new Set([...wordsA].filter(x => wordsB.has(x)));
-    const union = new Set([...wordsA, ...wordsB]);
+    const intersection = new Set(Array.from(wordsA).filter(x => wordsB.has(x)));
+    const union = new Set([...Array.from(wordsA), ...Array.from(wordsB)]);
     
     return intersection.size / union.size;
   }
