@@ -484,13 +484,13 @@ class SemanticDiffService {
     }
     
     // Any remaining source definitions were removed
-    for (const [term, definition] of sourceDefinitions.entries()) {
+    Array.from(sourceDefinitions.entries()).forEach(([term, definition]) => {
       changes.push({
         term,
         sourceDefinition: definition,
         changeType: 'removed'
       });
-    }
+    });
     
     return changes;
   }
