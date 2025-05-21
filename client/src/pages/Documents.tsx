@@ -383,19 +383,21 @@ const DocumentsPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold">{t('documents.title')}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold">{t('documents.title')}</h1>
           <p className="text-neutral-500 mt-1">
             {t('documents.subtitle')}
           </p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="icon" onClick={() => setViewMode('grid')} className={viewMode === 'grid' ? 'bg-neutral-100' : ''}>
-            <i className="fas fa-grip"></i>
-          </Button>
-          <Button variant="outline" size="icon" onClick={() => setViewMode('list')} className={viewMode === 'list' ? 'bg-neutral-100' : ''}>
-            <i className="fas fa-list"></i>
-          </Button>
-          <Button onClick={() => setNewDocumentOpen(true)}>
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="flex gap-2 mr-auto sm:mr-0">
+            <Button variant="outline" size="icon" onClick={() => setViewMode('grid')} className={viewMode === 'grid' ? 'bg-neutral-100' : ''}>
+              <i className="fas fa-grip"></i>
+            </Button>
+            <Button variant="outline" size="icon" onClick={() => setViewMode('list')} className={viewMode === 'list' ? 'bg-neutral-100' : ''}>
+              <i className="fas fa-list"></i>
+            </Button>
+          </div>
+          <Button onClick={() => setNewDocumentOpen(true)} className="w-full sm:w-auto">
             <i className="fas fa-plus mr-2"></i> {t('documents.actions.newDocument')}
           </Button>
         </div>
@@ -409,15 +411,15 @@ const DocumentsPage: React.FC = () => {
               placeholder={t('documents.actions.searchDocuments')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9"
+              className="pl-9 w-full"
             />
             <div className="absolute left-3 top-3 text-neutral-400">
               <i className="fas fa-search"></i>
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <Select value={filterStatus} onValueChange={setFilterStatus}>
-              <SelectTrigger className="w-[150px]">
+              <SelectTrigger className="w-full sm:w-[150px]">
                 <SelectValue placeholder={t('documents.table.status')} />
               </SelectTrigger>
               <SelectContent>
@@ -428,7 +430,7 @@ const DocumentsPage: React.FC = () => {
               </SelectContent>
             </Select>
             <Select value={sortOrder} onValueChange={(value: any) => setSortOrder(value)}>
-              <SelectTrigger className="w-[150px]">
+              <SelectTrigger className="w-full sm:w-[150px]">
                 <SelectValue placeholder={t('common.sort')} />
               </SelectTrigger>
               <SelectContent>
@@ -450,19 +452,19 @@ const DocumentsPage: React.FC = () => {
       ) : sortedDocuments.length > 0 ? (
         viewMode === 'grid' ? renderDocumentGrid() : renderDocumentList()
       ) : (
-        <Card className="bg-white p-12 text-center">
+        <Card className="bg-white p-6 md:p-12 text-center">
           <div className="mb-4">
-            <div className="h-20 w-20 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-400 mx-auto">
-              <i className="fas fa-folder-open text-3xl"></i>
+            <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-400 mx-auto">
+              <i className="fas fa-folder-open text-2xl md:text-3xl"></i>
             </div>
           </div>
-          <h2 className="text-xl font-semibold">{t('documents.emptyState.title')}</h2>
-          <p className="text-neutral-500 mt-2 mb-6">
+          <h2 className="text-lg md:text-xl font-semibold">{t('documents.emptyState.title')}</h2>
+          <p className="text-neutral-500 text-sm md:text-base mt-2 mb-6 max-w-md mx-auto">
             {searchQuery || filterStatus !== 'all' 
               ? t('common.noResults') 
               : t('documents.emptyState.description')}
           </p>
-          <Button onClick={() => setNewDocumentOpen(true)}>
+          <Button onClick={() => setNewDocumentOpen(true)} className="w-full sm:w-auto">
             <i className="fas fa-plus mr-2"></i> {t('documents.actions.newDocument')}
           </Button>
         </Card>
@@ -470,10 +472,10 @@ const DocumentsPage: React.FC = () => {
       
       {/* Create Document Dialog */}
       <Dialog open={newDocumentOpen} onOpenChange={setNewDocumentOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="sm:max-w-[600px] max-w-[95vw] max-h-[95vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>{t('documents.actions.newDocument')}</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-lg md:text-xl">{t('documents.actions.newDocument')}</DialogTitle>
+            <DialogDescription className="text-sm">
               {t('documents.form.descriptionPlaceholder')}
             </DialogDescription>
           </DialogHeader>
@@ -486,6 +488,7 @@ const DocumentsPage: React.FC = () => {
                   placeholder={t('documents.form.titlePlaceholder')}
                   value={newDocument.title}
                   onChange={(e) => setNewDocument({...newDocument, title: e.target.value})}
+                  className="w-full"
                 />
               </div>
               <div className="space-y-2">
@@ -495,6 +498,7 @@ const DocumentsPage: React.FC = () => {
                   value={newDocument.description}
                   onChange={(e) => setNewDocument({...newDocument, description: e.target.value})}
                   rows={3}
+                  className="w-full"
                 />
               </div>
               <div className="space-y-2">
@@ -503,7 +507,7 @@ const DocumentsPage: React.FC = () => {
                   value={newDocument.status} 
                   onValueChange={(value) => setNewDocument({...newDocument, status: value})}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="w-full">
                     <SelectValue placeholder={t('documents.form.status')} />
                   </SelectTrigger>
                   <SelectContent>
@@ -514,11 +518,11 @@ const DocumentsPage: React.FC = () => {
                 </Select>
               </div>
             </div>
-            <DialogFooter>
-              <Button type="button" variant="outline" onClick={() => setNewDocumentOpen(false)}>
+            <DialogFooter className="flex-col space-y-2 sm:space-y-0 sm:flex-row mt-4">
+              <Button type="button" variant="outline" onClick={() => setNewDocumentOpen(false)} className="w-full sm:w-auto">
                 {t('common.cancel')}
               </Button>
-              <Button type="submit" disabled={createDocumentMutation.isPending}>
+              <Button type="submit" disabled={createDocumentMutation.isPending} className="w-full sm:w-auto">
                 {createDocumentMutation.isPending ? 
                   <><i className="fas fa-spinner fa-spin mr-2"></i> {t('common.creating')}</> : 
                   <><i className="fas fa-plus mr-2"></i> {t('documents.actions.newDocument')}</>
