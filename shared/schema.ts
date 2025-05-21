@@ -28,6 +28,7 @@ export const users = pgTable("users", {
 export const documents = pgTable("documents", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
+  description: text("description"),
   status: text("status").notNull().default("draft"),
   content: text("content").notNull(),
   xml: text("xml").notNull(),
@@ -129,6 +130,7 @@ export type UpsertUser = z.infer<typeof upsertUserSchema>;
 
 export const insertDocumentSchema = createInsertSchema(documents).pick({
   title: true,
+  description: true,
   status: true,
   content: true,
   xml: true,

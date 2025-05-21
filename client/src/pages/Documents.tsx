@@ -288,16 +288,23 @@ const DocumentsPage: React.FC = () => {
               >
                 <TableCell className="font-medium">
                   <div>
-                    <div className="font-medium">{doc.title}</div>
+                    <div className="font-medium flex items-start">
+                      <span className="mr-2">{doc.title}</span>
+                      <span className="sm:hidden">{getStatusBadge(doc.status)}</span>
+                    </div>
+                    <div className="flex items-center text-sm text-neutral-500 mt-1 sm:hidden">
+                      <span className="mr-3"><i className="fas fa-clock mr-1"></i> {formatDate(doc.updatedAt)}</span>
+                      <span><i className="fas fa-code-branch mr-1"></i> v{doc.currentVersion || '1.0'}</span>
+                    </div>
                     {doc.description && (
-                      <div className="text-sm text-neutral-500 line-clamp-1 mt-1">{doc.description}</div>
+                      <div className="text-sm text-neutral-500 line-clamp-1 mt-1 hidden sm:block">{doc.description}</div>
                     )}
                   </div>
                 </TableCell>
-                <TableCell>{getStatusBadge(doc.status)}</TableCell>
-                <TableCell>v{doc.currentVersion || '1.0'}</TableCell>
-                <TableCell>{formatDate(doc.updatedAt)}</TableCell>
-                <TableCell>
+                <TableCell className="hidden sm:table-cell">{getStatusBadge(doc.status)}</TableCell>
+                <TableCell className="hidden md:table-cell">v{doc.currentVersion || '1.0'}</TableCell>
+                <TableCell className="hidden md:table-cell">{formatDate(doc.updatedAt)}</TableCell>
+                <TableCell className="hidden lg:table-cell">
                   <div className="flex -space-x-2">
                     {MOCK_COLLABORATORS.map(collab => (
                       <Avatar key={collab.id} className="h-7 w-7 border-2 border-white">
