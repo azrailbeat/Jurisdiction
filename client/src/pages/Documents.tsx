@@ -267,16 +267,16 @@ const DocumentsPage: React.FC = () => {
   // Render document list view
   const renderDocumentList = () => {
     return (
-      <Card>
+      <Card className="overflow-auto">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[400px]">Title</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Version</TableHead>
-              <TableHead>Updated</TableHead>
-              <TableHead>Collaborators</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead className="w-[250px] md:w-[400px]">{t('documents.table.title')}</TableHead>
+              <TableHead className="hidden sm:table-cell">{t('documents.table.status')}</TableHead>
+              <TableHead className="hidden md:table-cell">{t('documents.table.version')}</TableHead>
+              <TableHead className="hidden md:table-cell">{t('documents.table.updated')}</TableHead>
+              <TableHead className="hidden lg:table-cell">{t('documents.table.collaborators')}</TableHead>
+              <TableHead className="text-right">{t('documents.table.actions')}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
