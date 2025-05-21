@@ -19,7 +19,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  onCloseMobile?: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ onCloseMobile }) => {
   const [location] = useLocation();
   const { user } = useAuth();
   const { t } = useTranslation();
