@@ -84,14 +84,25 @@ const Sidebar: React.FC<SidebarProps> = ({ onCloseMobile }) => {
           </div>
           {!collapsed && <h1 className="text-xl font-semibold text-neutral-800">Jurisdiction</h1>}
         </div>
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          className="h-8 w-8 rounded-full text-neutral-500"
-          onClick={() => setCollapsed(!collapsed)}
-        >
-          <i className={`fas ${collapsed ? 'fa-chevron-right' : 'fa-chevron-left'}`}></i>
-        </Button>
+        {onCloseMobile ? (
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="h-8 w-8 rounded-full text-neutral-500 md:hidden"
+            onClick={onCloseMobile}
+          >
+            <i className="fas fa-times"></i>
+          </Button>
+        ) : (
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="h-8 w-8 rounded-full text-neutral-500 hidden md:flex"
+            onClick={() => setCollapsed(!collapsed)}
+          >
+            <i className={`fas ${collapsed ? 'fa-chevron-right' : 'fa-chevron-left'}`}></i>
+          </Button>
+        )}
       </div>
 
       {/* Main navigation */}

@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { queryClient } from "@/lib/queryClient";
 import { useQuery } from "@tanstack/react-query";
 import { SearchResult } from "@/types";
@@ -15,7 +16,15 @@ import { LoginButton } from "@/components/auth/LoginButton";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 
-const TopNavigation: React.FC = () => {
+interface TopNavigationProps {
+  isMobile?: boolean;
+  onMenuToggle?: () => void;
+}
+
+const TopNavigation: React.FC<TopNavigationProps> = ({ 
+  isMobile = false, 
+  onMenuToggle 
+}) => {
   const [location] = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
   const { t } = useTranslation();
@@ -44,15 +53,26 @@ const TopNavigation: React.FC = () => {
   };
 
   return (
-    <header className="bg-white border-b h-16 flex items-center justify-between px-4 md:px-6">
-      <div className="flex items-center">
-        <div className="font-semibold text-lg hidden md:block">
-          {routeTitles[location] || "Legislative Document Management"}
+    <header className="bg-white border-b h-16 flex items-center justify-between px-3 sm:px-4 md:px-6">
+      <div className="flex items-center space-x-2">
+        {isMobile && (
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={onMenuToggle}
+            className="mr-1"
+          >
+            <i className="fas fa-bars text-neutral-700"></i>
+          </Button>
+        )}
+        <div className="font-semibold text-lg truncate">
+          {routeTitles[location] || "Jurisdiction"}
         </div>
       </div>
 
-      <div className="flex items-center space-x-4">
-        <form onSubmit={handleSearch} className="relative">
+      <div className="flex items-center space-x-2 sm:space-x-4">
+        {/* Search on large screens */}
+        <form onSubmit={handleSearch} className={`relative ${isMobile ? 'hidden sm:block' : ''}`}>
           <Input
             type="text"
             placeholder={t('app.search')}
@@ -62,6 +82,18 @@ const TopNavigation: React.FC = () => {
           />
           <i className="fas fa-search absolute left-3 top-2.5 text-neutral-300"></i>
         </form>
+
+        {/* Search icon on mobile */}
+        {isMobile && (
+          <Button 
+            variant="ghost" 
+            size="icon"
+            className="sm:hidden"
+            onClick={() => console.log("Mobile search")}
+          >
+            <i className="fas fa-search text-neutral-500"></i>
+          </Button>
+        )}
 
         <LanguageSwitcher variant="minimal" />
 

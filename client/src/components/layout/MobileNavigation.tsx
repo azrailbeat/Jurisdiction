@@ -6,7 +6,7 @@ const MobileNavigation: React.FC = () => {
   const [location] = useLocation();
   const { t } = useTranslation();
 
-  // Основные пункты навигации для мобильного меню
+  // Основные пункты навигации для мобильного меню (ограничено 5 пунктами)
   const mainNavItems = [
     { path: "/", icon: "fa-home", label: t("nav.home") },
     { path: "/documents", icon: "fa-file-lines", label: t("nav.documents") },
